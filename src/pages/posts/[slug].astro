@@ -1,0 +1,163 @@
+---
+import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Heading from "@/components/Heading/Heading.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        title: post.data.title,
+      },
+    }
+  });
+}
+
+const { slug } = Astro.params;
+const { title } = Astro.props;
+
+const post = await getEntry("posts", slug);
+
+const { Content, headings } = await post!.render();
+---
+
+<BaseLayout pageTitle={title}>
+  <Heading tagName="h1" size="h1">{title}</Heading>
+
+  <div class="blog">
+    <article class="blog__content">
+      <Content />
+    </article>
+    <aside class="blog__aside">
+      <Heading tagName="h2" size="h2">Tabla de contenidos</Heading>
+      <ul class="blog__menu">
+        {headings.map((heading: { depth: number, slug: string; text: string }) => (
+          <li class={`blog__menuItem-${heading.depth}`}>
+            <a href={`#${heading.slug}`} class="blog__menuItemAnchor">
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+
+  <button class="layout__upButton">
+    ↑
+	</button>
+</BaseLayout>
+
+<style>
+  .blog__title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .blog {
+    display: flex;
+    /* flex-direction: column-reverse; */
+    position: relative;
+    gap: var(--bn-spacing-64);
+    margin-block-start: var(--bn-spacing-48);
+
+    /* @media (width > var(--bn-breakpoint-tabletMin)) {
+      flex-direction: row;
+    } */
+
+    h2 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-block-end: 16px;
+    }
+
+    p {
+      margin-block-end: 16px;
+    }
+  }
+
+  .blog__content {
+    flex: var(--bn-content-flex);
+  }
+
+  .blog__aside {
+    /* TODO: Review if it is a good idea to have it as a expandable */
+    display: none;
+    flex: var(--bn-aside-flex);
+    top: 180px;
+    height: fit-content;
+
+    @media (width > 40rem) {
+      position: sticky;
+      display: revert;
+    }
+  }
+
+  .blog__menu {
+    list-style: none;
+    padding: 0;
+    font-weight: 400;
+  }
+
+  .blog__menuItem-2 {
+    text-indent: 0;
+    margin-block-start: var(--bn-spacing-16);
+  }
+
+  .blog__menuItem-3 {
+    margin-block-start: var(--bn-spacing-8);
+    font-size: 14px;
+    text-indent: var(--bn-spacing-12);
+  }
+
+  .blog__menuItemAnchor {
+    color: var(--bn-text-color-light);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .layout__upButton {
+		position: fixed;
+		bottom: var(--bn-spacing-16);
+		right: var(--bn-spacing-16);
+
+		background: linear-gradient(
+      to bottom,
+      rgb(158 168 223 / 20%),
+      transparent 50%
+    );
+
+    backdrop-filter: blur(16px);
+
+		color: var(--bn-color-white);
+		border: 1px solid var(--bn-base-color-primary);
+		border-radius: 50%;
+		width: var(--bn-spacing-48);
+		height: var(--bn-spacing-48);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+
+    @media (min-width: 40rem) {
+      bottom: var(--bn-spacing-32);
+		right: var(--bn-spacing-32);
+    }
+	}
+</style>
+
+<!-- Revisar el ! -->
+<script>
+	document.querySelector('.layout__upButton')!.addEventListener('click', () => {
+		window.scrollTo({ top: 0 });
+	});
+</script>

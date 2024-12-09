@@ -1,0 +1,77 @@
+---
+import Polaroid from '../Polaroid/Polaroid.astro';
+---
+
+<div class="polaroid_wrapper">
+  <div class="one">
+    <Polaroid
+      name="Elena Venture"
+      alt="Retrato de Elena Venture"
+      imageURL="https://cdn.midjourney.com/9e3d8987-22e2-4054-b973-2137144ab140/0_0.png"
+      pattern="childrenVampireWorld"
+      size="small"
+    />
+  </div>
+  <div class="two">
+    <Polaroid
+      name="Roc Pujol"
+      alt="Retrato de Roc Pujol"
+      imageURL="https://cdn.midjourney.com/df3b689a-766f-46af-bbaf-affa484f2665/0_2.png"
+      pattern="childrenVampireWorld"
+      size="small"
+    />
+  </div>
+  <div class="three">
+    <Polaroid
+      name="Miguel Á. Zabaleta"
+      alt="Retrato de Miguel Ángel Zabaleta"
+      imageURL="https://cdn.midjourney.com/333e8fe9-faf7-4ca8-805c-aebea1afcc78/0_1.png"
+      pattern="childrenVampireWorld"
+      size="small"
+    />
+  </div><div class="four">
+    <Polaroid
+      name="París Fernández"
+      alt="Retrato de París Fernández"
+      imageURL="https://cdn.midjourney.com/fce68a35-8724-4a4c-86ce-9ff510d3596d/0_1.png"
+      pattern="childrenVampireWorld"
+      size="small"
+    />
+  </div>
+</div>
+
+<style>
+  .polaroid_wrapper {
+		display: none;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		@media (width > 40rem) {
+      display: flex;
+    }
+	}
+
+	.one {
+		position: relative;
+		transform: rotate(-10deg);
+	}
+
+	.two {
+		position: relative;
+		transform: rotate(10deg);
+	}
+
+	.three {
+		position: relative;
+		transform: rotate(-7deg);
+	}
+
+	.four {
+		position: relative;
+		transform: rotate(4deg);
+	}
+
+	.one:hover, .two:hover, .three:hover, .four:hover {
+		z-index: 2;
+	}
+</style>

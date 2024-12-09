@@ -1,0 +1,199 @@
+---
+import BackgroundPatternTop from '@/components/BackgroundPattern/BackgroundPatternTop.astro';
+import BackgroundPatternBottom from '@/components/BackgroundPattern/BackgroundPatternBottom.astro';
+import BaseHead from './BaseHead.astro';
+
+interface Props {
+	pageTitle?: string;
+  description?: string;
+}
+
+const { pageTitle, description } = Astro.props
+
+const title = pageTitle ? `Barcelona Nocturna - ${pageTitle}` : 'Barcelona Nocturna'
+---
+
+<!doctype html>
+<html lang="es">
+	<BaseHead pageTitle={title} description={description} />
+	<div class="background" aria-hidden="true">
+		<BackgroundPatternTop />
+		<BackgroundPatternBottom />
+			<!-- <BackgroundPattern revert={true} /> -->
+	</div>
+	<!-- <BackgroundPattern />
+	<BackgroundPattern revert={true} /> -->
+	<body>
+		<slot />
+	</body>
+</html>
+
+<!-- CSS RESET -->
+<style is:global>
+	/* You can find more info about this reset in Josh W. Comeau blog: https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+	/* 1. Use a more-intuitive box-sizing model */
+	*, *::before, *::after {
+		box-sizing: border-box;
+	}
+
+	/* 2. Remove default margin */
+	* {
+		margin: 0;
+	}
+
+	body {
+		/* 3. Add accessible line-height */
+		line-height: 1.5;
+		/* 4. Improve text rendering */
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/* 5. Improve media defaults */
+	img, picture, video, canvas, svg {
+		display: block;
+		max-width: 100%;
+	}
+
+	/* 6. Inherit fonts for form controls */
+	input, button, textarea, select {
+		font: inherit;
+	}
+
+	/* 7. Avoid text overflows */
+	p, h1, h2, h3, h4, h5, h6 {
+		overflow-wrap: break-word;
+	}
+
+	/* 8. Improve line wrapping */
+	p {
+		text-wrap: pretty;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		text-wrap: balance;
+	}
+
+	/*
+		9. Create a root stacking context
+	*/
+	#root, #__next {
+		isolation: isolate;
+	}
+</style>
+
+<!-- CSS VARIABLES -->
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+	:root {
+		/* COLORS */
+		--bn-base-color-gray--0: #fff;
+		--bn-base-color-gray--2: #fafafa;
+		--bn-base-color-gray--5: #f2f2f2;
+		--bn-base-color-gray--10: #e6e6e6;
+		--bn-base-color-gray--20: #ccc;
+		--bn-base-color-gray--30: #b3b3b3;
+		--bn-base-color-gray--40: #999;
+		--bn-base-color-gray--50: #808080;
+		--bn-base-color-gray--60: #666;
+		--bn-base-color-gray--70: #4d4d4d;
+		--bn-base-color-gray--80: #333;
+		--bn-base-color-gray--90: #1a1a1a;
+		--bn-base-color-gray--100: #000;
+
+		--bn-base-color-primary: #bb0a1e;
+		--bn-base-color-secondary: #9ea8df;
+		--bn-base-color-tertiary: #e9efff;
+		--bn-base-color-quaternary: #6f7597;
+
+		/* SPACING */
+		--bn-spacing-4: 4px;
+		--bn-spacing-8: 8px;
+		--bn-spacing-12: 12px;
+		--bn-spacing-16: 16px;
+		--bn-spacing-24: 24px;
+		--bn-spacing-32: 32px;
+		--bn-spacing-48: 48px;
+		--bn-spacing-64: 64px;
+		--bn-spacing-96: 96px;
+		--bn-spacing-128: 128px;
+
+		/* TYPOGRAPHY */
+		--bn-font-family: 'Roboto', sans-serif;
+		--bn-font-family-serif: 'Roboto Serif', sans-serif;
+
+		--bn-h1-max-font-size: calc(36 / 16 * 1rem);
+		--bn-h1-min-font-size: calc(28 / 16 * 1rem);
+		--bn-h1-font-weight: 600;
+
+		--bn-h2-max-font-size: calc(28 / 16 * 1rem);
+		--bn-h2-min-font-size: calc(24 / 16 * 1rem);
+		--bn-h2-font-weight: 600;
+
+		--bn-h3-max-font-size: calc(24 / 16 * 1rem);
+		--bn-h3-min-font-size: calc(20 / 16 * 1rem);
+		--bn-h3-font-weight: 500;
+
+		--bn-text-font-size: calc(16 / 16 * 1rem);
+
+		/* LAYOUT */
+		--bn-content-flex: 7;
+		--bn-aside-flex: 3;
+		--bn-work-space-max-width: 1200px;
+
+		/* BREAKPOINTS */
+		--bn-breakpoint-tabletMin: calc(640 / 16 * 1rem);
+		--bn-breakpoint-laptopMin: calc(1100/16)rem;
+		--bn-breakpoint-desktopMin: calc(1500/16)rem;
+	}
+</style>
+
+<style>
+	:root {
+		color-scheme: light dark;
+
+		--app-background-color: light-dark(var(--bn-base-color-gray--0), var(--bn-base-color-gray--100));
+		--app-background-pattern-color: light-dark(var(--bn-base-color-secondary), var(--bn-base-color-primary));
+		--bn-text-color: light-dark(var(--bn-base-color-gray--90), var(--bn-base-color-gray--10));
+		--bn-text-color-light: light-dark(var(--bn-base-color-gray--70), var(--bn-base-color-gray--30));
+	}
+
+	html {
+		position: relative;
+	}
+
+	html,
+	body {
+		margin: 0;
+		font-family: var(--bn-font-family);
+		line-height: 150%;
+		color: var(--bn-text-color);
+	}
+
+	html {
+		scroll-behavior: smooth;
+		background-color: var(--app-background-color);
+	}
+</style>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const href = anchor.getAttribute('href');
+    if (!href) return; // Salir si no hay href
+
+    const targetElement = document.querySelector(href);
+    if (!targetElement) return; // Salir si no se encuentra el elemento
+
+    const offset = 100; // pixels to offset from top
+    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: 'smooth'
+    });
+  });
+});
+</script>

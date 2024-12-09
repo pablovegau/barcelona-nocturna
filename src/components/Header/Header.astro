@@ -1,0 +1,133 @@
+---
+import Logo from '@comp/Logo/Logo.astro'
+---
+
+<header class="header">
+  <div class="header__backdrop"></div>
+  <div class="header__wrapper">
+    <Logo />
+
+    <!-- <nav>
+      <ul class="header__nav">
+        <li><a class="header__navItem" href="/personajes">Personajes</a></li>
+        <li><a class="header__navItem" href="/cronologia">Cronologia</a></li>
+        <li><a class="header__navItem" href="/relaciones">Relaciones</a></li>
+        <li><a class="header__navItem" href="/todoenuno">Todo en Uno</a></li>
+      </ul>
+    </nav>
+    <button class="day">Day</button>
+    <button class="night">Night</button> -->
+  </div>
+</header>
+
+<script>
+  document.addEventListener('scroll', () => {
+    const header = document.querySelector('.header')
+    const headerBackdrop = document.querySelector('.header__backdrop')
+    if (window.scrollY > 300) {
+      header?.classList.add('header--scrolled');
+      headerBackdrop?.classList.add('header__backdrop--scrolled');
+    } else {
+      header?.classList.remove('header--scrolled');
+      headerBackdrop?.classList.remove('header__backdrop--scrolled');
+    }
+  })
+
+  document.querySelector('.day')?.addEventListener('click', () => {
+    document.documentElement.dataset.theme = 'light';
+  })
+
+  document.querySelector('.night')?.addEventListener('click', () => {
+    document.documentElement.dataset.theme = 'dark';
+  })
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.dataset.theme = 'light';
+  });
+</script>
+
+<style is:global>
+  :root[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+</style>
+
+<style>
+  /* The header frosted glass effect was learned in this post from Josh Comeau: https://www.joshwcomeau.com/css/backdrop-filter/ */
+  :root {
+    --bn-header-z-index: 10;
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: var(--bn-header-z-index);
+    background-color: #rgb(158 168 223 / 0%);
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .header--scrolled {
+    background-color: rgb(255 255 255 / 20%);
+  }
+
+  .header__backdrop {
+    position: absolute;
+    inset: 0;
+    height: 200%;
+
+    background: linear-gradient(
+      to bottom,
+      rgb(158 168 223 / 20%),
+      transparent 50%
+    );
+
+    backdrop-filter: blur(16px);
+    mask-image: linear-gradient(
+      to bottom,
+      black 0% 50%,
+      transparent 50% 100%
+    );
+    pointer-events: none;
+  }
+
+  .header__backdrop--scrolled {
+    background: linear-gradient(
+      to bottom,
+      rgb(255 255 255 / 20%),
+      transparent 50%
+    );
+  }
+
+  .header__wrapper {
+    position: relative;
+    z-index: calc(var(--bn-header-z-index) + 1);
+    display: flex;
+    align-items: center;
+    max-width: var(--bn-work-space-max-width);
+    margin: 0 auto;
+    padding-inline: var(--bn-spacing-32);
+    padding-block: var(--bn-spacing-16);
+  }
+
+  .header__nav {
+    display: flex;
+    gap: 32px;
+    margin-inline-start: 48px;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .header__navItem {
+    text-decoration: none;
+    color: #1A1A1A;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: #BB0A1E;
+    }
+  }
+</style>

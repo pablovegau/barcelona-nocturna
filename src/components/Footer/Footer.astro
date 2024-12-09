@@ -1,0 +1,43 @@
+---
+import darkPackLogo from '../../../public/images/darkPack.png';
+---
+
+<footer class="footer">
+  <div class="footer__content">
+    <div class="footer__darkPack">
+      <a href="/dark-pack" aria-label="Dark Pack agreement link">
+        <img src={darkPackLogo.src} alt="Dark Pack agreement logo" />
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    width: 100%;
+  }
+
+  .footer__content {
+    display: flex;
+    align-items: end;
+    height: 350px;
+    max-width: var(--bn-work-space-max-width);
+    margin: 0 auto;
+    padding-block-end: var(--bn-spacing-32);
+    padding-inline: var(--bn-spacing-32);
+  }
+
+  .footer__darkPack {
+    width: 100px;
+
+    img {
+      display: block;
+      width: 100%;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+</style>

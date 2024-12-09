@@ -1,0 +1,24 @@
+---
+import logoImage from '../../../public/images/logo.png'
+const { mobileAligment } = Astro.props
+---
+
+<a
+  class="logo"
+  data-mobile-alignment={mobileAligment}
+  href="/"
+>
+  <img src={logoImage.src} alt="Logo Barcelona Nocturna" />
+</a>
+
+<style>
+  .logo {
+    display: block;
+    width: 180px;
+  }
+
+  .logo img {
+    display: block;
+    width: 100%;
+  }
+</style>

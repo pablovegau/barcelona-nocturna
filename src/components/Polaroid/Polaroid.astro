@@ -1,0 +1,193 @@
+---
+interface Props {
+  name: string;
+  alt: string;
+  imageURL: string;
+  pattern: 'childrenVampireWorld' | 'default';
+  size?: string;
+}
+
+const { name, alt, imageURL: imageSrc, pattern, size } = Astro.props;
+
+const polaroidClasses = ['polaroid_card', { small: size === 'small' }];
+const figureClasses = ['polaroid', {
+  childrenVampireWorld: pattern === 'childrenVampireWorld',
+  small: size === 'small'
+}];
+const polaroidImageWrapperClasses = ['polaroid_image_wrapper', {
+  small: size === 'small'
+}];
+
+const cardId = `polaroid_card`;
+---
+
+<!-- TODO: Review accesibility -->
+<!-- TODO: Add tests -->
+
+<!-- TODO: The id must to be dinamyc -->
+<div class:list={polaroidClasses} id={cardId}>
+  <figure class:list={figureClasses}>
+    <div class:list={polaroidImageWrapperClasses}>
+      <img src={imageSrc} alt={alt}>
+    </div>
+
+    <figcaption>
+      {name}
+    </figcaption>
+  </figure>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&family=Lavishly+Yours&family=Macondo&family=Oswald:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+.polaroid_card {
+  perspective: 800px;
+  aspect-ratio: 5.5/8.5;
+  width: 280px;
+}
+
+.polaroid {
+  position: relative;
+  aspect-ratio: 5.5/8.5;
+  width: 280px;
+  border-radius: 4px;
+  background-color: #fefefe;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-out, box-shadow 0.3s;
+
+  &:hover {
+    transform: rotateX(var(--x-rotation)) rotateY(var(--y-rotation)) scale(1.05);
+    box-shadow: 0 12px 8px 0 rgba(0, 0, 0, 0.2);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      background: radial-gradient(circle at var(--x) var(--y), rgba(255, 255, 255, 0.1) 15%, transparent 80%);
+      pointer-events: none;
+    }
+  }
+
+  img {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s;
+  }
+
+  figcaption {
+    margin-top: 16px;
+    width: 100%;
+    color: #780606;
+    font-family: "Jim Nightshade", cursive;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    transition: color 0.7s, transform 0.7s;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.polaroid_card.small {
+  width: 220px;
+}
+
+.polaroid.small {
+  width: 220px;
+
+  figcaption {
+    margin-top: 28px;
+    font-size: 32px;
+  }
+}
+
+.polaroid_image_wrapper {
+  position: relative;
+  aspect-ratio: 5/6.5;
+  width: calc(100% - 40px);
+  margin-inline: 20px;
+  padding-top: 28px;
+  border-radius: 1px;
+  overflow: hidden;
+
+  filter:
+    blur(0.3px)
+    contrast(90%)
+    brightness(1.4)
+    saturate(130%)
+  ;
+}
+
+.polaroid_image_wrapper.small {
+  width: calc(100% - 30px);
+  margin-inline: 14px;
+  padding-top: 18px;
+}
+
+.childrenVampireWorld {
+  background-image: url('https://cdn.midjourney.com/c2b34cac-58fc-4f31-8d6c-25feb44efa5f/0_2.png');
+  background-size: cover;
+}
+</style>
+
+<script>
+  function useCardShift() {
+      const card = document.getElementById('polaroid_card');
+      let boundingRect: DOMRect | null = null;
+
+      function handleOnMouseEnter(event: MouseEvent) {
+        boundingRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
+      }
+
+      function handleOnMouseLeave() {
+          boundingRect = null;
+      }
+
+      function handleOnMouseMove(event: MouseEvent) {
+          if (!boundingRect) return;
+
+          const x = event.clientX - boundingRect.left;
+          const y = event.clientY - boundingRect.top;
+          const xPercentage = x / boundingRect.width;
+          const yPercentage = y / boundingRect.height;
+          const xRotation = (xPercentage - 0.5) * 20;
+          const yRotation = (0.5 - yPercentage) * 20;
+
+          card?.style.setProperty('--x-rotation', `${yRotation}deg`);
+          card?.style.setProperty('--y-rotation', `${xRotation}deg`);
+          card?.style.setProperty('--x', `${xPercentage * 100}%`);
+          card?.style.setProperty('--y', `${yPercentage * 100}%`);
+      }
+
+      card?.addEventListener('mouseenter', handleOnMouseEnter);
+      card?.addEventListener('mouseleave', handleOnMouseLeave);
+      card?.addEventListener('mousemove', handleOnMouseMove);
+
+      return () => {
+        card?.removeEventListener('mouseenter', handleOnMouseEnter);
+        card?.removeEventListener('mouseleave', handleOnMouseLeave);
+        card?.removeEventListener('mousemove', handleOnMouseMove);
+    };
+  }
+
+  useCardShift();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cleanup = useCardShift();
+
+    cleanup();
+  });
+</script>
