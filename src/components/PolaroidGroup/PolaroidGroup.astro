@@ -1,0 +1,25 @@
+---
+import Polaroid from '@/components/Polaroid/Polaroid.astro';
+
+interface Props {
+  names: string[];
+}
+
+const { names } = Astro.props;
+---
+
+<section class="polaroidGroup">
+  {names.map((name) => (
+    <Polaroid keyName={name} size="sm" />
+  ))}
+</section>
+
+<style>
+  .polaroidGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bn-spacing-28);
+    justify-content: center;
+    margin-block: var(--bn-spacing-28);
+  }
+</style>

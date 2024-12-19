@@ -1,18 +1,21 @@
 import { z, defineCollection } from "astro:content";
-// import { Schema } from "astro:schema";
 
-// const characters = defineCollection({
-//   type: "content",
-//   schema: z.object({
-//     altText: z.string().optional(),
-//     clan: z.enum(["Banu Haqin", "Brujah", "Gangrel", "Malkavian", "Nosferatu", "Toreador", "Tremere", "Ventrue", "Caitiff"]),
-//     cult: z.enum(["Anarquista", "Camarilla", "Sabbat", "Independiente"]),
-//     image: z.string().optional(), // URL
-//     name: z.string(),
-//     nationality: z.string().optional(),
-//     pattern: z.string(),
-//   }),
-// });
+const characters = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      altText: z.string().optional(),
+      clan: z.enum(["Banu Haqin", "Brujah", "Gangrel", "Malkavian", "Nosferatu", "Toreador", "Tremere", "Ventrue", "Caitiff"]).optional(),
+      coterie: z.string().optional(),
+      cult: z.enum(["Anarquista", "Camarilla", "Sabbat", "Independiente", "unknown"]).optional(),
+      image: image(),
+      name: z.string(),
+      nationality: z.string().optional(),
+      pattern: z.string().optional(),
+      race: z.enum(["Vástago", "Ghoul", "Mortal", "Garu"]).optional(),
+      tags: z.array(z.string()).optional(),
+    }),
+});
 
 const posts = defineCollection({
   type: "content",
@@ -27,6 +30,6 @@ const posts = defineCollection({
 });
 
 export const collections = {
-  // characters,
+  characters,
   posts,
 };

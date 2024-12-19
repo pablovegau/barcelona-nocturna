@@ -1,5 +1,7 @@
 ---
-import logoImage from '../../../public/images/logo.png'
+import { Image } from 'astro:assets'
+
+import LogoImage from '@/assets/logo.png'
 const { mobileAligment } = Astro.props
 ---
 
@@ -8,17 +10,15 @@ const { mobileAligment } = Astro.props
   data-mobile-alignment={mobileAligment}
   href="/"
 >
-  <img src={logoImage.src} alt="Logo Barcelona Nocturna" />
+  <Image src={LogoImage} alt="Logo Barcelona Nocturna" width={180} quality='max' />
 </a>
 
 <style>
   .logo {
     display: block;
-    width: 180px;
   }
 
   .logo img {
     display: block;
-    width: 100%;
   }
 </style>

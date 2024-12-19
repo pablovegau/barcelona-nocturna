@@ -1,42 +1,19 @@
 ---
-import Polaroid from '../Polaroid/Polaroid.astro';
+import Polaroid from '@/components/Polaroid/Polaroid.astro';
 ---
 
 <div class="polaroid_wrapper">
   <div class="one">
-    <Polaroid
-      name="Elena Venture"
-      alt="Retrato de Elena Venture"
-      imageURL="https://cdn.midjourney.com/9e3d8987-22e2-4054-b973-2137144ab140/0_0.png"
-      pattern="childrenVampireWorld"
-      size="small"
-    />
+    <Polaroid keyName="elena-venture" size="sm" />
   </div>
   <div class="two">
-    <Polaroid
-      name="Roc Pujol"
-      alt="Retrato de Roc Pujol"
-      imageURL="https://cdn.midjourney.com/df3b689a-766f-46af-bbaf-affa484f2665/0_2.png"
-      pattern="childrenVampireWorld"
-      size="small"
-    />
+		<Polaroid keyName="roc-puyol" size="sm" />
   </div>
   <div class="three">
-    <Polaroid
-      name="Miguel Á. Zabaleta"
-      alt="Retrato de Miguel Ángel Zabaleta"
-      imageURL="https://cdn.midjourney.com/333e8fe9-faf7-4ca8-805c-aebea1afcc78/0_1.png"
-      pattern="childrenVampireWorld"
-      size="small"
-    />
-  </div><div class="four">
-    <Polaroid
-      name="París Fernández"
-      alt="Retrato de París Fernández"
-      imageURL="https://cdn.midjourney.com/fce68a35-8724-4a4c-86ce-9ff510d3596d/0_1.png"
-      pattern="childrenVampireWorld"
-      size="small"
-    />
+		<Polaroid keyName="miguel-angel-zabaleta" size="sm" />
+  </div>
+  <div class="four">
+		<Polaroid keyName="paris-fernandez" size="sm" />
   </div>
 </div>
 

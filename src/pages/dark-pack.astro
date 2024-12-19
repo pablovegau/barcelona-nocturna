@@ -1,14 +1,15 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Heading from '@/components/Heading/Heading.astro';
-import darkPackImage from '../../public/images/darkPackImage.jpg';
-import darkPackLogo from '../../public/images/darkPack.png';
+import darkPackImage from '@/assets/darkPackImage.jpg';
+import darkPackLogo from '@/assets/darkPack.png';
 ---
 
 <BaseLayout pageTitle="Dark Pack agreement">
   <div class="darkPack__image">
     <a href="https://www.paradoxinteractive.com/games/world-of-darkness/community/dark-pack-agreement" aria-label="Dark Pack agreement link">
-      <img src={darkPackLogo.src} alt="Dark Pack Agreement logo" />
+      <Image src={darkPackLogo} alt="Dark Pack Agreement logo" width={200} quality="max" />
     </a>
   </div>
   <div class="darkPack__title">
@@ -17,19 +18,17 @@ import darkPackLogo from '../../public/images/darkPack.png';
   <p>Portions of the materials are the copyrights and trademarks of Paradox Interactive AB, and are used with permission. All rights reserved. For more information please visit <a href="https://www.worldofdarkness.com">worldofdarkness.com</a>.</p>
   <p>This material is not official World of Darkness material.</p>
   <div class="darkPack__decorativeImage">
-    <img src={darkPackImage.src} alt="" />
+    <Image src={darkPackImage} alt=""  width={800} quality="max" />
   </div>
 </BaseLayout>
 
 
 <style>
   .darkPack__image {
-    margin: 0 auto;
-    width: 200px;
 
     img {
       display: block;
-      width: 100%;
+      margin: 0 auto;
       transition: transform 0.3s ease-in-out;
 
       &:hover {

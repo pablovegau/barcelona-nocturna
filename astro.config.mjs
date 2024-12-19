@@ -3,7 +3,9 @@ import mdx from '@astrojs/mdx';
 
 import netlify from '@astrojs/netlify';
 
+import react from '@astrojs/react';
+
 export default defineConfig({
-  integrations: [mdx()],
+  integrations: [react(), mdx()],
   adapter: netlify(),
 });
