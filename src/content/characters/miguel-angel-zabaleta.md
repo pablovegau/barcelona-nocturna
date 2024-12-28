@@ -1,13 +1,19 @@
 ---
 altText: 'Retrato de Miguel Ángel Zabaleta'
-clan: 'Banu Haqin'
+character_type: 'pc'
+clan: 'banu_haqin'
+coterie: 'unknown'
 cult: 'unknown'
+description: ''
+hide: false
 image: '../../assets/character_images/miguel-angel-zabaleta.png'
 name: 'Miguel Á. Zabaleta'
-nationality: 'Español'
+nationality: 'spanish'
 pattern: 'childrenVampireWorld'
-race: 'Vástago'
-tags: ['Vástago', 'Banu Haqin']
+race: 'kindred'
+related_characters: ['elena-venture', 'paris-fenandez', 'roc-puyol']
+status: 'unlive'
+tags: []
 ---
 
 # Miguel Ángel Zabaleta

@@ -1,13 +1,19 @@
 ---
 altText: 'Retrato de Javier Gonzalez'
-clan: 'Brujah'
-cult: 'Anarquista'
+character_type: 'npc'
+clan: 'brujah'
+coterie: 'meigas'
+cult: 'anarchs'
+description: ''
+hide: false
 image: '../../assets/character_images/javier-gonzalez.png'
 name: 'Javier Gonzalez'
-nationality: 'Española'
-# pattern: 'childrenVampireWorld'
-race: 'Vástago'
-tags: ['Vástago', 'Brujah', 'Anarquista']
+nationality: 'spanish'
+pattern: 'default'
+race: 'kindred'
+related_characters: ['elena-torres', 'lucia-valdez']
+status: 'unlive'
+tags: []
 ---
 
 # Javier Gonzalez

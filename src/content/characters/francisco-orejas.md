@@ -1,10 +1,16 @@
 ---
 altText: 'Retrato de Francisco Orejas'
+character_type: 'npc'
+description: ''
+hide: false
 image: '../../assets/character_images/francisco-orejas.png'
 name: 'Francisco Orejas'
-nationality: 'Española'
-race: 'Mortal'
-tags: ['Mortal', 'Sombras de un Ángel Caído']
+nationality: 'spanish'
+pattern: 'default'
+race: 'mortal'
+related_characters: ['javier-garcia']
+status: 'living'
+tags: ['Sombras de un Ángel Caído']
 ---
 
 # Francisco Orejas

@@ -24,10 +24,18 @@ if (pattern === 'childrenVampireWorld') {
 const backgroundURL = optimizedBackground?.src || '';
 ---
 
-<InternalPolaroid client:load
-  backgroundURL={backgroundURL}
-  name={name}
-  size={size}
->
-  {image && <Image src={image} alt={altText} format="webp" quality="mid" />}
-</InternalPolaroid>
+<a href={`/characters/${characterRaw?.slug}`}>
+  <InternalPolaroid client:load
+    backgroundURL={backgroundURL}
+    name={name}
+    size={size}
+  >
+    {image && <Image src={image} alt={altText} format="webp" quality="mid" transition:name={`character-${characterRaw?.slug}`}/>}
+  </InternalPolaroid>
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>

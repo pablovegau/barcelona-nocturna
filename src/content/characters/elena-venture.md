@@ -1,14 +1,19 @@
 ---
 altText: 'Retrato de Elena Venture'
-clan: 'Ventrue'
+character_type: 'pc'
+clan: 'ventrue'
 coterie: 'unknown'
-cult: 'Camarilla'
+cult: 'camarilla'
+description: ''
+hide: false
 image: '../../assets/character_images/elena-venture.png'
 name: 'Elena Venture'
-nationality: 'Española'
+nationality: 'spanish'
 pattern: 'childrenVampireWorld'
-race: 'Vástago'
-tags: ['Vástago', 'Ventrue', 'Camarilla']
+race: 'kindred'
+related_characters: []
+status: 'living'
+tags: []
 ---
 
 # Elena Venture

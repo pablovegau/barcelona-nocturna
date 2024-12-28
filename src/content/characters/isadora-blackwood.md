@@ -1,13 +1,20 @@
 ---
 altText: 'Retrato de Isadora Blackwood'
-clan: 'Ventrue'
-cult: 'Camarilla'
+character_type: 'npc'
+clan: 'ventrue'
+coterie: 'unknown'
+cult: 'camarilla'
+description: ''
+hide: false
 image: '../../assets/character_images/isadora-blackwood.png'
 name: 'Isadora Blackwood'
-nationality: 'Española'
-# pattern: 'childrenVampireWorld'
-race: 'Vástago'
-tags: ['Vástago', 'Ventrue', 'Camarilla']
+nationality: 'spanish'
+pattern: 'default'
+race: 'kindred'
+related_characters: []
+role: 'Primogénita Ventrue'
+status: 'unlive'
+tags: []
 ---
 
 # Isadora Blackwood

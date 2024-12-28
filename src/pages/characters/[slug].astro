@@ -1,0 +1,110 @@
+---
+import { getCollection, getEntry } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Heading from "@/components/Heading/Heading.astro";
+import { Image, Picture } from "astro:assets";
+import PolaroidGroup from "@/components/PolaroidGroup/PolaroidGroup.astro";
+
+export async function getStaticPaths() {
+  const characters = await getCollection("characters");
+
+  return characters.map((post) => {
+    const { slug, data } = post;
+    const { clan, cult, description, hide, image, name, showInfo, related_characters, role } = data;
+
+    return {
+      params: {
+        slug,
+      },
+      props: {
+        clan,
+        cult,
+        description,
+        hide,
+        image,
+        name,
+        showInfo,
+        related_characters,
+        role,
+      },
+    }
+  });
+}
+
+const { slug } = Astro.params;
+const { clan, cult, description, image, name, showInfo = true, related_characters, role } = Astro.props;
+
+const character = await getEntry("characters", slug);
+
+// const { Content, headings } = await post!.render();
+---
+
+<BaseLayout pageTitle={name}>
+  <Heading tagName="h1" size="h1">{name}</Heading>
+
+  <!-- TODO: Review why the different changes aren't working -->
+  <article class="character">
+    <div class="character__image">
+      <Picture
+        alt={name}
+        formats={["avif", "webp", "jpg"]}
+        widths={[260, 540, 720, image.width]}
+        sizes={`(max-width: 360px) 260px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${image.width}px`}
+        src={image}
+        transition:name={`character-${slug}`}
+      />
+    </div>
+    {showInfo && (
+      <aside class="character__profile">
+        <p><span>Clan:</span> {clan}</p>
+        <p><span>Secta:</span> {cult}</p>
+        <p><span>Rol:</span> {role}</p>
+        <p>{description}</p>
+      </aside>
+
+      <Heading tagName="h2" size="h2">Personajes relacionados</Heading>
+      <PolaroidGroup names={related_characters} size="sm" />
+    )}
+  </article>
+</BaseLayout>
+
+<style>
+  .character {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bn-spacing-32);
+    margin-block-start: var(--bn-spacing-48);
+  }
+
+  .character__image {
+    /* flex: 1 0 auto; */
+    background-color: var(--bn-base-color-gray--0);
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    transition: scale 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      scale: 1.05;
+      box-shadow: 0 12px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  picture {
+    max-width: 512px;
+    margin: 16px;
+
+    img {
+      height: auto;
+    }
+  }
+
+  .character__profile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bn-spacing-8);
+
+    span {
+      font-weight: bold;
+    }
+  }
+</style>

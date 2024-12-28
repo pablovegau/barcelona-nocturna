@@ -9,16 +9,17 @@ const headingOptions = {
 };
 
 interface Props {
-  tagName: keyof typeof headingOptions;
-  size: keyof typeof headingOptions;
   align?: 'left' | 'center' | 'right';
+  size: keyof typeof headingOptions;
+  tagName: keyof typeof headingOptions;
+  transitionName?: string;
 }
 
-const { tagName, size, align = 'left' } = Astro.props;
+const { align = 'left', size, tagName, transitionName } = Astro.props;
 const Tag = tagName;
 ---
 
-<Tag class:list={["heading", headingOptions[size], align]}>
+<Tag class:list={["heading", headingOptions[size], align]} transition:name={transitionName}>
   <slot />
 </Tag>
 

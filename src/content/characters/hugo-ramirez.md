@@ -1,10 +1,17 @@
 ---
 altText: 'Retrato de Hugo Ramírez'
+character_type: 'npc'
+description: ''
+hide: false
 image: '../../assets/character_images/hugo-ramirez.png'
 name: 'Hugo Ramírez'
-nationality: 'Española'
-race: 'Mortal'
-tags: ['Mortal', 'Sombras de un Ángel Caído']
+nationality: 'spanish'
+pattern: 'default'
+race: 'mortal'
+related_characters: ['gabriel-leclerc']
+role: 'Técnico de sonido en el Ángel de Bruma'
+status: 'living'
+tags: ['Sombras de un Ángel Caído']
 ---
 
 # Hugo Ramírez

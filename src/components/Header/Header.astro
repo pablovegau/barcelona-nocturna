@@ -7,6 +7,12 @@ import Logo from '@comp/Logo/Logo.astro'
   <div class="header__wrapper">
     <Logo />
 
+    <nav>
+      <ul class="header__nav">
+        <li><a class="header__navItem" href="/characters">Personajes</a></li>
+      </ul>
+    </nav>
+
     <!-- <nav>
       <ul class="header__nav">
         <li><a class="header__navItem" href="/personajes">Personajes</a></li>
@@ -42,7 +48,7 @@ import Logo from '@comp/Logo/Logo.astro'
   })
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.documentElement.dataset.theme = 'light';
+    document.documentElement.dataset.theme = 'dark';
   });
 </script>
 

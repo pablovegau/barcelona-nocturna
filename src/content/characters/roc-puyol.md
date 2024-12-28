@@ -1,13 +1,19 @@
 ---
 altText: 'Retrato de Roc Puyol'
-clan: 'Gangrel'
-cult: 'Anarquista'
+character_type: 'pc'
+clan: 'gangrel'
+coterie: 'unknown'
+cult: 'anarchs'
+description: ''
+hide: false
 image: '../../assets/character_images/roc-puyol.png'
 name: 'Roc Puyol'
-nationality: 'Española'
+nationality: 'spanish'
 pattern: 'childrenVampireWorld'
-race: 'Vástago'
-tags: ['Vástago', 'Gangrel', 'Anarquista']
+race: 'kindred'
+related_characters: ['elena-venture', 'paris-fernandez', 'miguel-angel-zabaleta']
+status: 'unlive'
+tags: []
 ---
 
 # Roc Puyol

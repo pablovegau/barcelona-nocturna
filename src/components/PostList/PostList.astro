@@ -8,7 +8,7 @@ const posts = await getCollection('posts');
 <ul class="postList">
   {posts.map((post) => (
     <li class="postList__item">
-      <Heading tagName="h2" size="h2">
+      <Heading tagName="h2" size="h2" transitionName={`blogTitle-${post.slug}`}>
         <a class="postList__itemTitleLink" href={`/posts/${post.slug}`}>{post.data.title}</a>
       </Heading>
       <p class="postList__itemAbstract">{post.data.abstract}</p>

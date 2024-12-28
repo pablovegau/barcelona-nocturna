@@ -1,13 +1,19 @@
 ---
 altText: 'Retrato de Hector Vega'
-clan: 'Ventrue'
+character_type: 'npc'
+clan: 'ventrue'
 coterie: 'unknown'
-cult: 'Camarilla'
+cult: 'camarilla'
+description: ''
+hide: false
 image: '../../assets/character_images/hector-vega.png'
 name: 'Hector Vega'
-nationality: 'Española'
-# race: 'Vástago'
-tags: ['Vástago', 'Ventrue', 'Camarilla']
+nationality: 'spanish'
+pattern: 'default'
+race: 'kindred'
+related_characters: ['ana-martinez']
+status: 'unlive'
+tags: ['Sombras de un Ángel Caído']
 ---
 
 # Hector Vega

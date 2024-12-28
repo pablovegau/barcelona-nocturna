@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Heading from '@/components/Heading/Heading.astro';
+import Polaroid from '@/components/Polaroid/Polaroid.astro';
+import PolaroidGroup from '@/components/PolaroidGroup/PolaroidGroup.astro';
+
+const allCharacters = await getCollection('characters');
+const characters = allCharacters.filter((character) => character.data.hide !== true);
+const names = characters.map((character) => character.slug);
+---
+
+<BaseLayout pageTitle='Personajes'>
+  <Heading tagName="h1" size="h1">Personajes</Heading>
+
+  <PolaroidGroup names={names} size='md' />
+</BaseLayout>

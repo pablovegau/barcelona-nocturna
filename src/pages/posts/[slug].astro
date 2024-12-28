@@ -1,6 +1,5 @@
 ---
-import { getEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Heading from "@/components/Heading/Heading.astro";
@@ -29,7 +28,7 @@ const { Content, headings } = await post!.render();
 ---
 
 <BaseLayout pageTitle={title}>
-  <Heading tagName="h1" size="h1">{title}</Heading>
+  <Heading tagName="h1" size="h1" transitionName={`blogTitle-${slug}`}>{title}</Heading>
 
   <div class="blog">
     <article class="blog__content">

@@ -1,13 +1,19 @@
 ---
 altText: 'Retrato de Ana Martínez'
-clan: 'Toreador'
+character_type: 'npc'
+clan: 'toreador'
 coterie: 'unknown'
-cult: 'Camarilla'
+cult: 'camarilla'
+description: ''
+hide: false
 image: '../../assets/character_images/ana-martinez.png'
 name: 'Ana Martínez'
-nationality: 'Española'
-# race: 'Vástago'
-tags: ['Vástago', 'Toreador', 'Camarilla']
+nationality: 'spanish'
+pattern: 'default'
+race: 'kindred'
+related_characters: []
+status: 'unlive'
+tags: ['Sombras de un Ángel Caído']
 ---
 
 # Ana Martínez

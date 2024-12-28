@@ -1,13 +1,19 @@
 ---
 altText: 'Retrato de Paris Fernandez'
-clan: 'Nosferatu'
+character_type: 'pc'
+clan: 'nosferatu'
+coterie: 'unknown'
 cult: 'unknown'
+description: ''
+hide: false
 image: '../../assets/character_images/paris-fernandez.png'
 name: 'Paris Fernandez'
-nationality: 'Español'
+nationality: 'spanish'
 pattern: 'childrenVampireWorld'
-race: 'Vástago'
-tags: ['Vástago', 'Nosferatu']
+race: 'kindred'
+related_characters: ['elena-venture', 'miguel-angel-zabaleta', 'roc-puyol']
+status: 'unlive'
+tags: []
 ---
 
-# Elena Venture
+# Paris Fernandez

@@ -2,15 +2,16 @@
 import Polaroid from '@/components/Polaroid/Polaroid.astro';
 
 interface Props {
-  names: string[];
+  names?: string[];
+  size?: 'sm' | 'md' | 'lg';
 }
 
-const { names } = Astro.props;
+const { names, size = 'sm' } = Astro.props;
 ---
 
 <section class="polaroidGroup">
-  {names.map((name) => (
-    <Polaroid keyName={name} size="sm" />
+  {names?.map((name) => (
+    <Polaroid keyName={name} size={size} />
   ))}
 </section>
 
