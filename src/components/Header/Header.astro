@@ -5,7 +5,9 @@ import Logo from '@comp/Logo/Logo.astro'
 <header class="header">
   <div class="header__backdrop"></div>
   <div class="header__wrapper">
-    <Logo />
+    <div class="header__logo">
+      <Logo />
+    </div>
 
     <nav>
       <ul class="header__nav">
@@ -66,18 +68,29 @@ import Logo from '@comp/Logo/Logo.astro'
   /* The header frosted glass effect was learned in this post from Josh Comeau: https://www.joshwcomeau.com/css/backdrop-filter/ */
   :root {
     --bn-header-z-index: 10;
+    --bn-logo-width-small: 8.75rem;
+    --bn-logo-width-medium: 10rem;
+    --bn-logo-width-large: 11.25rem;
+
+    --bn-nav-link-color-light: var(--bn-base-color-gray--90);
+    --bn-nav-link-color-dark: var(--bn-base-color-gray--5);
+    --bn-nav-link-color: light-dark(var(--bn-nav-link-color-light), var(--bn-nav-link-color-dark));
+
+    --bn-header-background-color-light--scrolled: rgb(255 255 255 / 20%);
+    --bn-header-background-color-dark--scrolled: rgb(0 0 0 / 20%);
+    --bn-header-background-color--scrolled: light-dark(var(--bn-header-background-color-light--scrolled), var(--bn-header-background-color-dark--scrolled));
   }
 
   .header {
     position: sticky;
     top: 0;
     z-index: var(--bn-header-z-index);
-    background-color: #rgb(158 168 223 / 0%);
+    /* background-color: rgb(158 168 223 / 0%); */
     transition: background-color 0.3s ease-in-out;
   }
 
   .header--scrolled {
-    background-color: rgb(255 255 255 / 20%);
+    background-color: var(--bn-header-background-color--scrolled);
   }
 
   .header__backdrop {
@@ -87,7 +100,8 @@ import Logo from '@comp/Logo/Logo.astro'
 
     background: linear-gradient(
       to bottom,
-      rgb(158 168 223 / 20%),
+      hsl(353.22deg 89.85% 38.63% / 20%)
+      /* light theme: rgb(158 168 223 / 20%), */
       transparent 50%
     );
 
@@ -103,7 +117,8 @@ import Logo from '@comp/Logo/Logo.astro'
   .header__backdrop--scrolled {
     background: linear-gradient(
       to bottom,
-      rgb(255 255 255 / 20%),
+      rgb(0 0 0 / 20%),
+      /* light theme: rgb(255 255 255 / 20%), */
       transparent 50%
     );
   }
@@ -115,8 +130,30 @@ import Logo from '@comp/Logo/Logo.astro'
     align-items: center;
     max-width: var(--bn-work-space-max-width);
     margin: 0 auto;
-    padding-inline: var(--bn-spacing-32);
-    padding-block: var(--bn-spacing-16);
+    padding-inline: var(--bn-spacing-24);
+    padding-block: var(--bn-spacing-8);
+
+    @media (min-width: 360px) {
+      padding-inline: var(--bn-spacing-28);
+      padding-block: var(--bn-spacing-12);
+    }
+
+    @media (min-width: 640px) {
+      padding-inline: var(--bn-spacing-32);
+      padding-block: var(--bn-spacing-16);
+    }
+  }
+
+  .header__logo {
+    width: var(--bn-logo-width-small);
+
+    @media (min-width: 360px) {
+      width: var(--bn-logo-width-medium);
+    }
+
+    @media (min-width: 640px) {
+      width: var(--bn-logo-width-large);
+    }
   }
 
   .header__nav {
@@ -129,7 +166,7 @@ import Logo from '@comp/Logo/Logo.astro'
 
   .header__navItem {
     text-decoration: none;
-    color: #1A1A1A;
+    color: var(--bn-nav-link-color);
     transition: color 0.2s ease-in-out;
 
     &:hover {
