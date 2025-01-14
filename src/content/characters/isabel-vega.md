@@ -5,7 +5,7 @@ clan: 'lasombra'
 coterie: ''
 cult: 'sabbat'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/isabel-vega.png'
 name: 'Isabel Vega'
 nationality: 'spanish'

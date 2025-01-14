@@ -5,7 +5,7 @@ clan: 'brujah'
 coterie: ''
 cult: 'camarilla'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/raul-delgado.png'
 name: 'Raúl Delgado'
 nationality: 'spanish'

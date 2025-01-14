@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+
+import FilterItem from '@/components/FilterItem/FilterItem.astro';
+
+type FilterKey = 'clans';
+
+interface Props {
+  filterKey: FilterKey;
+  filterItems: string[];
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  symbolComponent: any;
+}
+
+const { filterKey, filterItems, symbolComponent } = Astro.props;
+
+const collection = await getCollection(filterKey);
+---
+
+<div class="filterList">
+  {collection.map((item: { slug: string; id: string; data: { name: string } }) => (
+    <FilterItem
+      checked={filterItems.includes(item.slug)}
+      filterLabel={item.data.name}
+      dataFilter={item.slug}
+      image={true}
+      id={item.slug}
+      name={item.data.name}
+      value={item.slug}
+      symbolComponent={symbolComponent}
+    />
+  ))}
+</div>
+
+<style>
+  .filterList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bn-spacing-8)
+  }
+</style>

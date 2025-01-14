@@ -5,7 +5,7 @@ clan: 'tzimisce'
 coterie: ''
 cult: 'sabbat'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/marcus-ruiz.png'
 name: 'Marcus Ruiz'
 nationality: 'spanish'

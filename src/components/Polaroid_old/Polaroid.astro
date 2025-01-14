@@ -11,22 +11,31 @@ interface Props {
 const { keyName, size } = Astro.props;
 
 const characters = await getCollection('characters');
-const characterRaw = characters.find(character => character.slug === keyName);
+const characterRaw = characters.find((character) => character.slug === keyName);
 const { altText = '', image, name, pattern } = characterRaw?.data || {};
 
 const polaroidClasses = ['polaroid_card', { small: size === 'small' }];
-const figureClasses = ['polaroid', {
-  childrenVampireWorld: pattern === 'childrenVampireWorld',
-  small: size === 'small'
-}];
-const polaroidImageWrapperClasses = ['polaroid_image_wrapper', {
-  small: size === 'small'
-}];
+const figureClasses = [
+  'polaroid',
+  {
+    childrenVampireWorld: pattern === 'childrenVampireWorld',
+    small: size === 'small',
+  },
+];
+const polaroidImageWrapperClasses = [
+  'polaroid_image_wrapper',
+  {
+    small: size === 'small',
+  },
+];
 
-const cardId = `polaroid_card`;
+const cardId = 'polaroid_card';
 
 // Background images
-const optChildrenVampireWorld = await getImage({ src: ChildrenVampireWorld, format: 'webp' });
+const optChildrenVampireWorld = await getImage({
+  src: ChildrenVampireWorld,
+  format: 'webp',
+});
 ---
 
 <!-- TODO: Review accesibility -->

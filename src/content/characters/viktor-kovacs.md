@@ -5,7 +5,7 @@ clan: 'brujah'
 coterie: ''
 cult: 'sabbat'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/viktor-kovacs.png'
 name: 'Viktor Kovács'
 nationality: 'romanian'

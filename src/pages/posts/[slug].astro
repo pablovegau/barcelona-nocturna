@@ -1,11 +1,13 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+export const prerender = true;
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Heading from "@/components/Heading/Heading.astro";
+import { getCollection, getEntry } from 'astro:content';
+
+import Heading from '@/components/Heading/Heading.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
+  const posts = await getCollection('posts');
 
   return posts.map((post) => {
     return {
@@ -15,14 +17,14 @@ export async function getStaticPaths() {
       props: {
         title: post.data.title,
       },
-    }
+    };
   });
 }
 
 const { slug } = Astro.params;
 const { title } = Astro.props;
 
-const post = await getEntry("posts", slug);
+const post = await getEntry('posts', slug);
 
 const { Content, headings } = await post!.render();
 ---

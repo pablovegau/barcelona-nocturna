@@ -1,18 +1,97 @@
 ---
-import { getCollection } from 'astro:content';
+import {
+  type InferEntrySchema,
+  type Render,
+  type RenderedContent,
+  getCollection,
+} from 'astro:content';
 
-import BaseLayout from '@/layouts/BaseLayout.astro';
+import Filters from '@/components/Filters/Filters.astro';
 import Heading from '@/components/Heading/Heading.astro';
-import Polaroid from '@/components/Polaroid/Polaroid.astro';
 import PolaroidGroup from '@/components/PolaroidGroup/PolaroidGroup.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import getSearchParamAsArray from '@/lib/getSearchParamAsArray';
+
+interface Character {
+  id: string;
+  render(): Render['.md'];
+  slug: string;
+  body: string;
+  collection: 'characters';
+  data: InferEntrySchema<'characters'>;
+  rendered?: RenderedContent;
+  filePath?: string;
+}
 
 const allCharacters = await getCollection('characters');
-const characters = allCharacters.filter((character) => character.data.hide !== true);
-const names = characters.map((character) => character.slug);
+
+// Some characters are hidden because they are not presented to the players yet
+function getVisibleCharacters() {
+  return allCharacters.filter((character) => character.data.hide !== true);
+}
+
+function getSelectedClansFromURL() {
+  return getSearchParamAsArray(Astro.url, 'clan');
+}
+
+function getFilteredCharacterNames({
+  visibleCharacters,
+  filterClans,
+}: { visibleCharacters: Character[]; filterClans: string[] }) {
+  let characterNames = visibleCharacters.map((character) => character.slug);
+
+  if (filterClans.length > 0) {
+    characterNames = visibleCharacters
+      .filter(
+        (character) =>
+          character.data.clan && filterClans.includes(character.data.clan),
+      )
+      .map((character) => character.slug);
+  }
+
+  return characterNames;
+}
+
+const visibleCharacters = getVisibleCharacters();
+
+const filterClans = getSelectedClansFromURL();
+
+const filteredCharacterNames = getFilteredCharacterNames({
+  visibleCharacters,
+  filterClans,
+});
 ---
 
 <BaseLayout pageTitle='Personajes'>
   <Heading tagName="h1" size="h1">Personajes</Heading>
 
-  <PolaroidGroup names={names} size='md' />
+  <div class="characters">
+    <div class="characters__grid">
+      <PolaroidGroup names={filteredCharacterNames} size='md' />
+    </div>
+    <aside class="characters__filters">
+      <Filters filterItems={filterClans}/>
+    </aside>
+  </div>
 </BaseLayout>
+
+<style>
+  .characters {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--bn-spacing-24);
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+      gap: var(--bn-spacing-64);
+    }
+  }
+  .characters__grid {
+    flex: var(--bn-content-flex);
+  }
+
+  .characters__filters {
+    flex: var(--bn-aside-flex);
+  }
+</style>

@@ -1,0 +1,84 @@
+---
+import ClanSymbol from '@/components/ClanSymbol/ClanSymbol.astro';
+import FilterList from '@/components/FilterList/FilterList.astro';
+
+const isFilterClansOpen =
+  Astro.url.searchParams.get('clansFilterOpen') === 'true';
+
+const { filterItems } = Astro.props;
+---
+
+<div class="filters">
+  <details open={isFilterClansOpen}>
+    <summary>Filtrar por Clan</summary>
+    <FilterList filterItems={filterItems} filterKey="clans" symbolComponent={ClanSymbol} />
+  </details>
+</div>
+
+<style>
+  details > summary {
+    margin-bottom: 16px;
+  }
+</style>
+
+<script>
+  function setNewURLParamsToggle({ url, isFilterClansOpen }: { url: URL; isFilterClansOpen: boolean }) {
+    if (isFilterClansOpen) {
+      url.searchParams.set('clansFilterOpen', 'true');
+    } else {
+      url.searchParams.delete('clansFilterOpen');
+    }
+
+    return url;
+  }
+
+  const details = document.querySelector('details');
+
+  if (details) {
+    details.addEventListener('toggle', () => {
+      const newUrl = setNewURLParamsToggle({
+        url: new URL(window.location.href),
+        isFilterClansOpen: details.open
+      });
+
+      // Actualizar la URL sin recargar la página
+      window.history.replaceState({}, '', newUrl);
+    });
+  }
+</script>
+
+<script>
+  import getSearchParamAsArray from "@/lib/getSearchParamAsArray";
+  import setNewURLParams from "@/lib/setNewURLParams";
+
+  // Seleccionar todos los filtros
+  const filters = document.querySelectorAll('[data-filter]');
+
+  // Agregar el event listener a cada filtro
+  filters.forEach(filter => {
+    filter.addEventListener('change', (event) => {
+      const isChecked = (event.target as HTMLInputElement).checked;
+      const filterValue = (event.target as HTMLInputElement).dataset.filter;
+
+      if (!filterValue) return;
+
+      const existingParams = getSearchParamAsArray(new URL(window.location.href), 'clan');
+
+      let newParams = existingParams;
+
+      if (isChecked) {
+        newParams = [...existingParams, filterValue];
+      } else {
+        newParams = existingParams.filter((param) => param !== filterValue);
+      }
+
+      const newUrl = setNewURLParams({
+        key: 'clan',
+        url: new URL(window.location.href),
+        valueArray: newParams as string[],
+      });
+
+      window.location.assign(newUrl.toString());
+    });
+  });
+</script>

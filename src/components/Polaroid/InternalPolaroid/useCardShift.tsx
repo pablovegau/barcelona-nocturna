@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useRef } from "react";
+import { useRef } from 'react';
 
 export function useCardShift() {
   const boundingRef = useRef(null);
@@ -22,10 +22,10 @@ export function useCardShift() {
     const xRotation = (xPercentage - 0.5) * 20;
     const yRotation = (0.5 - yPercentage) * 20;
 
-    event.currentTarget.style.setProperty("--x-rotation", `${yRotation}deg`);
-    event.currentTarget.style.setProperty("--y-rotation", `${xRotation}deg`);
-    event.currentTarget.style.setProperty("--x", `${xPercentage * 100}%`);
-    event.currentTarget.style.setProperty("--y", `${yPercentage * 100}%`);
+    event.currentTarget.style.setProperty('--x-rotation', `${yRotation}deg`);
+    event.currentTarget.style.setProperty('--y-rotation', `${xRotation}deg`);
+    event.currentTarget.style.setProperty('--x', `${xPercentage * 100}%`);
+    event.currentTarget.style.setProperty('--y', `${yPercentage * 100}%`);
   }
 
   return {

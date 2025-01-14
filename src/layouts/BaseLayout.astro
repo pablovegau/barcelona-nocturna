@@ -1,14 +1,14 @@
 ---
-import Layout from './Layout.astro'
-import Header from '../components/Header/Header.astro'
-import Footer from '../components/Footer/Footer.astro'
+import Footer from '../components/Footer/Footer.astro';
+import Header from '../components/Header/Header.astro';
+import Layout from './Layout.astro';
 
 interface Props {
-	pageTitle?: string;
+  pageTitle?: string;
   description?: string;
 }
 
-const { pageTitle, description } = Astro.props
+const { pageTitle, description } = Astro.props;
 ---
 
 <Layout pageTitle={pageTitle} description={description}>

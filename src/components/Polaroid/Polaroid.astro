@@ -1,8 +1,8 @@
 ---
 import { Image, getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import InternalPolaroid from './InternalPolaroid/InternalPolaroid.tsx';
 import ChildrenVampireWorld from '../../assets/polaroid_backgrounds/childrenVampireWorld.png';
+import InternalPolaroid from './InternalPolaroid/InternalPolaroid.tsx';
 
 interface Props {
   keyName: string;
@@ -12,13 +12,21 @@ interface Props {
 const { keyName, size } = Astro.props;
 
 const characters = await getCollection('characters');
-const characterRaw = characters.find(character => character.slug === keyName);
-const { altText = '', image, name = 'john-doe', pattern } = characterRaw?.data || {};
+const characterRaw = characters.find((character) => character.slug === keyName);
+const {
+  altText = '',
+  image,
+  name = 'john-doe',
+  pattern,
+} = characterRaw?.data || {};
 
-let optimizedBackground;
+let optimizedBackground: { src: string } | undefined;
 
 if (pattern === 'childrenVampireWorld') {
-  optimizedBackground = await getImage({ src: ChildrenVampireWorld, format: 'webp' });
+  optimizedBackground = await getImage({
+    src: ChildrenVampireWorld,
+    format: 'webp',
+  });
 }
 
 const backgroundURL = optimizedBackground?.src || '';

@@ -3,15 +3,17 @@ altText: 'Retrato de Paris Fernandez'
 character_type: 'pc'
 clan: 'nosferatu'
 coterie: 'unknown'
-cult: 'unknown'
-description: ''
+cult: 'camarilla'
+description: 'Hábil hacker del clan Nosferatu que mantiene su identidad oculta bajo sudaderas con capucha y mascarillas. Sus conocimientos tecnológicos y capacidad para moverse en las sombras lo convierten en un valioso recurso para el grupo. Su presencia destaca especialmente en lugares elegantes, donde su vestimenta casual contrasta con la etiqueta requerida.'
 hide: false
 image: '../../assets/character_images/paris-fernandez.png'
 name: 'Paris Fernandez'
 nationality: 'spanish'
 pattern: 'childrenVampireWorld'
 race: 'kindred'
-related_characters: ['elena-venture', 'miguel-angel-zabaleta', 'roc-puyol']
+related_characters: ['elena-venture', 'miguel-angel-zabaleta', 'roc-puyol', 'ezequiel-medina']
+role: '---'
+showInfo: true
 status: 'unlive'
 tags: []
 ---

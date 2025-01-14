@@ -5,7 +5,7 @@ clan: 'gangrel'
 coterie: ''
 cult: 'camarilla'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/mara-kovac.png'
 name: 'Mara Kovac'
 nationality: 'croatian'

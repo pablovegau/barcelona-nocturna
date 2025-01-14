@@ -1,28 +1,30 @@
 ---
-import BaseHead from './BaseHead.astro';
-import BackgroundPatternTop from '@/components/BackgroundPattern/BackgroundPatternTop.astro';
 import BackgroundPatternBottom from '@/components/BackgroundPattern/BackgroundPatternBottom.astro';
+import BackgroundPatternTop from '@/components/BackgroundPattern/BackgroundPatternTop.astro';
+import BaseHead from './BaseHead.astro';
 
 interface Props {
-	pageTitle?: string;
+  pageTitle?: string;
   description?: string;
 }
 
-const { pageTitle, description } = Astro.props
+const { pageTitle, description } = Astro.props;
 
-const title = pageTitle ? `Barcelona Nocturna - ${pageTitle}` : 'Barcelona Nocturna'
+const title = pageTitle
+  ? `Barcelona Nocturna - ${pageTitle}`
+  : 'Barcelona Nocturna';
 ---
 
 <!doctype html>
 <html lang="es">
-	<BaseHead pageTitle={title} description={description} />
-	<div class="background" aria-hidden="true">
-		<BackgroundPatternTop />
-		<BackgroundPatternBottom />
-	</div>
-	<body>
-		<slot />
-	</body>
+  <BaseHead pageTitle={title} description={description} />
+  <div class="background" aria-hidden="true">
+    <BackgroundPatternTop />
+    <BackgroundPatternBottom />
+  </div>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <!-- CSS RESET -->
