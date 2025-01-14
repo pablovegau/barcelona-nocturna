@@ -55,10 +55,6 @@ const {
   related_characters,
   role,
 } = Astro.props;
-
-const character = await getEntry('characters', slug);
-
-// const { Content, headings } = await post!.render();
 ---
 
 <BaseLayout pageTitle={name}>

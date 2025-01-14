@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import styles from './InternalPolaroid.module.css';
-import { useCardShift } from './useCardShift';
+// import { useCardShift } from './useCardShift';
 
 interface InternalPolaroidProps {
   children: ReactNode;
