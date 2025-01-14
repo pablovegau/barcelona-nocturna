@@ -1,7 +1,7 @@
 ---
 altText: 'Retrato de ==='
 character_type: 'npc'
-clan: 'banu_haqin'
+clan: 'banu-haqin'
 coterie: ''
 cult: 'unknown'
 description: ''

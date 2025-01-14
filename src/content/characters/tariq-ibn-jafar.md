@@ -1,7 +1,7 @@
 ---
 altText: 'Retrato de Tariq Ibn Jafar'
 character_type: 'npc'
-clan: 'banu_haqin'
+clan: 'banu-haqin'
 coterie: ''
 cult: 'camarilla'
 description: ''

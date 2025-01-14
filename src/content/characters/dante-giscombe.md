@@ -1,7 +1,7 @@
 ---
 altText: 'Retrato de Dante Giscombe'
 character_type: 'npc'
-clan: 'thin_blood'
+clan: 'thin-blood'
 coterie: 'mudblood'
 cult: 'anarchs'
 description: ''

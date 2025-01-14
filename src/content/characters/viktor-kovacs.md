@@ -7,15 +7,16 @@ cult: 'sabbat'
 description: ''
 hide: false
 image: '../../assets/character_images/viktor-kovacs.png'
-name: 'Viktor Kovács'
+name: 'unknown'
+# name: 'Viktor Kovács'
 nationality: 'romanian'
 pattern: 'default'
 race: 'kindred'
 related_characters: []
 role: ''
-showInfo: false
+showInfo: true
 status: 'unlive'
 tags: ['Drogas de Sangre']
 ---
 
-# Viktor "El Cazador" Kovács
+#

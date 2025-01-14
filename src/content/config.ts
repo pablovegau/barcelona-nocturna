@@ -17,7 +17,7 @@ const characters = defineCollection({
       character_type: z.enum(['npc', 'pc']),
       clan: z
         .enum([
-          'banu_haqin',
+          'banu-haqin',
           'brujah',
           'caitiff',
           'gangrel',
@@ -28,7 +28,7 @@ const characters = defineCollection({
           'nosferatu',
           'ravnos',
           'salubri',
-          'thin_blood',
+          'thin-blood',
           'toreador',
           'tremere',
           'tzimisce',

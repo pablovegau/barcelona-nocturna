@@ -1,7 +1,7 @@
 ---
 altText: 'Retrato de Zahra Hashemi'
 character_type: 'npc'
-clan: 'banu_haqin'
+clan: 'banu-haqin'
 coterie: 'La Mano Escarlata'
 cult: 'camarilla'
 description: ''
