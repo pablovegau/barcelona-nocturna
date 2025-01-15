@@ -54,12 +54,14 @@ const SymbolComponent = symbolComponent;
     width: fit-content;
     border-radius: 8px;
     padding: 2px var(--bn-spacing-8);
-    background-color: var(--bn-base-color-quaternary);
+    background-color: var(--bn-base-color-secondary);
+    color: var(--bn-text-color-reverse);
     transition: background-color .3s, transform .2s;
     cursor: pointer;
 
     &:hover {
       transform: scale(1.04);
+      background-color: var(--bn-base-color-tertiary);
     }
   }
 
