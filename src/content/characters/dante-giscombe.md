@@ -5,7 +5,7 @@ clan: 'thin-blood'
 coterie: 'mudblood'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/dante-giscombe.png'
 name: 'Dante Giscombe'
 nationality: 'Congolese'

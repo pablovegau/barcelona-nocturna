@@ -5,7 +5,7 @@ clan: 'toreador'
 coterie: ''
 cult: 'camarilla'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/irene-montclair.png'
 name: 'Irene Montclair'
 nationality: 'spanish'

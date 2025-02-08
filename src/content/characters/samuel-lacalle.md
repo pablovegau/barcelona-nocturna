@@ -5,7 +5,7 @@ clan: 'malkavian'
 coterie: 'pagliaccio'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/samuel-lacalle.png'
 name: 'Samuel Lacalle'
 nationality: 'spanish'

@@ -5,7 +5,7 @@ clan: 'malkavian' # She's really a Salubri, but she's pretending to be a Malkavi
 coterie: ''
 cult: 'independent'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/seraphine-nocturne.png'
 name: 'Seraphine Nocturne'
 nationality: 'Austrian'

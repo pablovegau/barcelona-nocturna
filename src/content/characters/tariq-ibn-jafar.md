@@ -1,11 +1,11 @@
 ---
 altText: 'Retrato de Tariq Ibn Jafar'
 character_type: 'npc'
-clan: 'banu-haqin'
+clan: 'banu-haqim'
 coterie: ''
 cult: 'camarilla'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/tariq-ibn-jafar.png'
 name: 'Tariq Ibn Jafar'
 nationality: 'syrian'

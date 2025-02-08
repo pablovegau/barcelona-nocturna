@@ -5,7 +5,7 @@ clan: 'lasombra'
 coterie: 'pagliaccio'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/raul-esteban.png'
 name: 'Raúl Esteban de la Vega'
 nationality: 'spanish'

@@ -1,7 +1,7 @@
 ---
 altText: 'Retrato de Miguel Ángel Zabaleta'
 character_type: 'pc'
-clan: 'banu-haqin'
+clan: 'banu-haqim'
 coterie: 'unknown'
 cult: 'camarilla'
 description: 'Un vástago con extraordinarias capacidades físicas, especialmente destacado por su velocidad sobrenatural y habilidades de combate. Se muestra pragmático en sus acciones y tiene un particular interés en aliarse con la Camarilla, buscando establecer conexiones políticas sólidas en la ciudad.'

@@ -5,7 +5,7 @@ clan: 'tremere'
 coterie: ''
 cult: 'independent'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/emiko-tanaka.png'
 name: 'Emiko Tanaka'
 nationality: 'japanese'

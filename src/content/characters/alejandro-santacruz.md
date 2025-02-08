@@ -5,7 +5,7 @@ clan: 'toreador'
 coterie: ''
 cult: 'independent'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/alejandro-santacruz.png'
 name: 'Alejandro Santacruz'
 nationality: 'argentinian'

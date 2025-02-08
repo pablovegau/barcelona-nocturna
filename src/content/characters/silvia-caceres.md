@@ -5,7 +5,7 @@ clan: 'malkavian'
 coterie: 'pagliaccio'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/silvia-caceres.png'
 name: 'Silvia Cáceres'
 nationality: 'spanish'

@@ -5,7 +5,7 @@ clan: 'lasombra'
 coterie: ''
 cult: 'independent'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/elaia-kerejazu.png'
 name: 'Elaia Kerejazu'
 nationality: 'spanish'

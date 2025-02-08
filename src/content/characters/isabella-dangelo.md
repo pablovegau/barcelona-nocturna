@@ -5,7 +5,7 @@ clan: 'hecata'
 coterie: ''
 cult: 'independent'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/isabella-dangelo.png'
 name: 'Isabella D’Angelo'
 nationality: 'italian'

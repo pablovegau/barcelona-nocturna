@@ -1,7 +1,7 @@
 ---
 altText: 'Retrato de Lucía Delgado'
 character_type: 'npc'
-clan: 'banu-haqin'
+clan: 'banu-haqim'
 coterie: 'La Mano Escarlata'
 cult: 'camarilla'
 description: ''

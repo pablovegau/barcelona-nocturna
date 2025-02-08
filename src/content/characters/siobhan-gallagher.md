@@ -5,7 +5,7 @@ clan: 'toreador'
 coterie: 'pagliaccio'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/siobhan-gallagher.png'
 name: 'Siobhán Gallagher'
 nationality: 'irish'

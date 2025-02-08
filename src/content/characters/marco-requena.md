@@ -5,7 +5,7 @@ clan: 'ministry'
 coterie: ''
 cult: 'independent'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/marco-requena.png'
 name: 'Marco Requena'
 nationality: 'Egyptian'

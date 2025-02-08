@@ -5,7 +5,7 @@ clan: 'nosferatu'
 coterie: ''
 cult: 'camarilla'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/lorenzo-ferrer.png'
 name: 'Lorenzo Ferrer'
 nationality: 'spanish'

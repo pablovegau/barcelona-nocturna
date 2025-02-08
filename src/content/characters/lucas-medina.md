@@ -5,7 +5,7 @@ clan: 'caitiff'
 coterie: 'hexe'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/lucas-medina.png'
 name: 'Lucas Medina'
 nationality: 'argentinian'

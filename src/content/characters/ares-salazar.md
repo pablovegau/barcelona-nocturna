@@ -5,7 +5,7 @@ clan: 'gangrel'
 coterie: 'hexe'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/ares-salazar.png'
 name: 'Ares Salazar'
 nationality: 'spanish'

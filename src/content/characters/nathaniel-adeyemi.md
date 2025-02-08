@@ -5,7 +5,7 @@ clan: 'tremere'
 coterie: ''
 cult: 'independent'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/nathaniel-adeyemi.png'
 name: 'Nathaniel Adeyemi'
 nationality: 'angolan'

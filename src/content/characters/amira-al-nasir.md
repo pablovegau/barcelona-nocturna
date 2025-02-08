@@ -1,11 +1,11 @@
 ---
 altText: 'Retrato de Amira Al-Nasir'
 character_type: 'npc'
-clan: 'banu-haqin'
+clan: 'banu-haqim'
 coterie: ''
 cult: 'camarilla'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/amira-al-nasir.png'
 name: 'Amira Al-Nasir'
 nationality: 'Lebanese'

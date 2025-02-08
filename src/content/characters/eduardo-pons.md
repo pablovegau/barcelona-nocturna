@@ -5,7 +5,7 @@ clan: 'malkavian'
 coterie: ''
 cult: 'camarilla'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/eduardo-pons.png'
 name: 'Eduardo Pons'
 nationality: 'spanish'

@@ -5,7 +5,7 @@ clan: 'nosferatu'
 coterie: ''
 cult: 'camarilla'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/manuel-navarro.png'
 name: 'Manuel Navarro'
 nationality: 'spanish'
