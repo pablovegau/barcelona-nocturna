@@ -8,18 +8,52 @@ const isFilterClansOpen =
 const { filterItems } = Astro.props;
 ---
 
-<div class="filters">
-  <details open={isFilterClansOpen}>
+<div>
+  <details class="filters" open={isFilterClansOpen}>
     <summary>Filtrar por Clan</summary>
     <FilterList filterItems={filterItems} filterKey="clans" symbolComponent={ClanSymbol} />
   </details>
 </div>
 
 <style>
-  details > summary {
-    margin-bottom: 16px;
+  .filters {
+    margin-block-start: var(--bn-spacing-28);
   }
-</style>
+
+  details > summary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    list-style: none;
+    font-size: var(--bn-text-font-large);
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+  }
+
+  details > summary::before {
+    content: '';
+    width: 36px;
+    aspect-ratio: 1;
+    background-image: url('/src/assets/success.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: var(--bn-spacing-8);
+    transform: rotate(-90deg);
+    transition: transform 0.15s ease-in-out;
+
+    /* Change color to white */
+    filter: brightness(0) invert(1);
+  }
+
+  details[open] > summary::before {
+    transform: rotate(0);
+  }
+
+  details > summary:hover {
+    cursor: pointer;
+  }
+</style> 
 
 <script>
   function setNewURLParamsToggle({ url, isFilterClansOpen }: { url: URL; isFilterClansOpen: boolean }) {
