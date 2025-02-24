@@ -1,5 +1,6 @@
 ---
 import Logo from '@comp/Logo/Logo.astro';
+import BlobBlood from '../BlobBlood/BlobBlood.astro';
 ---
 
 <header class="header">
@@ -10,50 +11,308 @@ import Logo from '@comp/Logo/Logo.astro';
     </div>
 
     <nav>
-      <ul class="header__nav">
-        <li><a class="header__navItem" href="/characters">Personajes</a></li>
-        <li><a class="header__navItem" href="/relations-map">Relaciones</a></li>
-      </ul>
+      <span id="nav-label" hidden>Navigation</span>
+
+      <button 
+        aria-expanded="false" 
+        aria-labelledby="nav-label"
+        class="topnav__control"
+      >
+        <div id="topnav__iconBar" class="topnav__iconBar"></div>
+      </button> 
+
+      <div class="topnav__menu" role="dialog" aria-labelledby="nav-label">
+        <ul class="topnav__links">
+          <!-- <li class="topnav__item">
+            <a class="topnav__link" href="/blog">Blog</a>
+          </li> -->
+          <li class="topnav__item">
+            <a class="topnav__link" href="/characters">Personajes</a>
+          </li>
+          <li class="topnav__item">
+            <a class="topnav__link" href="/relations-map">Relaciones</a>
+          </li>
+        </ul>
+        <div class="blob">
+          <BlobBlood size='1000px'/>
+        </div>
+      </div>
     </nav>
 
-    <!-- <nav>
-      <ul class="header__nav">
-        <li><a class="header__navItem" href="/personajes">Personajes</a></li>
-        <li><a class="header__navItem" href="/cronologia">Cronologia</a></li>
-        <li><a class="header__navItem" href="/relaciones">Relaciones</a></li>
-        <li><a class="header__navItem" href="/todoenuno">Todo en Uno</a></li>
-      </ul>
-    </nav>
-    <button class="day">Day</button>
-    <button class="night">Night</button> -->
+    <!-- Cronologia, Todo en Uno -->
   </div>
 </header>
 
 <script>
-  document.addEventListener('scroll', () => {
-    const header = document.querySelector('.header')
-    const headerBackdrop = document.querySelector('.header__backdrop')
-    if (window.scrollY > 300) {
-      header?.classList.add('header--scrolled');
-      headerBackdrop?.classList.add('header__backdrop--scrolled');
-    } else {
-      header?.classList.remove('header--scrolled');
-      headerBackdrop?.classList.remove('header__backdrop--scrolled');
+  import { scrollLock } from '../../lib/scrollLock/scrollLock.ts';
+
+  let isInitialized = false;
+  let toggleHandler: ((event: Event) => void) | null = null;
+
+  function initializeMenu() {
+    console.log('Initializing menu...');
+    
+    const topnavControl = document.querySelector('.topnav__control');
+    const topnavLinks = document.querySelectorAll('.topnav__link');
+    const header = document.querySelector('.header');
+    const headerBackdrop = document.querySelector('.header__backdrop');
+
+    if (!topnavControl) {
+      console.warn('Menu initialization failed: Navigation control button not found');
+      return;
     }
-  })
 
-  document.querySelector('.day')?.addEventListener('click', () => {
-    document.documentElement.dataset.theme = 'light';
-  })
+    // Si ya teníamos un handler previo, lo removemos
+    if (toggleHandler) {
+      topnavControl.removeEventListener('click', toggleHandler);
+      topnavLinks.forEach(link => link.removeEventListener('click', toggleHandler));
+    }
 
-  document.querySelector('.night')?.addEventListener('click', () => {
-    document.documentElement.dataset.theme = 'dark';
-  })
+    // Creamos el nuevo handler
+    toggleHandler = (event: Event) => {
+      console.log('Toggle menu called by:', (event.currentTarget as HTMLElement).tagName);
+      
+      const expanded = topnavControl.getAttribute('aria-expanded') === 'true';
+      topnavControl.setAttribute('aria-expanded', !expanded);
+      // topnavControl.innerHTML = expanded ? 'Open' : 'Close';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.documentElement.dataset.theme = 'dark';
+      if (!expanded) {
+        scrollLock.lock();
+      } else {
+        scrollLock.unlock();
+      }
+    };
+
+    // Aseguramos que el menú empiece cerrado
+    topnavControl.setAttribute('aria-expanded', 'false');
+    // topnavControl.innerHTML = 'Open';
+
+    // Añadimos los listeners
+    topnavControl.addEventListener('click', toggleHandler);
+    topnavLinks.forEach(link => {
+      link.addEventListener('click', toggleHandler);
+    });
+
+    // Scroll handler
+    let scrollTimeout: number;
+    function handleScroll() {
+      if (scrollTimeout) {
+        window.clearTimeout(scrollTimeout);
+      }
+      
+      scrollTimeout = window.setTimeout(() => {
+        if (window.scrollY > 300) {
+          header?.classList.add('header--scrolled');
+          headerBackdrop?.classList.add('header__backdrop--scrolled');
+        } else {
+          header?.classList.remove('header--scrolled');
+          headerBackdrop?.classList.remove('header__backdrop--scrolled');
+        }
+      }, 100);
+    }
+
+    // Removemos y añadimos el scroll listener
+    document.removeEventListener('scroll', handleScroll);
+    document.addEventListener('scroll', handleScroll);
+
+    // Configurar tema
+    if (!isInitialized) {
+      document.documentElement.dataset.theme = 'dark';
+      isInitialized = true;
+    }
+  }
+
+  // Inicialización inicial
+  initializeMenu();
+
+  // Manejar navegación de Astro
+  document.addEventListener('astro:page-load', () => {
+    console.log('Astro page load - reinitializing menu');
+    initializeMenu();
+  });
+
+  // Limpiar antes de navegar
+  document.addEventListener('astro:before-preparation', () => {
+    console.log('Cleaning up before navigation');
+    scrollLock.unlock();
   });
 </script>
+
+<style>
+  .blob {
+    position: absolute;
+    bottom: calc(20px + 304px);
+    left: -250px;
+    filter: blur(4px);
+    opacity: 0.9;
+    animation: 
+      pulseScale 45s ease-in-out infinite,
+      floatAnimation 90s ease-in-out infinite;
+    mix-blend-mode: screen;
+
+    @media (width > 40rem) {
+      display: none;
+    }
+  }
+
+  @keyframes pulseScale {
+    0% {
+      scale: 1;
+    }
+    20% {
+      scale: 1.2;
+    }
+    40% {
+      scale: 0.8;
+    }
+    60% {
+      scale: 1.1;
+    }
+    80% {
+      scale: 0.9;
+    }
+    100% {
+      scale: 1;
+    }
+  }
+
+  @keyframes floatAnimation {
+    0% {
+      translate: 0 0;
+    }
+    20% {
+      translate: 50px -50px;
+    }
+    40% {
+      translate: -75px 75px;
+    }
+    60% {
+      translate: 65px -65px;
+    }
+    80% {
+      translate: -60px 60px;
+    }
+    100% {
+      translate: 0 0;
+    }
+  }
+
+  .topnav__control {
+    position: relative;
+    width: 32px;
+    aspect-ratio: 1;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    @media (width > 40rem) {
+      display: none;
+    }
+  }
+
+  .topnav__iconBar {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+
+  }
+
+  .topnav__iconBar::before,
+  .topnav__iconBar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    background-color: white;
+    transform-origin: center center;
+    transition: transform 0.2s ease-in-out, top 0.2s ease-in-out;
+  }
+
+  .topnav__iconBar::before {
+    top: 10px;
+  }
+
+  .topnav__iconBar::after {
+    top: -10px;
+  }
+
+.topnav__control[aria-expanded='true'] {
+  + .topnav__menu {
+    translate: 0;
+  }
+
+  .topnav__iconBar {
+    background-color: transparent;
+  }
+
+  .topnav__iconBar::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .topnav__iconBar::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+}
+
+.topnav__menu {
+  @media (width < 40rem) {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    margin-block-start: 84px;
+    margin-block-end: 12px;
+    margin-inline: 12px;
+    border-radius: 10px;
+    background-color: rgb(0 0 0 / 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(12px);
+    translate: 100vw 0;
+    
+    transition: translate 0.2s ease-in-out, opacity 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 
+      inset 0 0 0 1px rgb(255 255 255 / 0.1);
+  }
+}
+
+  .topnav__links {
+    display: flex;
+    gap: 32px;
+    margin-inline-start: 48px;
+    padding-inline-start: 0;
+    list-style: none;
+
+    @media (width < 40rem) {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-inline-start: 0;
+      padding-block-start: 64px;
+      font-size: var(--bn-text-font-medium);
+    }
+  }
+
+  .topnav__item {
+
+  }
+
+  .topnav__link {
+    text-decoration: none;
+    color: var(--bn-nav-link-color);
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: #BB0A1E;
+    }
+  }
+</style>
 
 <style is:global>
   :root[data-theme='light'] {
@@ -129,6 +388,7 @@ import Logo from '@comp/Logo/Logo.astro';
     z-index: calc(var(--bn-header-z-index) + 1);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     max-width: var(--bn-work-space-max-width);
     margin: 0 auto;
     padding-inline: var(--bn-spacing-24);
@@ -154,24 +414,6 @@ import Logo from '@comp/Logo/Logo.astro';
 
     @media (min-width: 640px) {
       width: var(--bn-logo-width-large);
-    }
-  }
-
-  .header__nav {
-    display: flex;
-    gap: 32px;
-    margin-inline-start: 48px;
-    padding-inline-start: 0;
-    list-style: none;
-  }
-
-  .header__navItem {
-    text-decoration: none;
-    color: var(--bn-nav-link-color);
-    transition: color 0.2s ease-in-out;
-
-    &:hover {
-      color: #BB0A1E;
     }
   }
 </style>
