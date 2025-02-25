@@ -44,7 +44,7 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
 </header>
 
 <script>
-  // @ts-nocheck
+  /* // @ts-nocheck
   import { scrollLock } from '../../lib/scrollLock/scrollLock.ts';
 
   let isInitialized = false;
@@ -136,6 +136,116 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
   document.addEventListener('astro:before-preparation', () => {
     console.log('Cleaning up before navigation');
     scrollLock.unlock();
+  }); */
+  // @ts-nocheck
+  import { scrollLock } from '../../lib/scrollLock/scrollLock.ts';
+
+  // Variables para elementos DOM que usaremos repetidamente
+  let topnavControl;
+  let topnavLinks;
+  let header;
+  let headerBackdrop;
+  let isInitialized = false;
+  let scrollTimeout;
+
+  // Una sola función para manejar el toggle del menú
+  function toggleMenu() {
+    if (!topnavControl) return;
+    
+    const expanded = topnavControl.getAttribute('aria-expanded') === 'true';
+    topnavControl.setAttribute('aria-expanded', !expanded);
+    
+    if (!expanded) {
+      scrollLock.lock();
+    } else {
+      scrollLock.unlock();
+    }
+  }
+
+  // Función para manejar el scroll con debounce
+  function handleScroll() {
+    if (scrollTimeout) {
+      window.cancelAnimationFrame(scrollTimeout);
+    }
+    
+    scrollTimeout = window.requestAnimationFrame(() => {
+      if (!header || !headerBackdrop) return;
+      
+      if (window.scrollY > 300) {
+        header.classList.add('header--scrolled');
+        headerBackdrop.classList.add('header__backdrop--scrolled');
+      } else {
+        header.classList.remove('header--scrolled');
+        headerBackdrop.classList.remove('header__backdrop--scrolled');
+      }
+    });
+  }
+
+  // Limpieza completa de listeners anteriores
+  function cleanupListeners() {
+    if (topnavControl) {
+      topnavControl.removeEventListener('click', toggleMenu);
+    }
+    
+    if (topnavLinks && topnavLinks.length) {
+      topnavLinks.forEach(link => {
+        link.removeEventListener('click', toggleMenu);
+      });
+    }
+    
+    document.removeEventListener('scroll', handleScroll);
+  }
+
+  // Inicialización más eficiente
+  function initializeMenu() {
+    // Limpiamos primero
+    cleanupListeners();
+    
+    // Obtenemos referencias a elementos DOM
+    topnavControl = document.querySelector('.topnav__control');
+    topnavLinks = document.querySelectorAll('.topnav__link');
+    header = document.querySelector('.header');
+    headerBackdrop = document.querySelector('.header__backdrop');
+    
+    if (!topnavControl) {
+      console.warn('Menu initialization failed: Navigation control button not found');
+      return;
+    }
+    
+    // Aseguramos que el menú empiece cerrado
+    topnavControl.setAttribute('aria-expanded', 'false');
+    
+    // Añadimos listeners optimizados
+    topnavControl.addEventListener('click', toggleMenu);
+    topnavLinks.forEach(link => {
+      link.addEventListener('click', toggleMenu);
+    });
+    
+    // Optimizamos el manejo del scroll 
+    document.addEventListener('scroll', handleScroll);
+    
+    // Configurar tema una sola vez
+    if (!isInitialized) {
+      document.documentElement.dataset.theme = 'dark';
+      isInitialized = true;
+    }
+  }
+
+  // Inicialización inicial con requestIdleCallback si está disponible
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(() => initializeMenu());
+  } else {
+    // Fallback para navegadores que no soportan requestIdleCallback
+    setTimeout(initializeMenu, 10);
+  }
+
+  // Manejar navegación de Astro de manera más eficiente
+  document.addEventListener('astro:page-load', initializeMenu);
+
+  // Limpiar antes de navegar
+  document.addEventListener('astro:before-preparation', () => {
+    cleanupListeners();
+    scrollLock.unlock();
   });
 </script>
 
@@ -146,6 +256,7 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
     left: -250px;
     filter: blur(4px);
     opacity: 0.9;
+    will-change: transform;
     animation: 
       pulseScale 45s ease-in-out infinite,
       floatAnimation 90s ease-in-out infinite;
