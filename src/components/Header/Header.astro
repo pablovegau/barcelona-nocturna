@@ -1,6 +1,8 @@
 ---
 import Logo from '@comp/Logo/Logo.astro';
 import BlobBlood from '../BlobBlood/BlobBlood.astro';
+
+import './Header.css';
 ---
 
 <header class="header">
@@ -44,103 +46,9 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
 </header>
 
 <script>
-  /* // @ts-nocheck
-  import { scrollLock } from '../../lib/scrollLock/scrollLock.ts';
-
-  let isInitialized = false;
-  let toggleHandler: ((event: Event) => void) | null = null;
-
-  function initializeMenu() {
-    console.log('Initializing menu...');
-    
-    const topnavControl = document.querySelector('.topnav__control');
-    const topnavLinks = document.querySelectorAll('.topnav__link');
-    const header = document.querySelector('.header');
-    const headerBackdrop = document.querySelector('.header__backdrop');
-
-    if (!topnavControl) {
-      console.warn('Menu initialization failed: Navigation control button not found');
-      return;
-    }
-
-    // Si ya teníamos un handler previo, lo removemos
-    if (toggleHandler) {
-      topnavControl.removeEventListener('click', toggleHandler);
-      topnavLinks.forEach(link => link.removeEventListener('click', toggleHandler));
-    }
-
-    // Creamos el nuevo handler
-    toggleHandler = (event: Event) => {
-      console.log('Toggle menu called by:', (event.currentTarget as HTMLElement).tagName);
-      
-      const expanded = topnavControl.getAttribute('aria-expanded') === 'true';
-      topnavControl.setAttribute('aria-expanded', !expanded);
-      // topnavControl.innerHTML = expanded ? 'Open' : 'Close';
-
-      if (!expanded) {
-        scrollLock.lock();
-      } else {
-        scrollLock.unlock();
-      }
-    };
-
-    // Aseguramos que el menú empiece cerrado
-    topnavControl.setAttribute('aria-expanded', 'false');
-    // topnavControl.innerHTML = 'Open';
-
-    // Añadimos los listeners
-    topnavControl.addEventListener('click', toggleHandler);
-    topnavLinks.forEach(link => {
-      link.addEventListener('click', toggleHandler);
-    });
-
-    // Scroll handler
-    let scrollTimeout: number;
-    function handleScroll() {
-      if (scrollTimeout) {
-        window.clearTimeout(scrollTimeout);
-      }
-      
-      scrollTimeout = window.setTimeout(() => {
-        if (window.scrollY > 300) {
-          header?.classList.add('header--scrolled');
-          headerBackdrop?.classList.add('header__backdrop--scrolled');
-        } else {
-          header?.classList.remove('header--scrolled');
-          headerBackdrop?.classList.remove('header__backdrop--scrolled');
-        }
-      }, 100);
-    }
-
-    // Removemos y añadimos el scroll listener
-    document.removeEventListener('scroll', handleScroll);
-    document.addEventListener('scroll', handleScroll);
-
-    // Configurar tema
-    if (!isInitialized) {
-      document.documentElement.dataset.theme = 'dark';
-      isInitialized = true;
-    }
-  }
-
-  // Inicialización inicial
-  initializeMenu();
-
-  // Manejar navegación de Astro
-  document.addEventListener('astro:page-load', () => {
-    console.log('Astro page load - reinitializing menu');
-    initializeMenu();
-  });
-
-  // Limpiar antes de navegar
-  document.addEventListener('astro:before-preparation', () => {
-    console.log('Cleaning up before navigation');
-    scrollLock.unlock();
-  }); */
   // @ts-nocheck
   import { scrollLock } from '../../lib/scrollLock/scrollLock.ts';
 
-  // Variables para elementos DOM que usaremos repetidamente
   let topnavControl;
   let topnavLinks;
   let header;
@@ -148,7 +56,6 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
   let isInitialized = false;
   let scrollTimeout;
 
-  // Una sola función para manejar el toggle del menú
   function toggleMenu() {
     if (!topnavControl) return;
     
@@ -162,7 +69,6 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
     }
   }
 
-  // Función para manejar el scroll con debounce
   function handleScroll() {
     if (scrollTimeout) {
       window.cancelAnimationFrame(scrollTimeout);
@@ -181,7 +87,6 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
     });
   }
 
-  // Limpieza completa de listeners anteriores
   function cleanupListeners() {
     if (topnavControl) {
       topnavControl.removeEventListener('click', toggleMenu);
@@ -196,57 +101,44 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
     document.removeEventListener('scroll', handleScroll);
   }
 
-  // Inicialización más eficiente
   function initializeMenu() {
-    // Limpiamos primero
     cleanupListeners();
     
-    // Obtenemos referencias a elementos DOM
+    // Get references to DOM elements
     topnavControl = document.querySelector('.topnav__control');
     topnavLinks = document.querySelectorAll('.topnav__link');
     header = document.querySelector('.header');
     headerBackdrop = document.querySelector('.header__backdrop');
     
-    if (!topnavControl) {
-      console.warn('Menu initialization failed: Navigation control button not found');
-      return;
-    }
-    
-    // Aseguramos que el menú empiece cerrado
+    // Ensure the menu starts closed
     topnavControl.setAttribute('aria-expanded', 'false');
     
-    // Añadimos listeners optimizados
+    // Add optimized listeners
     topnavControl.addEventListener('click', toggleMenu);
     topnavLinks.forEach(link => {
       link.addEventListener('click', toggleMenu);
     });
     
-    // Optimizamos el manejo del scroll 
+    // Optimize scroll handling
     document.addEventListener('scroll', handleScroll);
     
-    // Configurar tema una sola vez
+    // Configure theme only once
     if (!isInitialized) {
-      document.documentElement.dataset.theme = 'dark';
+      // document.documentElement.dataset.theme = 'dark';
       isInitialized = true;
     }
   }
 
-  // Inicialización inicial con requestIdleCallback si está disponible
+  // Initial initialization with requestIdleCallback if available
   if ('requestIdleCallback' in window) {
     window.requestIdleCallback(() => initializeMenu());
   } else {
-    // Fallback para navegadores que no soportan requestIdleCallback
+    // Fallback for browsers that don't support requestIdleCallback
     setTimeout(initializeMenu, 10);
   }
 
-  // Manejar navegación de Astro de manera más eficiente
+  // Handle Astro navigation more efficiently
   document.addEventListener('astro:page-load', initializeMenu);
-
-  // Limpiar antes de navegar
-  document.addEventListener('astro:before-preparation', () => {
-    cleanupListeners();
-    scrollLock.unlock();
-  });
 </script>
 
 <style>
@@ -433,99 +325,5 @@ import BlobBlood from '../BlobBlood/BlobBlood.astro';
 
   :root[data-theme='dark'] {
     color-scheme: dark;
-  }
-</style>
-
-<style>
-  /* The header frosted glass effect was learned in this post from Josh Comeau: https://www.joshwcomeau.com/css/backdrop-filter/ */
-  :root {
-    --bn-header-z-index: 10;
-    --bn-logo-width-small: 8.75rem;
-    --bn-logo-width-medium: 10rem;
-    --bn-logo-width-large: 11.25rem;
-
-    --bn-nav-link-color-light: var(--bn-base-color-gray--90);
-    --bn-nav-link-color-dark: var(--bn-base-color-gray--5);
-    --bn-nav-link-color: light-dark(var(--bn-nav-link-color-light), var(--bn-nav-link-color-dark));
-
-    --bn-header-background-color-light--scrolled: rgb(255 255 255 / 20%);
-    --bn-header-background-color-dark--scrolled: rgb(0 0 0 / 20%);
-    --bn-header-background-color--scrolled: light-dark(var(--bn-header-background-color-light--scrolled), var(--bn-header-background-color-dark--scrolled));
-  }
-
-  .header {
-    position: sticky;
-    top: 0;
-    z-index: var(--bn-header-z-index);
-    /* background-color: rgb(158 168 223 / 0%); */
-    transition: background-color 0.3s ease-in-out;
-  }
-
-  .header--scrolled {
-    background-color: var(--bn-header-background-color--scrolled);
-  }
-
-  .header__backdrop {
-    position: absolute;
-    inset: 0;
-    height: 200%;
-
-    background: linear-gradient(
-      to bottom,
-      hsl(353.22deg 89.85% 38.63% / 20%)
-      /* light theme: rgb(158 168 223 / 20%), */
-      transparent 50%
-    );
-
-    backdrop-filter: blur(16px);
-    mask-image: linear-gradient(
-      to bottom,
-      black 0% 50%,
-      transparent 50% 100%
-    );
-    pointer-events: none;
-  }
-
-  .header__backdrop--scrolled {
-    background: linear-gradient(
-      to bottom,
-      rgb(0 0 0 / 20%),
-      /* light theme: rgb(255 255 255 / 20%), */
-      transparent 50%
-    );
-  }
-
-  .header__wrapper {
-    position: relative;
-    z-index: calc(var(--bn-header-z-index) + 1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: var(--bn-work-space-max-width);
-    margin: 0 auto;
-    padding-inline: var(--bn-spacing-24);
-    padding-block: var(--bn-spacing-8);
-
-    @media (min-width: 360px) {
-      padding-inline: var(--bn-spacing-28);
-      padding-block: var(--bn-spacing-12);
-    }
-
-    @media (min-width: 640px) {
-      padding-inline: var(--bn-spacing-32);
-      padding-block: var(--bn-spacing-16);
-    }
-  }
-
-  .header__logo {
-    width: var(--bn-logo-width-small);
-
-    @media (min-width: 360px) {
-      width: var(--bn-logo-width-medium);
-    }
-
-    @media (min-width: 640px) {
-      width: var(--bn-logo-width-large);
-    }
   }
 </style>
