@@ -5,7 +5,7 @@ clan: 'brujah'
 coterie: 'hexe'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/freya-larsen.png'
 name: 'Freya Larsen'
 nationality: 'norwegian'

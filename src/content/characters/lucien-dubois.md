@@ -5,7 +5,7 @@ clan: 'malkavian'
 coterie: 'meigas'
 cult: 'anarchs'
 description: ''
-hide: true
+hide: false
 image: '../../assets/character_images/lucien-dubois.png'
 name: 'Lucien Dubois'
 nationality: 'french'
