@@ -21,21 +21,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
 	.content {
 		position: relative;
-    display: flex;
-    gap: var(--bn-spacing-64);
+   		display: flex;
+    	gap: var(--bn-spacing-64);
 		margin-block-start: var(--bn-spacing-128);
 	}
 
 	aside {
 		display: none;
 		flex: var(--bn-aside-flex);
-    position: sticky;
-    top: 180px;
-    height: fit-content;
+    	position: sticky;
+    	top: 180px;
+    	height: fit-content;
 
 		@media (width > 40rem) {
-      position: sticky;
-      display: revert;
-    }
+      		position: sticky;
+      		display: revert;
+    	}
 	}
 </style>
