@@ -4,16 +4,16 @@ character_type: 'npc'
 clan: 'caitiff'
 coterie: 'Meigas'
 cult: 'anarchs'
-description: ''
-hide: true
+description: 'Adriana es una vástaga anarquista perteneciente a la coterie Meigas. Hasta ahora, el grupo no ha tenido mucho contacto con ella; solo la han visto durante una reunión en la que ejercía como escolta de Dante Giscombe.'
+hide: false
 image: '../../assets/character_images/adriana-navarro.png'
 name: 'Adriana Navarro'
 nationality: 'spanish'
 pattern: 'default'
 race: 'kindred'
-related_characters: []
-role: ''
-showInfo: false
+related_characters: ['javier-gonzalez', 'elena-torres']
+role: '-'
+showInfo: true
 status: 'unlive'
 tags: []
 ---
