@@ -16,14 +16,19 @@ import getSearchParamAsArray from '@/lib/getSearchParamAsArray';
 
 interface Character {
   slug: string;
-  render(): Render['.md'];
-  body: string;
-  collection: 'characters';
-  data: InferEntrySchema<'characters'>;
-  rendered?: RenderedContent;
-  filePath?: string;
   name: string;
-  clan: any;
+  clan?: {
+    symbol: {
+      src: string;
+      width: number;
+      height: number;
+      format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+    };
+    name: string;
+    id: string;
+    spanish_name: string;
+  };
+  hide?: boolean;
 }
 
 const allCharacters = await getCollection('characters');
