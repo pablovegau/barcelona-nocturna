@@ -1,4 +1,5 @@
 ---
+slug: 'thaddeus-hargrove'
 altText: 'Retrato de Thaddeus Hargrove'
 character_type: 'npc'
 clan: 'tremere'

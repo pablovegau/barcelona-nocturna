@@ -1,4 +1,5 @@
 ---
+slug: 'santiago-alvarez'
 altText: 'Retrato de Santiago Álvarez'
 character_type: 'npc'
 clan: 'thin-blood'

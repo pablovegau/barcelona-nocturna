@@ -1,4 +1,5 @@
 ---
+slug: 'claudia-ruiz'
 altText: 'Retrato de Claudia Ruiz'
 character_type: 'npc'
 clan: 'ventrue'

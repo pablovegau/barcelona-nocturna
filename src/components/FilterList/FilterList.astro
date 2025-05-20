@@ -18,15 +18,15 @@ const collection = await getCollection(filterKey);
 ---
 
 <div class="filterList">
-  {collection.map((item: { slug: string; id: string; data: { name: string } }) => (
+  {collection.map((item: { id: string; data: { name: string } }) => (
     <FilterItem
-      checked={filterItems.includes(item.slug)}
+      checked={filterItems.includes(item.id)}
       filterLabel={item.data.name}
-      dataFilter={item.slug}
+      dataFilter={item.id}
       image={true}
-      id={item.slug}
+      id={item.id}
       name={item.data.name}
-      value={item.slug}
+      value={item.id}
       symbolComponent={symbolComponent}
     />
   ))}

@@ -1,4 +1,5 @@
 ---
+slug: 'daniela-lozano'
 altText: 'Retrato de Daniela Lozano'
 character_type: 'npc'
 clan: 'thin-blood'

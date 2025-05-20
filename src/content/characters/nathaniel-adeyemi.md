@@ -1,4 +1,5 @@
 ---
+slug: 'nathaniel-adeyemi'
 altText: 'Retrato de Nathaniel Adeyemi'
 character_type: 'npc'
 clan: 'tremere'

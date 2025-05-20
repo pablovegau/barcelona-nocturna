@@ -1,4 +1,5 @@
 ---
+slug: 'alexander-volkov'
 altText: 'Retrato de Alexander Volkov'
 character_type: 'npc'
 clan: 'tzimisce'

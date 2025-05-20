@@ -1,4 +1,5 @@
 ---
+slug: 'hugo-ramirez'
 altText: 'Retrato de Hugo Ramírez'
 character_type: 'npc'
 description: ''

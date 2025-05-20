@@ -1,4 +1,5 @@
 ---
+slug: 'lucien-dubois'
 altText: 'Retrato de Lucien Dubois'
 character_type: 'npc'
 clan: 'malkavian'

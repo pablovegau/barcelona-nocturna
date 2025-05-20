@@ -1,4 +1,5 @@
 ---
+slug: 'irene-montclair'
 altText: 'Retrato de Irene Montclair'
 character_type: 'npc'
 clan: 'toreador'

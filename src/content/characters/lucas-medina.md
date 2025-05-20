@@ -1,4 +1,5 @@
 ---
+slug: lucas-medina'
 altText: 'Retrato de Lucas Medina'
 character_type: 'npc'
 clan: 'caitiff'

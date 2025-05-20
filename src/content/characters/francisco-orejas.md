@@ -1,4 +1,5 @@
 ---
+slug: 'francisco-orejas'
 altText: 'Retrato de Francisco Orejas'
 character_type: 'npc'
 description: ''

@@ -1,4 +1,5 @@
 ---
+slug: 'selene-castellanos'
 altText: 'Retrato de Selene Castellanos'
 character_type: 'npc'
 clan: 'thin-blood'

@@ -1,4 +1,5 @@
 ---
+slug: 'amira-al-nasir'
 altText: 'Retrato de Amira Al-Nasir'
 character_type: 'npc'
 clan: 'banu-haqim'

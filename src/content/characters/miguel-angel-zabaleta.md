@@ -1,4 +1,5 @@
 ---
+slug: 'miguel-angel-zabaleta'
 altText: 'Retrato de Miguel Ángel Zabaleta'
 character_type: 'pc'
 clan: 'banu-haqim'

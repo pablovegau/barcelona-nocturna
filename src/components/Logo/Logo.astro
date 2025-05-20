@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 
+import './styles.css';
+
 import LogoImage from '@/assets/logo_dark_version.svg';
 const { mobileAligment } = Astro.props;
 ---
@@ -16,13 +18,3 @@ const { mobileAligment } = Astro.props;
     width={180}
   />
 </a>
-
-<style>
-  .logo {
-    display: block;
-  }
-
-  .logo img {
-    display: block;
-  }
-</style>

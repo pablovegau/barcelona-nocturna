@@ -1,4 +1,5 @@
 ---
+slug: 'ezequiel-medina'
 altText: 'Retrato de Ezequiel Medina'
 character_type: 'pc'
 clan: 'malkavian'

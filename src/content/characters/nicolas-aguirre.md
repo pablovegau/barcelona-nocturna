@@ -1,4 +1,5 @@
 ---
+slug: 'nicolas-aguirre'
 altText: 'Retrato de Nicolás Aguirre'
 character_type: 'npc'
 clan: 'thin-blood'

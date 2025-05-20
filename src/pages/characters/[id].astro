@@ -11,42 +11,37 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 export async function getStaticPaths() {
   const characters = await getCollection('characters');
 
-  return characters.map((post) => {
-    const { slug, data } = post;
-    const {
-      clan,
-      cult,
-      description,
-      hide,
-      image,
-      name,
-      showInfo,
-      related_characters,
-      role,
-    } = data;
+  const paths = await Promise.all(
+    characters.map(async (character) => {
+      const { id, data } = character;
 
-    return {
-      params: {
-        slug,
-      },
-      props: {
-        clan,
-        cult,
-        description,
-        hide,
-        image,
-        name,
-        showInfo,
-        related_characters,
-        role,
-      },
-    };
-  });
+      let clanRaw = null;
+
+      if (data.clan) {
+        const { id, collection } = data.clan;
+        clanRaw = await getEntry(collection, id);
+      } 
+
+      const { spanish_name } = clanRaw?.data || {};
+
+      return {
+        params: {
+          id,
+        },
+        props: {
+          spanish_name,
+          ...data,
+        },
+      };
+    })
+  );
+
+  return paths;
 }
 
-const { slug } = Astro.params;
+const { id } = Astro.params;
 const {
-  clan,
+  spanish_name,
   cult,
   description,
   image,
@@ -69,14 +64,14 @@ const {
         widths={[360, 540, 720]}
         sizes={`(max-width: 360px) 260px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
         src={image}
-        transition:name={`character-${slug}`}
+        transition:name={`character-${id}`}
       />
     </div>
     {showInfo && (
       <aside class="character__profile">
-        <p><span>Clan:</span> {clan}</p>
+        <p><span>Clan:</span> {spanish_name}</p>
         <p><span>Secta:</span> {cult}</p>
-        <p><span>Rol:</span> {role}</p>
+        {role && <p><span>Rol:</span> {role}</p>}
         <p>{description}</p>
       </aside>
 

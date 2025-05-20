@@ -1,4 +1,5 @@
 ---
+slug: 'nico-vargas'
 altText: 'Retrato de Nico Vargas'
 character_type: 'npc'
 clan: 'gangrel'

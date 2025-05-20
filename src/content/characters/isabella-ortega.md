@@ -1,4 +1,5 @@
 ---
+slug: 'isabella-ortega'
 altText: 'Retrato de Isabella Ortega'
 character_type: 'npc'
 clan: 'brujah'

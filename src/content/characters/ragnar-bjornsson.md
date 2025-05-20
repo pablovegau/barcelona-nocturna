@@ -1,4 +1,5 @@
 ---
+slug: 'ragnar-bjornsson'
 altText: 'Retrato de Ragnar Bjornsson'
 character_type: 'npc'
 clan: 'gangrel'

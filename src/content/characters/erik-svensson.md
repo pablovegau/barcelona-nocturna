@@ -1,4 +1,5 @@
 ---
+slug: 'erik-svensson'
 altText: 'Retrato de Erik Svensson'
 character_type: 'npc'
 clan: 'brujah'

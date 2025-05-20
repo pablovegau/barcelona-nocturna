@@ -1,4 +1,5 @@
 ---
+slug: 'manny-bautista'
 altText: 'Retrato de Manny Bautista'
 character_type: 'npc'
 description: ''

@@ -1,4 +1,5 @@
 ---
+slug: 'paris-fernandez'
 altText: 'Retrato de Paris Fernandez'
 character_type: 'pc'
 clan: 'nosferatu'

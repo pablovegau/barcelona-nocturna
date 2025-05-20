@@ -1,4 +1,5 @@
 ---
+slug: 'etienne-miller'
 altText: 'Retrato de Étienne Miller'
 character_type: 'npc'
 description: ''

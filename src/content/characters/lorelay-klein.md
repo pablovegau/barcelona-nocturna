@@ -1,4 +1,5 @@
 ---
+slug: 'lorelay-klein'
 altText: 'Retrato de Lorelay Klein'
 character_type: 'npc'
 clan: 'lasombra'

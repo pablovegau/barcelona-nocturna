@@ -1,4 +1,5 @@
 ---
+slug: 'manuel-navarro'
 altText: 'Retrato de Manuel Navarro'
 character_type: 'npc'
 clan: 'nosferatu'

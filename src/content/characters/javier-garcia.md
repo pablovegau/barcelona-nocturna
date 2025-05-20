@@ -1,4 +1,5 @@
 ---
+slug: 'javier-garcia'
 altText: 'Retrato de Javier García'
 character_type: 'npc'
 description: ''

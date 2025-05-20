@@ -1,4 +1,5 @@
 ---
+slug: 'victor-devereux'
 altText: 'Retrato de Victor Devereux'
 character_type: 'npc'
 clan: 'ventrue'

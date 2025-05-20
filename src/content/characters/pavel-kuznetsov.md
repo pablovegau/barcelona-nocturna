@@ -1,4 +1,5 @@
 ---
+slug: 'pavel-kuznetsov'
 altText: 'Retrato de Pavel Kuznetsov'
 character_type: 'npc'
 description: ''

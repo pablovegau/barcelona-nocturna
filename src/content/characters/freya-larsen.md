@@ -1,4 +1,5 @@
 ---
+slug: 'freya-larsen'
 altText: 'Retrato de Freya Larsen'
 character_type: 'npc'
 clan: 'brujah'

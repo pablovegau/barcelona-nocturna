@@ -1,4 +1,5 @@
 ---
+slug: 'lucia-delgado'
 altText: 'Retrato de Lucía Delgado'
 character_type: 'npc'
 clan: 'banu-haqim'

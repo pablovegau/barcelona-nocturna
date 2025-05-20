@@ -1,4 +1,5 @@
 ---
+slug: 'jaime-dominguez'
 altText: 'Retrato de Jaime Dominguez'
 character_type: 'npc'
 description: ''

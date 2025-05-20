@@ -1,4 +1,5 @@
 ---
+slug: 'felipe-hermoso'
 altText: 'Retrato de Felipe "El Hermoso"'
 character_type: 'npc'
 description: ''

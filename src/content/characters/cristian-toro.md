@@ -1,4 +1,5 @@
 ---
+slug: 'cristian-toro'
 altText: 'Retrato de Cristian Toro'
 character_type: 'npc'
 clan: 'tremere'

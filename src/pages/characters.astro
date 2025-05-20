@@ -4,6 +4,7 @@ import {
   type Render,
   type RenderedContent,
   getCollection,
+  getEntry,
 } from 'astro:content';
 
 import Filters from '@/components/Filters/Filters.astro';
@@ -14,21 +15,43 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import getSearchParamAsArray from '@/lib/getSearchParamAsArray';
 
 interface Character {
-  id: string;
-  render(): Render['.md'];
   slug: string;
-  body: string;
-  collection: 'characters';
-  data: InferEntrySchema<'characters'>;
-  rendered?: RenderedContent;
-  filePath?: string;
+  name: string;
+  clan?: {
+    symbol: {
+      src: string;
+      width: number;
+      height: number;
+      format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+    };
+    name: string;
+    id: string;
+    spanish_name: string;
+  };
+  hide?: boolean;
 }
 
 const allCharacters = await getCollection('characters');
 
+const characterWithClan = await Promise.all(allCharacters.map(async (character) => {
+  const { data } = character;
+
+  let clanRaw = null;
+
+  if (data.clan) {
+    const { id, collection } = data.clan;
+    clanRaw = await getEntry(collection, id) ;
+  }
+
+  return {
+    ...data,
+    clan: clanRaw?.data,
+  };
+}));
+
 // Some characters are hidden because they are not presented to the players yet
 function getVisibleCharacters() {
-  return allCharacters.filter((character) => character.data.hide !== true);
+  return characterWithClan.filter((character) => character.hide !== true);
 }
 
 function getSelectedClansFromURL() {
@@ -40,14 +63,14 @@ function getFilteredCharacterNames({
   filterClans,
 }: { visibleCharacters: Character[]; filterClans: string[] }) {
   let characterNames = visibleCharacters.map((character) => character.slug);
-
+  
   if (filterClans.length > 0) {
     characterNames = visibleCharacters
-      .filter(
-        (character) =>
-          character.data.clan && filterClans.includes(character.data.clan),
-      )
-      .map((character) => character.slug);
+    .filter(
+      (character) =>
+      character.clan?.id && filterClans.includes(character.clan?.id),
+    )
+    .map((character) => character.slug);
   }
 
   return characterNames;

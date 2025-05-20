@@ -1,4 +1,5 @@
 ---
+slug: 'victor-morales'
 altText: 'Retrato de Victor Morales'
 character_type: 'npc'
 clan: 'nosferatu'

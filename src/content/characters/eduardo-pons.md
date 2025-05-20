@@ -1,4 +1,5 @@
 ---
+slug: 'eduardo-pons'
 altText: 'Retrato de Eduardo Pons'
 character_type: 'npc'
 clan: 'malkavian'

@@ -1,4 +1,5 @@
 ---
+slug: 'tau'
 altText: 'Retrato de Tau'
 character_type: 'pc'
 description: ''

@@ -1,4 +1,5 @@
 ---
+slug: 'elena-venture'
 altText: 'Retrato de Elena Venture'
 character_type: 'pc'
 clan: 'ventrue'

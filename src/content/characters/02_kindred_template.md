@@ -1,4 +1,5 @@
 ---
+slug: 'john-doe'
 altText: 'Retrato de ==='
 character_type: 'npc'
 clan: 'banu-haqim'

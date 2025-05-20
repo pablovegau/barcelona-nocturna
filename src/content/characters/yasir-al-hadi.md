@@ -1,4 +1,5 @@
 ---
+slug: 'yasir-al-hadi'
 altText: 'Retrato de Yasir al-Hadi'
 character_type: 'npc'
 clan: 'banu-haqim'

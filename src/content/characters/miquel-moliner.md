@@ -1,4 +1,5 @@
 ---
+slug: 'miquel-moliner'
 altText: 'Retrato de Miquel Moliner'
 character_type: 'npc'
 clan: 'ventrue'

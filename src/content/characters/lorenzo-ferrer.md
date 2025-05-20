@@ -1,4 +1,5 @@
 ---
+slug: 'lorenzo-ferrer'
 altText: 'Retrato de Lorenzo Ferrer'
 character_type: 'npc'
 clan: 'nosferatu'

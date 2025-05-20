@@ -1,4 +1,5 @@
 ---
+slug: 'niara-kalua'
 altText: 'Retrato de Niara Kalua'
 character_type: 'npc'
 clan: 'nosferatu'

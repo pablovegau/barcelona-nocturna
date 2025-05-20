@@ -1,4 +1,5 @@
 ---
+slug: 'diego-ruiz'
 altText: 'Retrato de Diego Ruiz'
 character_type: 'npc'
 description: ''

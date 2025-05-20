@@ -1,4 +1,5 @@
 ---
+slug: 'marcel-durant'
 altText: 'Retrato de Marcel Durant'
 character_type: 'npc'
 clan: 'toreador'

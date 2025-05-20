@@ -1,4 +1,5 @@
 ---
+slug: 'adriana-navarro'
 altText: 'Retrato de Adriana Navarro'
 character_type: 'npc'
 clan: 'caitiff'

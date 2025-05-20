@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { defineCollection, z, reference } from 'astro:content';
 
 export const CLANS = {
   'banu-haqim': 'Banu Haqim',
@@ -8,7 +9,7 @@ export const CLANS = {
   hecata: 'Hecata',
   lasombra: 'Lasombra',
   malkavian: 'Malkavian',
-  ministry: 'Ministry',
+ 'the-ministry': 'The Ministry',
   nosferatu: 'Nosferatu',
   ravnos: 'Ravnos',
   salubri: 'Salubri',
@@ -24,13 +25,39 @@ const CLAN_VALUES = Object.keys(CLANS) as [
   ...Array<keyof typeof CLANS>,
 ];
 
-const characters = defineCollection({
-  type: 'content',
+const clans = defineCollection({
+  loader: glob({
+    pattern: 'src/content/clans/**/*.{md,mdx}',
+    generateId: ({ entry }) => 
+      entry
+        .replace('src/content/clans/', '')
+        .replace('.mdx', '')
+        .replace('.md', ''),
+  }),
   schema: ({ image }) =>
     z.object({
+      id: z.string(),
+      name: z.string(),
+      spanish_name: z.string(),
+      symbol: image(),
+    }),
+});
+
+const characters = defineCollection({
+  loader: glob({
+    pattern: 'src/content/characters/**/*.{md,mdx}',
+    generateId: ({ entry }) => 
+      entry
+        .replace('src/content/characters/', '')
+        .replace('.mdx', '')
+        .replace('.md', ''),
+  }),
+  schema: ({ image }) =>
+    z.object({
+      slug: z.string(),
       altText: z.string(),
       character_type: z.enum(['npc', 'pc']),
-      clan: z.enum(CLAN_VALUES).optional(),
+      clan: reference('clans').optional(),
       coterie: z.string().optional(),
       cult: z
         .enum([
@@ -57,23 +84,21 @@ const characters = defineCollection({
     }),
 });
 
-const clans = defineCollection({
-  type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      name: z.string(),
-      symbol: image(),
-    }),
-});
-
 const posts = defineCollection({
-  type: 'content',
+  loader: glob({
+    pattern: 'src/content/posts/**/*.{md,mdx}',
+    generateId: ({ entry }) => 
+      entry
+        .replace('src/content/posts/', '')
+        .replace('.mdx', ''),
+  }),
   schema: z.object({
+    title: z.string(),
+    slug: z.string(),
     abstract: z.string(),
     publishDate: z.string(),
     sessionDate: z.string(),
     tags: z.array(z.string()),
-    title: z.string(),
     isDraft: z.boolean(),
   }),
 });

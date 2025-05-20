@@ -1,4 +1,5 @@
 ---
+slug: 'raul-delgado'
 altText: 'Retrato de Raúl Delgado'
 character_type: 'npc'
 clan: 'brujah'
