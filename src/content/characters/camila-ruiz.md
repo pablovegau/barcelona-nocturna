@@ -1,4 +1,5 @@
 ---
+slug: 'camila-ruiz'
 altText: 'Retrato de Camila Ruiz'
 character_type: 'npc'
 clan: 'nosferatu'

@@ -1,4 +1,5 @@
 ---
+slug: 'siobhan-gallagher'
 altText: 'Retrato de Siobhán Gallagher'
 character_type: 'npc'
 clan: 'toreador'

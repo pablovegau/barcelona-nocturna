@@ -1,4 +1,5 @@
 ---
+slug: 'maria-peineta'
 altText: 'Retrato de Maria Peineta'
 character_type: 'npc'
 description: ''

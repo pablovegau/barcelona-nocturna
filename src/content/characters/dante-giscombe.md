@@ -1,4 +1,5 @@
 ---
+slug: 'dante-giscombe'
 altText: 'Retrato de Dante Giscombe'
 character_type: 'npc'
 clan: 'thin-blood'

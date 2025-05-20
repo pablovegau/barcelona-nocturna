@@ -11,8 +11,10 @@ interface Props {
 
 const { keyName, size } = Astro.props;
 
+// TODO: Review why I ask for all the collection and not just the one I need
 const characters = await getCollection('characters');
-const characterRaw = characters.find((character) => character.slug === keyName);
+const characterRaw = characters.find((character) => character.id === keyName);
+
 const {
   altText = '',
   image,
@@ -32,13 +34,13 @@ if (pattern === 'childrenVampireWorld') {
 const backgroundURL = optimizedBackground?.src || '';
 ---
 
-<a href={`/characters/${characterRaw?.slug}`}>
+<a href={`/characters/${characterRaw?.id}`}>
   <InternalPolaroid client:load
     backgroundURL={backgroundURL}
     name={name}
     size={size}
   >
-    {image && <Image src={image} alt={altText} format="webp" quality="mid" transition:name={`character-${characterRaw?.slug}`}/>}
+    {image && <Image src={image} alt={altText} format="webp" quality="mid" transition:name={`character-${characterRaw?.id}`}/>}
   </InternalPolaroid>
 </a>
 

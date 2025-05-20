@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 import Heading from '@/components/Heading/Heading.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -12,28 +12,28 @@ export async function getStaticPaths() {
   return posts.map((post) => {
     return {
       params: {
-        slug: post.slug,
+        page: post.data.slug,
       },
       props: {
         title: post.data.title,
+        post,
       },
     };
   });
 }
 
-const { slug } = Astro.params;
-const { title } = Astro.props;
+const { post } = Astro.props;
 
-const post = await getEntry('posts', slug);
+const { Content, headings } = await render(post);
 
-const { Content, headings } = await post!.render();
+const { title, slug } = post.data;
 ---
 
 <BaseLayout pageTitle={title}>
   <Heading tagName="h1" size="h1" transitionName={`blogTitle-${slug}`}>{title}</Heading>
 
   <div class="blog">
-    <article class="blog__content">
+    <article class="blog__content" aria-label="Post content">
       <Content />
     </article>
     <aside class="blog__aside">

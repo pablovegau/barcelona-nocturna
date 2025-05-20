@@ -1,4 +1,5 @@
 ---
+slug: 'amara-kessel'
 altText: 'Retrato de Amara Kessel'
 character_type: 'npc'
 clan: 'tremere'

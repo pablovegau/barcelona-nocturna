@@ -1,4 +1,5 @@
 ---
+slug: 'blanca-montoro'
 altText: 'Retrato de Blanca Montoro'
 character_type: 'npc'
 clan: 'thin-blood'

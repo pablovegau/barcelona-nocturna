@@ -1,4 +1,5 @@
 ---
+slug: 'elaia-kerejazu'
 altText: 'Retrato de Elaia Kerejazu'
 character_type: 'npc'
 clan: 'lasombra'

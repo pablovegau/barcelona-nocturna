@@ -1,4 +1,5 @@
 ---
+slug: 'lucas-roselli'
 altText: 'Retrato de Lucas Roselli'
 character_type: 'npc'
 clan: 'hecata'

@@ -1,4 +1,5 @@
 ---
+slug: 'celia-perez'
 altText: 'Retrato de Celia Pérez'
 character_type: 'npc'
 clan: 'nosferatu'

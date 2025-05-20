@@ -1,4 +1,5 @@
 ---
+slug: 'livia-santoro'
 altText: 'Retrato de Livia Santoro'
 character_type: 'npc'
 clan: 'hecata'

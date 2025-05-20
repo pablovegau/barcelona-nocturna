@@ -1,7 +1,8 @@
 ---
+slug: 'marco-requena'
 altText: 'Retrato de Marco Requena'
 character_type: 'npc'
-clan: 'ministry'
+clan: 'the-ministry'
 coterie: ''
 cult: 'independent'
 description: ''

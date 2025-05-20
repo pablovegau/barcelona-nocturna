@@ -1,4 +1,5 @@
 ---
+slug: 'samuel-lacalle'
 altText: 'Retrato de Samuel Lacalle'
 character_type: 'npc'
 clan: 'malkavian'

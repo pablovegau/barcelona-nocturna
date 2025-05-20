@@ -1,4 +1,5 @@
 ---
+slug: 'roc-puyol'
 altText: 'Retrato de Roc Puyol'
 character_type: 'pc'
 clan: 'gangrel'

@@ -1,4 +1,5 @@
 ---
+slug: 'emiko-tanaka'
 altText: 'Retrato de Emiko Tanaka'
 character_type: 'npc'
 clan: 'tremere'

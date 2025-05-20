@@ -1,4 +1,5 @@
 ---
+slug: 'lukas-varga'
 altText: 'Retrato de Lukas Varga'
 character_type: 'npc'
 clan: 'gangrel'

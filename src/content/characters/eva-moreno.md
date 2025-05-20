@@ -1,4 +1,5 @@
 ---
+slug: 'eva-moreno'
 altText: 'Retrato de Eva Moreno'
 character_type: 'npc'
 clan: 'malkavian'

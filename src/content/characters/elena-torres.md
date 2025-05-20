@@ -1,4 +1,5 @@
 ---
+slug: 'elena-torres'
 altText: 'Retrato de Elena Torres'
 character_type: 'npc'
 clan: 'brujah'

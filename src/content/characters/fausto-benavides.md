@@ -1,4 +1,5 @@
 ---
+slug: 'fausto-benavides'
 altText: 'Retrato de Fausto Benavides'
 character_type: 'npc'
 clan: 'toreador'

@@ -1,4 +1,5 @@
 ---
+slug: 'nerea-vallejo'
 altText: 'Retrato de Nerea Vallejo'
 character_type: 'npc'
 clan: 'thin-blood'

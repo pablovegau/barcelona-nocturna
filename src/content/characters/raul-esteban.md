@@ -1,4 +1,5 @@
 ---
+slug: 'raul-esteban'
 altText: 'Retrato de Raúl Esteban de la Vega'
 character_type: 'npc'
 clan: 'lasombra'

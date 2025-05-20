@@ -1,4 +1,5 @@
 ---
+slug: 'alaric-de-calais'
 altText: 'Retrato de Alaric De Calais'
 character_type: 'npc'
 clan: 'nosferatu'

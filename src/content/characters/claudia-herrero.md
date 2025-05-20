@@ -1,4 +1,5 @@
 ---
+slug: 'claudia-herrero'
 altText: 'Retrato de Claudia Herrero'
 character_type: 'npc'
 clan: 'lasombra'

@@ -1,4 +1,5 @@
 ---
+slug: 'lucia-valdez'
 altText: 'Retrato de Lucia Valdez'
 character_type: 'npc'
 clan: 'gangrel'

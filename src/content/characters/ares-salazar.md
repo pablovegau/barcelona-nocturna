@@ -1,4 +1,5 @@
 ---
+slug: 'ares-salazar'
 altText: 'Retrato de Ares Salazar'
 character_type: 'npc'
 clan: 'gangrel'

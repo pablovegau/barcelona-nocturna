@@ -1,4 +1,5 @@
 ---
+slug: 'mara-kovac'
 altText: 'Retrato de Mara Kovac'
 character_type: 'npc'
 clan: 'gangrel'

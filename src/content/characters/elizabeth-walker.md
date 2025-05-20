@@ -1,4 +1,5 @@
 ---
+slug: 'elizabeth-walker'
 altText: 'Retrato de Elizabeth Walker'
 character_type: 'npc'
 clan: 'ventrue'

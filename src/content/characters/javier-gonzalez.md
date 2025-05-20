@@ -1,4 +1,5 @@
 ---
+slug: 'javier-gonzalez'
 altText: 'Retrato de Javier Gonzalez'
 character_type: 'npc'
 clan: 'brujah'

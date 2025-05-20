@@ -3,20 +3,21 @@ import { getCollection } from 'astro:content';
 import Heading from '@/components/Heading/Heading.astro';
 
 const posts = (await getCollection('posts')).sort((a, b) => {
-  const numA = parseInt(a.slug.match(/\d+/)?.[0] || '0', 10);
-  const numB = parseInt(b.slug.match(/\d+/)?.[0] || '0', 10);
-  return numA - numB;
+  const numA = parseInt(a.id.match(/\d+/)?.[0] || '0', 10);
+  const numB = parseInt(b.id.match(/\d+/)?.[0] || '0', 10);
+  return numB - numA;
 });
+
 ---
 
 <ul class="postList">
   {posts.map((post) => (
     <li class="postList__item">
-      <Heading tagName="h2" size="h2" transitionName={`blogTitle-${post.slug}`}>
-        <a class="postList__itemTitleLink" href={`/posts/${post.slug}`}>{post.data.title}</a>
+      <Heading tagName="h2" size="h2" transitionName={`blogTitle-${post.id}`}>
+        <a class="postList__itemTitleLink" href={`/posts/${post.id}`}>{post.data.title}</a>
       </Heading>
       <p class="postList__itemAbstract">{post.data.abstract}</p>
-      <a class="postList__itemReadMore" class="" href={`/posts/${post.slug}`}>Leer más</a>
+      <a class="postList__itemReadMore" class="" href={`/posts/${post.id}`}>Leer más</a>
     </li>
   ))}
 </ul>

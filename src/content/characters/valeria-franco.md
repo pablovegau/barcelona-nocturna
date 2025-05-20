@@ -1,4 +1,5 @@
 ---
+slug: 'valeria-franco'
 altText: 'Retrato de Valeria Franco'
 character_type: 'npc'
 clan: 'tremere'

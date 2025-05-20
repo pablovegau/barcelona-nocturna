@@ -1,4 +1,5 @@
 ---
+slug: 'viktor-kovacs'
 altText: 'Retrato de Viktor "El Cazador" Kovács'
 character_type: 'npc'
 clan: 'brujah'

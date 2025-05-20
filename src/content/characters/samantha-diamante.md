@@ -1,4 +1,5 @@
 ---
+slug: 'samantha-diamante'
 altText: 'Retrato de Samantha Diamante'
 character_type: 'npc'
 description: ''

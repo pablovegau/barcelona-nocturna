@@ -1,9 +1,10 @@
 ---
+slug: 'ana-martinez'
 altText: 'Retrato de Ana Martínez'
 character_type: 'npc'
-# clan: 'toreador'
+clan: 'toreador'
 coterie: 'unknown'
-# cult: 'camarilla'
+cult: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/ana-martinez.png'

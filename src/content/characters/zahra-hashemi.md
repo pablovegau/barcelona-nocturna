@@ -1,4 +1,5 @@
 ---
+slug: 'zahra-hashemi'
 altText: 'Retrato de Zahra Hashemi'
 character_type: 'npc'
 clan: 'banu-haqim'

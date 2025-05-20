@@ -1,4 +1,5 @@
 ---
+slug: 'mateo-herrera'
 altText: 'Retrato de Mateo Herrera'
 character_type: 'npc'
 deswcription: ''

@@ -1,4 +1,5 @@
 ---
+slug: 'luna-castelao'
 altText: 'Retrato de Luna Castelao'
 character_type: 'npc'
 description: ''

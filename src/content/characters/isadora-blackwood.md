@@ -1,4 +1,5 @@
 ---
+slug: 'isadora-blackwood'
 altText: 'Retrato de Isadora Blackwood'
 character_type: 'npc'
 clan: 'ventrue'

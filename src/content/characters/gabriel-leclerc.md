@@ -1,4 +1,5 @@
 ---
+slug: 'gabriel-leclerc'
 altText: 'Retrato de Gabriel Leclerc'
 character_type: 'npc'
 description: ''

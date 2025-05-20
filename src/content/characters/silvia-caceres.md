@@ -1,4 +1,5 @@
 ---
+slug: 'silvia-caceres'
 altText: 'Retrato de Silvia Cáceres'
 character_type: 'npc'
 clan: 'malkavian'

@@ -1,4 +1,5 @@
 ---
+slug: 'laura-gutierrez'
 altText: 'Retrato de Laura Gutiérrez'
 character_type: 'npc'
 clan: 'malkavian'

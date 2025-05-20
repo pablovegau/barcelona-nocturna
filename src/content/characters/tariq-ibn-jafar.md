@@ -1,4 +1,5 @@
 ---
+slug: 'tariq-ibn-jafar'
 altText: 'Retrato de Tariq Ibn Jafar'
 character_type: 'npc'
 clan: 'banu-haqim'

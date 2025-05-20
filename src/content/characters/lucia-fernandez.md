@@ -1,4 +1,5 @@
 ---
+slug: 'lucia-fernandez'
 altText: 'Retrato de Lucia Fernández'
 character_type: 'npc'
 description: ''

@@ -1,4 +1,5 @@
 ---
+slug: 'aria-tzavalos'
 altText: 'Retrato de Aria Tzavalos'
 character_type: 'npc'
 clan: 'ravnos'

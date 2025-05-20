@@ -1,4 +1,5 @@
 ---
+slug: 'isabella-dangelo'
 altText: 'Retrato de Isabella D’Angelo'
 character_type: 'npc'
 clan: 'hecata'

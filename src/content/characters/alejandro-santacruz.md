@@ -1,4 +1,5 @@
 ---
+slug: 'alejandro-santacruz'
 altText: 'Retrato de Alejandro Santacruz'
 character_type: 'npc'
 clan: 'toreador'
