@@ -4,7 +4,7 @@ altText: 'Retrato de Eva Moreno'
 character_type: 'npc'
 clan: 'malkavian'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: true
 image: '../../assets/character_images/eva-moreno.png'

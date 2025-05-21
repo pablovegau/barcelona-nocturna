@@ -4,7 +4,7 @@ altText: 'Retrato de Freya Larsen'
 character_type: 'npc'
 clan: 'brujah'
 coterie: 'hexe'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/freya-larsen.png'

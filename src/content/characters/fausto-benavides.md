@@ -4,7 +4,7 @@ altText: 'Retrato de Fausto Benavides'
 character_type: 'npc'
 clan: 'toreador'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/fausto-benavides.png'

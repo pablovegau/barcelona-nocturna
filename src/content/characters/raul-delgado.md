@@ -4,7 +4,7 @@ altText: 'Retrato de Raúl Delgado'
 character_type: 'npc'
 clan: 'brujah'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/raul-delgado.png'

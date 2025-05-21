@@ -4,7 +4,7 @@ altText: 'Retrato de Manuel Navarro'
 character_type: 'npc'
 clan: 'nosferatu'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/manuel-navarro.png'

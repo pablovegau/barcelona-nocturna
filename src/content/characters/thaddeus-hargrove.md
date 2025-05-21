@@ -4,7 +4,7 @@ altText: 'Retrato de Thaddeus Hargrove'
 character_type: 'npc'
 clan: 'tremere'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/thaddeus-hargrove.png'

@@ -4,7 +4,7 @@ altText: 'Retrato de Roc Puyol'
 character_type: 'pc'
 clan: 'gangrel'
 coterie: 'unknown'
-cult: 'anarchs'
+faction: 'anarch'
 description: 'Un vástago recién llegado a Barcelona tras pasar siete años aislado en los Balcanes con su Sire. Acompañado siempre por su fiel perro Tau, posee la singular capacidad de comunicarse con los animales. Su inexperiencia en la política vampírica contrasta con su determinación.'
 hide: false
 image: '../../assets/character_images/roc-puyol.png'

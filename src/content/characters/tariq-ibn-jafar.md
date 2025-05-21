@@ -4,7 +4,7 @@ altText: 'Retrato de Tariq Ibn Jafar'
 character_type: 'npc'
 clan: 'banu-haqim'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/tariq-ibn-jafar.png'

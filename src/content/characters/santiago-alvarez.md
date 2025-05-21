@@ -4,7 +4,7 @@ altText: 'Retrato de Santiago Álvarez'
 character_type: 'npc'
 clan: 'thin-blood'
 coterie: 'mudblood'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: true
 image: '../../assets/character_images/santiago-alvarez.png'

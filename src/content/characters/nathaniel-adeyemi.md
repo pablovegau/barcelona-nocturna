@@ -4,7 +4,7 @@ altText: 'Retrato de Nathaniel Adeyemi'
 character_type: 'npc'
 clan: 'tremere'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/nathaniel-adeyemi.png'

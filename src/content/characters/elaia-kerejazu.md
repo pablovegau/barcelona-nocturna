@@ -4,7 +4,7 @@ altText: 'Retrato de Elaia Kerejazu'
 character_type: 'npc'
 clan: 'lasombra'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/elaia-kerejazu.png'

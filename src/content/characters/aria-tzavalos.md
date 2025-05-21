@@ -4,7 +4,7 @@ altText: 'Retrato de Aria Tzavalos'
 character_type: 'npc'
 clan: 'ravnos'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: true
 image: '../../assets/character_images/aria-tzavalos.png'

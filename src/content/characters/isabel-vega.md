@@ -4,7 +4,7 @@ altText: 'Retrato de Isabel "La Sombra" Vega'
 character_type: 'npc'
 clan: 'lasombra'
 coterie: ''
-cult: 'sabbat'
+faction: 'sabbat'
 description: ''
 hide: false
 image: '../../assets/character_images/isabel-vega.png'

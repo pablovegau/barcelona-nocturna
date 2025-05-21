@@ -10,7 +10,10 @@
       ],
       "@comp/*": [
         "src/components/*"
-      ]
+      ],
+      "@domain/*": [
+        "src/domain/*"
+      ],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",

@@ -4,7 +4,7 @@ altText: 'Retrato de Lorelay Klein'
 character_type: 'npc'
 clan: 'lasombra'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: true
 image: '../../assets/character_images/lorelay-klein.png'

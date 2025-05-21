@@ -4,7 +4,7 @@ altText: 'Retrato de Marcel Durant'
 character_type: 'npc'
 clan: 'toreador'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: true
 image: '../../assets/character_images/marcel-durant.png'

@@ -4,7 +4,7 @@ altText: 'Retrato de Celia Pérez'
 character_type: 'npc'
 clan: 'nosferatu'
 coterie: 'night_country'
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: true
 image: '../../assets/character_images/celia-perez.png'

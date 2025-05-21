@@ -4,7 +4,7 @@ altText: 'Retrato de Isabella D’Angelo'
 character_type: 'npc'
 clan: 'hecata'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/isabella-dangelo.png'

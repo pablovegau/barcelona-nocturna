@@ -4,7 +4,7 @@ altText: 'Retrato de Lukas Varga'
 character_type: 'npc'
 clan: 'gangrel'
 coterie: 'pagliaccio'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: true
 image: '../../assets/character_images/lukas-varga.png'

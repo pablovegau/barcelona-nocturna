@@ -4,7 +4,7 @@ altText: 'Retrato de Victor Morales'
 character_type: 'npc'
 clan: 'nosferatu'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/victor-morales.png'

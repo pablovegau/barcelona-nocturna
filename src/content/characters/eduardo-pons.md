@@ -4,7 +4,7 @@ altText: 'Retrato de Eduardo Pons'
 character_type: 'npc'
 clan: 'malkavian'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/eduardo-pons.png'

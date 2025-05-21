@@ -4,7 +4,7 @@ altText: 'Retrato de Irene Montclair'
 character_type: 'npc'
 clan: 'toreador'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/irene-montclair.png'

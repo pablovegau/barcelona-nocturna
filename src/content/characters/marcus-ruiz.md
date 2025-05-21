@@ -4,7 +4,7 @@ altText: 'Retrato de Marcus "El Carnicero" Ruiz'
 character_type: 'npc'
 clan: 'tzimisce'
 coterie: ''
-cult: 'sabbat'
+faction: 'sabbat'
 description: ''
 hide: false
 image: '../../assets/character_images/marcus-ruiz.png'

@@ -4,7 +4,7 @@ altText: 'Retrato de Alexander Volkov'
 character_type: 'npc'
 clan: 'tzimisce'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: true
 image: '../../assets/character_images/alexander-volkov.png'

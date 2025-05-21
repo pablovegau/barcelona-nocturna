@@ -4,7 +4,7 @@ altText: 'Retrato de Viktor "El Cazador" Kovács'
 character_type: 'npc'
 clan: 'brujah'
 coterie: ''
-cult: 'sabbat'
+faction: 'sabbat'
 description: ''
 hide: false
 image: '../../assets/character_images/viktor-kovacs.png'

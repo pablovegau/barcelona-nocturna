@@ -9,28 +9,44 @@ import PolaroidGroup from '@/components/PolaroidGroup/PolaroidGroup.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
+  async function getClanData(clanRawData: any) {
+    if (!clanRawData) return null;
+
+    const { id, collection } = clanRawData;
+    const clanRaw = await getEntry(collection, id);
+
+    return clanRaw?.data || null;
+  }
+
+  async function getFactionData(factionRawData: any) {
+    if (!factionRawData) return null;
+
+    const { id, collection } = factionRawData;
+    const factionRaw = await getEntry(collection, id);
+
+    return factionRaw?.data || null;
+  }
+
   const characters = await getCollection('characters');
 
   const paths = await Promise.all(
     characters.map(async (character) => {
       const { id, data } = character;
-
-      let clanRaw = null;
-
-      if (data.clan) {
-        const { id, collection } = data.clan;
-        clanRaw = await getEntry(collection, id);
-      } 
-
-      const { spanish_name } = clanRaw?.data || {};
+      
+      const clan = await getClanData(data.clan);
+      const faction = await getFactionData(data.faction);
+    
+      const { spanish_name } = clan || {};
+      const { name_es: factionName } = faction || {};
 
       return {
         params: {
           id,
         },
         props: {
-          spanish_name,
           ...data,
+          spanish_name,
+          faction: factionName,
         },
       };
     })
@@ -42,7 +58,7 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 const {
   spanish_name,
-  cult,
+  faction,
   description,
   image,
   name,
@@ -70,7 +86,7 @@ const {
     {showInfo && (
       <aside class="character__profile">
         <p><span>Clan:</span> {spanish_name}</p>
-        <p><span>Secta:</span> {cult}</p>
+        <p><span>Facción:</span> {faction}</p>
         {role && <p><span>Rol:</span> {role}</p>}
         <p>{description}</p>
       </aside>

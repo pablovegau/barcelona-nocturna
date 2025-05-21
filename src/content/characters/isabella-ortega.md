@@ -4,7 +4,7 @@ altText: 'Retrato de Isabella Ortega'
 character_type: 'npc'
 clan: 'brujah'
 coterie: 'pagliaccio'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: true
 image: '../../assets/character_images/isabella-ortega.png'
