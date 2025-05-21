@@ -4,7 +4,7 @@ altText: 'Retrato de Selene Castellanos'
 character_type: 'npc'
 clan: 'thin-blood'
 coterie: 'mudblood'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: true
 image: '../../assets/character_images/selene-castellanos.png'

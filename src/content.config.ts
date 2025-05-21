@@ -1,30 +1,6 @@
 import { glob } from 'astro/loaders';
 import { defineCollection, z, reference } from 'astro:content';
 
-export const CLANS = {
-  'banu-haqim': 'Banu Haqim',
-  brujah: 'Brujah',
-  caitiff: 'Caitiff',
-  gangrel: 'Gangrel',
-  hecata: 'Hecata',
-  lasombra: 'Lasombra',
-  malkavian: 'Malkavian',
- 'the-ministry': 'The Ministry',
-  nosferatu: 'Nosferatu',
-  ravnos: 'Ravnos',
-  salubri: 'Salubri',
-  'thin-blood': 'Thin Blood',
-  toreador: 'Toreador',
-  tremere: 'Tremere',
-  tzimisce: 'Tzimisce',
-  ventrue: 'Ventrue',
-} as const;
-
-const CLAN_VALUES = Object.keys(CLANS) as [
-  keyof typeof CLANS,
-  ...Array<keyof typeof CLANS>,
-];
-
 const clans = defineCollection({
   loader: glob({
     pattern: 'src/content/clans/**/*.{md,mdx}',
@@ -40,6 +16,23 @@ const clans = defineCollection({
       name: z.string(),
       spanish_name: z.string(),
       symbol: image(),
+    }),
+});
+
+const factions = defineCollection({
+  loader: glob({
+    pattern: 'src/content/factions/**/*.md',
+    generateId: ({ entry }) => 
+      entry
+        .replace('src/content/factions/', '')
+        .replace('.mdx', '')
+        .replace('.md', ''),
+  }),
+  schema: () =>
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      name_es: z.string(),
     }),
 });
 
@@ -69,6 +62,7 @@ const characters = defineCollection({
           'unknown',
         ])
         .optional(),
+      faction: reference('factions').optional(),
       description: z.string().optional(),
       hide: z.boolean(),
       image: image(),
@@ -106,5 +100,6 @@ const posts = defineCollection({
 export const collections = {
   characters,
   clans,
+  factions,
   posts,
 };

@@ -4,7 +4,7 @@ altText: 'Retrato de Isadora Blackwood'
 character_type: 'npc'
 clan: 'ventrue'
 coterie: 'unknown'
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/isadora-blackwood.png'

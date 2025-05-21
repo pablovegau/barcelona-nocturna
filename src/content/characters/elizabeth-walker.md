@@ -4,7 +4,7 @@ altText: 'Retrato de Elizabeth Walker'
 character_type: 'npc'
 clan: 'ventrue'
 coterie: 'hexe'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/elizabeth-walker.png'

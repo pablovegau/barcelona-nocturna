@@ -4,7 +4,7 @@ altText: 'Retrato de Ragnar Bjornsson'
 character_type: 'npc'
 clan: 'gangrel'
 coterie: 'hexe'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/ragnar-bjornsson.png'

@@ -4,7 +4,7 @@ altText: 'Retrato de Marco Requena'
 character_type: 'npc'
 clan: 'the-ministry'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/marco-requena.png'

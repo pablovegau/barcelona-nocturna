@@ -4,7 +4,7 @@ altText: 'Retrato de Silvia Cáceres'
 character_type: 'npc'
 clan: 'malkavian'
 coterie: 'pagliaccio'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/silvia-caceres.png'

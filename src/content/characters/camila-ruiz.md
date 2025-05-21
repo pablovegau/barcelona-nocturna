@@ -4,7 +4,7 @@ altText: 'Retrato de Camila Ruiz'
 character_type: 'npc'
 clan: 'nosferatu'
 coterie: ''
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: true
 image: '../../assets/character_images/camila-ruiz.png'

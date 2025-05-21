@@ -4,7 +4,7 @@ altText: 'Retrato de Alejandro Santacruz'
 character_type: 'npc'
 clan: 'toreador'
 coterie: 'Eixample'
-cult: 'independent'
+faction: 'independent'
 description: "Alejandro es un vástago del clan Toreador, miembro del grupo independiente liderado por Isabella D'Angelo. Es un joven de ojos castaños y piel morena, por su acento se puede deducir que es argentino."
 hide: false
 image: '../../assets/character_images/alejandro-santacruz.png'

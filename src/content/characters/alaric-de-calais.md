@@ -4,7 +4,7 @@ altText: 'Retrato de Alaric De Calais'
 character_type: 'npc'
 clan: 'nosferatu'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: true
 image: '../../assets/character_images/alaric-de-calais.png'

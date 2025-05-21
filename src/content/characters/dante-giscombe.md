@@ -4,7 +4,7 @@ altText: 'Retrato de Dante Giscombe'
 character_type: 'npc'
 clan: 'thin-blood'
 coterie: 'mudblood'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/dante-giscombe.png'

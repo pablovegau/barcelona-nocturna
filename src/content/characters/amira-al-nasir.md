@@ -4,7 +4,7 @@ altText: 'Retrato de Amira Al-Nasir'
 character_type: 'npc'
 clan: 'banu-haqim'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: 'Como Sheriff de Barcelona, Amira ejerce un papel fundamental en la Camarilla. Esta Banu Haqim de cabello moreno destaca por sus ojos negros como el azabache y su tez acaramelada.'
 hide: false
 image: '../../assets/character_images/amira-al-nasir.png'

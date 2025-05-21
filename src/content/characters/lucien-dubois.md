@@ -4,7 +4,7 @@ altText: 'Retrato de Lucien Dubois'
 character_type: 'npc'
 clan: 'malkavian'
 coterie: 'meigas'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/lucien-dubois.png'

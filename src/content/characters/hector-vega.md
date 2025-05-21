@@ -4,7 +4,7 @@ altText: 'Retrato de Hector Vega'
 character_type: 'npc'
 clan: 'ventrue'
 coterie: 'unknown'
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/hector-vega.png'

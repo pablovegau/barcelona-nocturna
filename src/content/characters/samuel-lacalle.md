@@ -4,7 +4,7 @@ altText: 'Retrato de Samuel Lacalle'
 character_type: 'npc'
 clan: 'malkavian'
 coterie: 'pagliaccio'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/samuel-lacalle.png'

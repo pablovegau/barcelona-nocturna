@@ -4,7 +4,7 @@ altText: 'Retrato de Nico Vargas'
 character_type: 'npc'
 clan: 'gangrel'
 coterie: 'hexe'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/nico-vargas.png'

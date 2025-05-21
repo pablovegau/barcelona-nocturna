@@ -4,7 +4,7 @@ altText: 'Retrato de Siobhán Gallagher'
 character_type: 'npc'
 clan: 'toreador'
 coterie: 'pagliaccio'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/siobhan-gallagher.png'

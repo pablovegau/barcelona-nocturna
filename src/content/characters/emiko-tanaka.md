@@ -4,7 +4,7 @@ altText: 'Retrato de Emiko Tanaka'
 character_type: 'npc'
 clan: 'tremere'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/emiko-tanaka.png'

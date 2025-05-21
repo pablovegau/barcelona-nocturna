@@ -4,7 +4,7 @@ altText: 'Retrato de Lucas Roselli'
 character_type: 'npc'
 clan: 'hecata'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/lucas-roselli.png'

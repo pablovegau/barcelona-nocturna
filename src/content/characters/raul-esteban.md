@@ -4,7 +4,7 @@ altText: 'Retrato de Raúl Esteban de la Vega'
 character_type: 'npc'
 clan: 'lasombra'
 coterie: 'pagliaccio'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/raul-esteban.png'

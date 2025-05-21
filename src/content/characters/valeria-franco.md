@@ -4,7 +4,7 @@ altText: 'Retrato de Valeria Franco'
 character_type: 'npc'
 clan: 'tremere'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: true
 image: '../../assets/character_images/valeria-franco.png'

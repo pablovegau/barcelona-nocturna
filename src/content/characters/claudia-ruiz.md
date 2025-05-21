@@ -4,7 +4,7 @@ altText: 'Retrato de Claudia Ruiz'
 character_type: 'npc'
 clan: 'ventrue'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: true
 image: '../../assets/character_images/claudia-ruiz.png'

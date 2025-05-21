@@ -4,7 +4,7 @@ altText: 'Retrato de Erik Svensson'
 character_type: 'npc'
 clan: 'brujah'
 coterie: 'meigas'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: true
 image: '../../assets/character_images/erik-svensson.png'

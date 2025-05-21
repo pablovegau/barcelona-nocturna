@@ -4,7 +4,7 @@ altText: 'Retrato de Niara Kalua'
 character_type: 'npc'
 clan: 'nosferatu'
 coterie: 'meigas'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: true
 image: '../../assets/character_images/niara-kalua.png'

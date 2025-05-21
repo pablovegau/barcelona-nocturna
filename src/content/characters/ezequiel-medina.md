@@ -4,7 +4,7 @@ altText: 'Retrato de Ezequiel Medina'
 character_type: 'pc'
 clan: 'malkavian'
 coterie: ''
-cult: 'unknown'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/ezequiel-medina.png'

@@ -4,7 +4,7 @@ altText: 'Retrato de Cristian Toro'
 character_type: 'npc'
 clan: 'tremere'
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/cristian-toro.png'

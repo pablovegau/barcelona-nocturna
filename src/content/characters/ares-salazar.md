@@ -4,7 +4,7 @@ altText: 'Retrato de Ares Salazar'
 character_type: 'npc'
 clan: 'gangrel'
 coterie: 'hexe'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/ares-salazar.png'

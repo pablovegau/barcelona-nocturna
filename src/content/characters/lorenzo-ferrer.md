@@ -4,7 +4,7 @@ altText: 'Retrato de Lorenzo Ferrer'
 character_type: 'npc'
 clan: 'nosferatu'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/lorenzo-ferrer.png'

@@ -4,7 +4,7 @@ altText: 'Retrato de ==='
 character_type: 'npc'
 clan: 'banu-haqim'
 coterie: ''
-cult: 'unknown'
+faction: 'camarilla'
 description: ''
 hide: true
 image: '../../assets/character_images/jane-doe.png'

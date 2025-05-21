@@ -4,7 +4,7 @@ altText: 'Retrato de Javier Gonzalez'
 character_type: 'npc'
 clan: 'brujah'
 coterie: 'meigas'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/javier-gonzalez.png'

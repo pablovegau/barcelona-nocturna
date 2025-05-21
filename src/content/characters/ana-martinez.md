@@ -4,7 +4,7 @@ altText: 'Retrato de Ana Martínez'
 character_type: 'npc'
 clan: 'toreador'
 coterie: 'unknown'
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/ana-martinez.png'

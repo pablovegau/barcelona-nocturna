@@ -4,7 +4,7 @@ altText: 'Retrato de Victor Devereux'
 character_type: 'npc'
 clan: 'ventrue'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/victor-devereux.png'

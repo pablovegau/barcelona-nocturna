@@ -4,7 +4,7 @@ altText: 'Retrato de Lucia Valdez'
 character_type: 'npc'
 clan: 'gangrel'
 coterie: 'meigas'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/lucia-valdez.png'

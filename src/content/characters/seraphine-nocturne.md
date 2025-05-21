@@ -4,7 +4,7 @@ altText: 'Retrato de Seraphine Nocturne'
 character_type: 'npc'
 clan: 'malkavian' # She's really a Salubri, but she's pretending to be a Malkavian
 coterie: ''
-cult: 'independent'
+faction: 'independent'
 description: ''
 hide: false
 image: '../../assets/character_images/seraphine-nocturne.png'

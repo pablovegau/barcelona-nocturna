@@ -1,10 +1,10 @@
 ---
-slug: lucas-medina'
+slug: 'lucas-medina'
 altText: 'Retrato de Lucas Medina'
 character_type: 'npc'
 clan: 'caitiff'
 coterie: 'hexe'
-cult: 'anarchs'
+faction: 'anarch'
 description: ''
 hide: false
 image: '../../assets/character_images/lucas-medina.png'

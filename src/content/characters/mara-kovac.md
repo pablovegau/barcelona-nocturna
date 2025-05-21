@@ -4,7 +4,7 @@ altText: 'Retrato de Mara Kovac'
 character_type: 'npc'
 clan: 'gangrel'
 coterie: ''
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: false
 image: '../../assets/character_images/mara-kovac.png'

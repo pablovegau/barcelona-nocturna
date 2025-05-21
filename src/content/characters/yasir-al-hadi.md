@@ -4,7 +4,7 @@ altText: 'Retrato de Yasir al-Hadi'
 character_type: 'npc'
 clan: 'banu-haqim'
 coterie: 'La Mano Escarlata'
-cult: 'camarilla'
+faction: 'camarilla'
 description: ''
 hide: true
 image: '../../assets/character_images/yasir-al-hadi.png'
