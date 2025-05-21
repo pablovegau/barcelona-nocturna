@@ -7,13 +7,16 @@ import Polaroid from '@/components/Polaroid/Polaroid.astro';
     <Polaroid keyName="elena-venture" size="sm" />
   </div>
   <div class="two">
-	<Polaroid keyName="roc-puyol" size="sm" />
+		<Polaroid keyName="roc-puyol" size="sm" />
   </div>
   <div class="three">
-	<Polaroid keyName="miguel-angel-zabaleta" size="sm" />
+		<Polaroid keyName="miguel-angel-zabaleta" size="sm" />
   </div>
   <div class="four">
-	<Polaroid keyName="paris-fernandez" size="sm" />
+		<Polaroid keyName="paris-fernandez" size="sm" />
+  </div>
+	<div class="five">
+		<Polaroid keyName="ezequiel-medina" size="sm" />
   </div>
 </div>
 
@@ -48,7 +51,12 @@ import Polaroid from '@/components/Polaroid/Polaroid.astro';
 		transform: rotate(4deg);
 	}
 
-	.one:hover, .two:hover, .three:hover, .four:hover {
+	.five {
+		position: relative;
+		transform: rotate(-5deg);
+	}
+
+	.one:hover, .two:hover, .three:hover, .four:hover, .five:hover {
 		z-index: 2;
 	}
 </style>
