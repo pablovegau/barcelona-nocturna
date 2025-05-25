@@ -13,5 +13,3 @@ related_characters: ['gabriel-leclerc', 'maria-peineta']
 status: 'living'
 tags: ['El Ángel de Bruma', 'Sombras de un Ángel Caído']
 ---
-
-# Samantha Diamante'

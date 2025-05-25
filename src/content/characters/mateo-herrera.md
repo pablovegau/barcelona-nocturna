@@ -14,5 +14,3 @@ role: 'Médico forense'
 status: 'living'
 tags: ['Sombras de un Ángel Caído']
 ---
-
-# Mateo Herrera

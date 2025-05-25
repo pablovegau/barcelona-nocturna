@@ -18,5 +18,3 @@ showInfo: false
 status: 'unlive'
 tags: []
 ---
-
-# Yasir al-Hadi

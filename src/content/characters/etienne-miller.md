@@ -13,5 +13,3 @@ related_characters: []
 status: 'living'
 tags: ['Sombras de un Ángel Caído']
 ---
-
-# Étienne Miller

@@ -1,0 +1,78 @@
+---
+import { render } from 'astro:content';
+import { Picture } from 'astro:assets';
+
+import { getCharactersWithReferencedData } from '@domain/characters';
+
+import Heading from '@/components/Heading/Heading.astro';
+import PolaroidGroup from '@/components/PolaroidGroup/PolaroidGroup.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import styles from './styles.module.css';
+
+export async function getStaticPaths() {
+  const characters = await getCharactersWithReferencedData();
+
+  const paths = await Promise.all(
+    characters.map(async (character) => {
+      const { original, clan, faction } = character;
+
+      return {
+        params: {
+          character: original.id,
+        },
+        props: {
+          clan: clan?.name_es,
+          faction: faction?.name_es,
+          original,
+        },
+      };
+    })
+  );
+
+  return paths;
+}
+
+const { character } = Astro.params;
+
+const {
+  clan,
+  faction,
+  original,
+} = Astro.props;
+
+const { image, name, related_characters, role, showInfo = true } = original.data;
+
+const { Content } = await render(original);
+---
+
+<BaseLayout pageTitle={name}>
+  <Heading tagName="h1" size="h1">{name}</Heading>
+
+  <article class={styles.character}>
+    <div class={styles.character__image}>
+      <Picture
+        alt={name}
+        formats={["avif", "webp", "jpg"]}
+        widths={[360, 540, 720]}
+        sizes={`(max-width: 360px) 260px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
+        src={image}
+        transition:name={`character-${character}`}
+      />
+    </div>
+    {showInfo && (
+      <aside class={styles.character__profile}>
+        <p><span>Clan:</span> {clan}</p>
+        <p><span>Facción:</span> {faction}</p>
+        {role && <p><span>Rol:</span> {role}</p>}
+        <p><span>{name} en la historia:</span></p>
+        <div class={styles.character__profile__content}>
+          <Content />
+        </div>
+      </aside>
+
+      <Heading tagName="h2" size="h2">Personajes relacionados</Heading>
+      <PolaroidGroup names={related_characters} size="sm" />
+    )}
+  </article>
+</BaseLayout>

@@ -18,5 +18,3 @@ showInfo: true
 status: 'unlive'
 tags: []
 ---
-
-# Roc Puyol

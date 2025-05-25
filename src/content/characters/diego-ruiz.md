@@ -14,5 +14,3 @@ showInfo: false
 status: 'living'
 tags: ['Sombras de un Ángel Caído']
 ---
-
-# Diego Ruiz

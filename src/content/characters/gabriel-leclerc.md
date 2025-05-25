@@ -13,5 +13,3 @@ related_characters: ['etienne-miller']
 status: 'dead'
 tags: ['Sombras de un Ángel Caído']
 ---
-
-# Gabriel Leclerc

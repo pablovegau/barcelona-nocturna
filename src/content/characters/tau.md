@@ -13,5 +13,3 @@ related_characters: ['roc-puyol']
 status: 'living'
 tags: ['Ghoul']
 ---
-
-# Tau

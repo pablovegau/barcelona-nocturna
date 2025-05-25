@@ -17,7 +17,3 @@ role: 'Baronera de Barcelona'
 status: 'unlive'
 tags: ['kindred', 'Brujah', 'Anarquista']
 ---
-
-# Elena Torres
-
-<!-- Otyras cosas que se pueden poner son los lugares donde la han visto, en la descripcion que es la dueña del Nilfheil... Sus relaciones -->

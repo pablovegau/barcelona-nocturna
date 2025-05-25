@@ -14,5 +14,3 @@ showInfo: true
 status: 'living'
 tags: ['ghoul']
 ---
-
-# Ramiro Fonseca

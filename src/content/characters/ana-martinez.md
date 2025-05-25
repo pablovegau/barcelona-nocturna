@@ -16,5 +16,3 @@ related_characters: ['gabriel-leclerc']
 status: 'unlive'
 tags: ['Sombras de un Ángel Caído']
 ---
-
-# Ana Martínez

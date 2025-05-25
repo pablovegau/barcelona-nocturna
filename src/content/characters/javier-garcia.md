@@ -13,5 +13,3 @@ related_characters: ['francisco-orejas']
 status: 'living'
 tags: ['Sombras de un Ángel Caído']
 ---
-
-# Javier García

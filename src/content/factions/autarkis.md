@@ -1,5 +1,5 @@
 ---
-id: 'autarkis'
+slug: 'autarkis'
 name: 'Autarkis'
 name_es: 'Autarcas'
 ---
