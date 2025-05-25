@@ -13,10 +13,10 @@ nationality: 'spanish'
 pattern: 'default'
 race: 'kindred'
 related_characters: ['javier-gonzalez', 'elena-torres']
-role: '-'
+role: ''
 showInfo: true
 status: 'unlive'
 tags: []
 ---
 
-# Adriana Navarro
+Adriana es una vástaga anarquista perteneciente a la coterie Meigas. Hasta ahora, el grupo no ha tenido mucho contacto con ella; solo la han visto durante una reunión en la que ejercía como escolta de Dante Giscombe.  

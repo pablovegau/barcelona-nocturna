@@ -17,5 +17,3 @@ role: 'Primogénita Ventrue'
 status: 'unlive'
 tags: []
 ---
-
-# Isadora Blackwood

@@ -4,17 +4,12 @@ import { defineCollection, z, reference } from 'astro:content';
 const clans = defineCollection({
   loader: glob({
     pattern: 'src/content/clans/**/*.{md,mdx}',
-    generateId: ({ entry }) => 
-      entry
-        .replace('src/content/clans/', '')
-        .replace('.mdx', '')
-        .replace('.md', ''),
   }),
   schema: ({ image }) =>
     z.object({
-      id: z.string(),
+      slug: z.string(),
       name: z.string(),
-      spanish_name: z.string(),
+      name_es: z.string(),
       symbol: image(),
     }),
 });
@@ -22,15 +17,10 @@ const clans = defineCollection({
 const factions = defineCollection({
   loader: glob({
     pattern: 'src/content/factions/**/*.md',
-    generateId: ({ entry }) => 
-      entry
-        .replace('src/content/factions/', '')
-        .replace('.mdx', '')
-        .replace('.md', ''),
   }),
   schema: () =>
     z.object({
-      id: z.string(),
+      slug: z.string(),
       name: z.string(),
       name_es: z.string(),
     }),
@@ -39,11 +29,6 @@ const factions = defineCollection({
 const characters = defineCollection({
   loader: glob({
     pattern: 'src/content/characters/**/*.{md,mdx}',
-    generateId: ({ entry }) => 
-      entry
-        .replace('src/content/characters/', '')
-        .replace('.mdx', '')
-        .replace('.md', ''),
   }),
   schema: ({ image }) =>
     z.object({
@@ -81,10 +66,6 @@ const characters = defineCollection({
 const posts = defineCollection({
   loader: glob({
     pattern: 'src/content/posts/**/*.{md,mdx}',
-    generateId: ({ entry }) => 
-      entry
-        .replace('src/content/posts/', '')
-        .replace('.mdx', ''),
   }),
   schema: z.object({
     title: z.string(),

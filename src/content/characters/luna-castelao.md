@@ -14,5 +14,3 @@ showInfo: false
 status: 'living'
 tags: []
 ---
-
-# Luna Castelao

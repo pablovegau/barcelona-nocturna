@@ -18,5 +18,3 @@ showInfo: false
 status: 'unlive'
 tags: []
 ---
-
-# Raúl Esteban de la Vega

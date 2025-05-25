@@ -18,5 +18,3 @@ showInfo: true
 status: 'living'
 tags: []
 ---
-
-# Elena Venture

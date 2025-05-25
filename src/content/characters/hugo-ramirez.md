@@ -14,5 +14,3 @@ role: 'Técnico de sonido en el Ángel de Bruma'
 status: 'living'
 tags: ['Sombras de un Ángel Caído']
 ---
-
-# Hugo Ramírez

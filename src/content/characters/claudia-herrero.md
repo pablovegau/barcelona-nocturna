@@ -19,4 +19,3 @@ status: 'unlive'
 tags: ['Drogas de Sangre']
 ---
 
-# Claudia

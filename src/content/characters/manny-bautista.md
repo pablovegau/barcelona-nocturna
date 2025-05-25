@@ -13,5 +13,3 @@ related_characters: ['gabriel-leclerc']
 status: 'living'
 tags: ['Sombras de un Ángel Caído']
 ---
-
-# Manny Bautista

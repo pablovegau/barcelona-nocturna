@@ -16,5 +16,3 @@ related_characters: ['elena-torres', 'lucia-valdez']
 status: 'unlive'
 tags: []
 ---
-
-# Javier Gonzalez

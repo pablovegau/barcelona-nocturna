@@ -17,5 +17,3 @@ role: 'shadow'
 status: 'unlive'
 tags: []
 ---
-
-# Lucia Valdez'

@@ -1,5 +1,5 @@
 ---
-id: 'anarch'
+slug: 'anarch'
 name: 'Anarch'
 name_es: 'Anarquistas'
 ---

@@ -19,4 +19,4 @@ status: 'unlive'
 tags: []
 ---
 
-# Amira Al-Nasir
+Como Sheriff de Barcelona, Amira ejerce un papel fundamental en la Camarilla. Esta Banu Haqim de cabello moreno destaca por sus ojos negros como el azabache y su tez acaramelada.
