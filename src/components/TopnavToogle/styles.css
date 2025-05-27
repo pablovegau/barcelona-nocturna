@@ -1,0 +1,69 @@
+:root {
+  --bn--component--bg-color--topnav--control: var(--bn-base-color-gray--90);
+}
+
+[data-theme="dark"] {
+  --bn--component--bg-color--topnav--control: var(--bn-base-color-gray--0);
+}
+
+.topnav__control {
+  position: relative;
+  width: 32px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  @media (width > 40rem) {
+    display: none;
+  }
+}
+
+.topnav__iconBar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: var(--bn--component--bg-color--topnav--control);
+  border-radius: 2px;
+}
+
+.topnav__iconBar::before,
+.topnav__iconBar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--bn--component--bg-color--topnav--control);
+  transform-origin: center center;
+  transition: transform 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+
+.topnav__iconBar::before {
+  top: 10px;
+}
+
+.topnav__iconBar::after {
+  top: -10px;
+}
+
+.topnav__control[aria-expanded='true'] {
+  + .topnav__menu {
+    translate: 0;
+  }
+
+  .topnav__iconBar {
+    background-color: transparent;
+  }
+
+  .topnav__iconBar::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  .topnav__iconBar::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+}

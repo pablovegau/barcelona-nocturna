@@ -1,35 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
-
-import FilterItem from '@/components/FilterItem/FilterItem.astro';
-
-type FilterKey = 'clans';
-
-interface Props {
-  filterKey: FilterKey;
-  filterItems: string[];
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  symbolComponent: any;
-}
-
-const { filterKey, filterItems, symbolComponent } = Astro.props;
-
-const collection = await getCollection(filterKey);
 ---
 
 <div class="filterList">
-  {collection.map((item: { id: string; data: { name: string } }) => (
-    <FilterItem
-      checked={filterItems.includes(item.id)}
-      filterLabel={item.data.name}
-      dataFilter={item.id}
-      image={true}
-      id={item.id}
-      name={item.data.name}
-      value={item.id}
-      symbolComponent={symbolComponent}
-    />
-  ))}
+  <slot />
 </div>
 
 <style>

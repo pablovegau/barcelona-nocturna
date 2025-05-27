@@ -1,4 +1,6 @@
 ---
+import './styles.css';
+
 const headingOptions = {
   h1: 'xxl',
   h2: 'xl',
@@ -24,56 +26,5 @@ const Tag = tagName;
 </Tag>
 
 <style>
-  .heading {}
-
-  .xxl {
-    font-size: var(--bn-h1-min-font-size);
-    font-weight: var(--bn-h1-font-weight);
-
-    @media (min-width: 40rem) {
-      font-size: var(--bn-h1-max-font-size);
-    }
-  }
-
-  .xl {
-    font-size: var(--bn-h2-min-font-size);
-    font-weight: var(--bn-h2-font-weight);
-
-    @media (min-width: 40rem) {
-      font-size: var(--bn-h2-max-font-size);
-    }
-  }
-
-  .lg {
-    font-size: var(--bn-h3-min-font-size);
-    font-weight: var(--bn-h3-font-weight);
-
-    @media (min-width: 40rem) {
-      font-size: var(--bn-h3-max-font-size);
-    }
-  }
-
-  .left {
-    text-align: left;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  .right {
-    text-align: right;
-  }
-
-  /* .md {
-    font-size: 1.5rem;
-  }
-
-  .sm {
-    font-size: 1.25rem;
-  }
-
-  .xs {
-    font-size: 1rem;
-  } */
+  
 </style>

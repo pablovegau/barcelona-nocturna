@@ -1,17 +1,42 @@
 ---
+import { getClans } from '@domain/clans'
 import ClanSymbol from '@/components/ClanSymbol/ClanSymbol.astro';
 import FilterList from '@/components/FilterList/FilterList.astro';
+import FilterItem from '@/components/FilterItem/FilterItem.astro';
 
 const isFilterClansOpen =
   Astro.url.searchParams.get('clansFilterOpen') === 'true';
 
 const { filterItems } = Astro.props;
+
+const clans = await getClans();
 ---
 
 <div>
   <details class="filters" open={isFilterClansOpen}>
     <summary>Filtrar por Clan</summary>
-    <FilterList filterItems={filterItems} filterKey="clans" symbolComponent={ClanSymbol} />
+    <FilterList>
+      {clans.map((clan) => {
+        const isChecked:boolean = filterItems.includes(clan.id);
+
+        return (
+          <FilterItem
+            checked={isChecked}
+            dataFilter={clan.id}
+            id={clan.id}
+            name={clan.data.name}
+            value={clan.id}
+          >
+            <ClanSymbol 
+              alt={`${clan.data.name_es} symbol`} 
+              id={clan.id}
+              size={24} 
+            />
+            {clan.data.name_es}
+          </FilterItem>
+        )
+      })}
+    </FilterList>
   </details>
 </div>
 
@@ -23,16 +48,18 @@ const { filterItems } = Astro.props;
   details > summary {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
-    list-style: none;
     font-size: var(--bn-text-font-large);
     font-weight: bold;
-    transition: color 0.2s ease-in-out;
+    width: fit-content;
+  }
+
+  details[open] > summary {
+    margin-bottom: var(--bn-spacing-16);
   }
 
   details > summary::before {
     content: '';
-    width: 36px;
+    width: 28px;
     aspect-ratio: 1;
     background-image: url('/src/assets/success.svg');
     background-size: contain;
@@ -40,12 +67,16 @@ const { filterItems } = Astro.props;
     background-position: center;
     margin-right: var(--bn-spacing-8);
     transform: rotate(-90deg);
-    transition: transform 0.15s ease-in-out;
+    transition: transform 0.1s ease-in-out;
 
     /* Change color to white */
     filter: brightness(0) invert(1);
   }
 
+  html[data-theme="light"] details > summary::before {
+    filter: none;
+  }
+  
   details[open] > summary::before {
     transform: rotate(0);
   }

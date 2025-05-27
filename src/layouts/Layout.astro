@@ -96,30 +96,53 @@ const title = pageTitle
 
 	:root {
 		/* COLORS */
-		--bn-base-color-gray--0: hsl(0deg 0% 100%);
-		--bn-base-color-gray--2: hsl(0deg 0% 98.04%);
-		--bn-base-color-gray--5: hsl(0deg 0% 94.9%);
-		--bn-base-color-gray--10: hsl(0deg 0% 90.2%);
-		--bn-base-color-gray--20: hsl(0deg 0% 80%);
-		--bn-base-color-gray--30: #b3b3b3;
-		--bn-base-color-gray--40: #999;
-		--bn-base-color-gray--50: #808080;
-		--bn-base-color-gray--60: #666;
-		--bn-base-color-gray--70: #4d4d4d;
-		--bn-base-color-gray--80: #333;
-		--bn-base-color-gray--90: #1a1a1a;
-		--bn-base-color-gray--100: #000;
+		--bn-base-color-gray--0-raw: 0 0 100;
+		--bn-base-color-gray--100-raw: 0 0 0;
 
-		--bn-base-color-primary-raw: 353.22deg 89.85% 38.63%;
+		--bn-base-color-gray--0: hsl(0deg 0% 100%);
+		--bn-base-color-gray--2: hsl(0deg 0% 98%);
+		--bn-base-color-gray--5: hsl(0deg 0% 95%);
+		--bn-base-color-gray--10: hsl(0deg 0% 90%);
+		--bn-base-color-gray--20: hsl(0deg 0% 80%);
+		--bn-base-color-gray--30: hsl(0, 0%, 70%);
+		--bn-base-color-gray--40: hsl(0, 0%, 60%);
+		--bn-base-color-gray--50: hsl(0, 0%, 50%);
+		--bn-base-color-gray--60: hsl(0, 0%, 40%);
+		--bn-base-color-gray--70: hsl(0, 0%, 30%);
+		--bn-base-color-gray--80: hsl(0, 0%, 20%);
+		--bn-base-color-gray--90: hsl(0, 0%, 10%);
+		--bn-base-color-gray--100: hsl(0, 0%, 0%);
+
+		--bn-base-color-scenic-raw: 55, 90%, 35%;
+		--bn-base-color-primary-raw: 270, 50%, 50%;
+		--bn-base-color-secondary-raw: 48, 100%, 50%;
+		--bn-base-color-tertiary-raw: 231, 50%, 75%;
 		/* example of use with transparency:
 		color: hsl(var(--bn-base-color-primary-raw) / 100%); */
 
-		--bn-base-color-primary-light: hsl(353.22deg 89.85% 44%);
-		--bn-base-color-primary: hsl(353.22deg 89.85% 38.63%);
-		--bn-base-color-primary-dark: hsl(353.22deg 89.85% 32%);
-		--bn-base-color-secondary: #9ea8df;
-		--bn-base-color-tertiary: #e9efff;
-		--bn-base-color-quaternary: #6f7597;
+		--bn-base-color-scenic: hsl(355, 90%, 35%);
+		--bn-base-color-primary: hsl(270, 50%, 50%);
+		--bn-base-color-secondary: hsl(48, 100%, 50%);
+		--bn-base-color-tertiary: hsl(231, 50%, 75%);
+
+		--bn-base-color-scenic-extra-light: hsl(355, 70%, 65%);
+		--bn-base-color-scenic-light: hsl(355, 90%, 45%);
+		--bn-base-color-scenic-dark: hsl(355, 90%, 25%);
+
+		--bn-base-color-primary-extra-light: hsl(270, 50%, 70%);
+		--bn-base-color-primary-light: hsl(270, 50%, 60%);
+		--bn-base-color-primary-dark: hsl(270, 50%, 40%);
+		--bn-base-color-secondary-extra-dark: hsl(270, 50%, 30%);
+
+		--bn-base-color-secondary-extra-light: hsl(48, 100%, 70%);
+		--bn-base-color-secondary-light: hsl(48, 100%, 60%);
+		--bn-base-color-secondary-dark: hsl(48, 100%, 40%);
+		--bn-base-color-secondary-extra-dark: hsl(48, 100%, 30%);
+
+		--bn-base-color-tertiary-extra-light: hsl(231, 50%, 95%);
+		--bn-base-color-tertiary-light: hsl(231, 50%, 85%);
+		--bn-base-color-tertiary-dark: hsl(231, 50%, 65%);
+		--bn-base-color-tertiary-extra-dark: hsl(231, 50%, 55%);
 
 		/* SPACING */
 		--bn-spacing-4: 4px;
@@ -170,20 +193,31 @@ const title = pageTitle
 		--bn-breakpoint-tabletMin: 40rem;
 		--bn-breakpoint-laptopMin: 68.75rem;
 		--bn-breakpoint-desktopMin: 93.75rem;
+
+		color-scheme: light dark;
+
+		/* Light theme */
+		--app-background-color: var(--bn-base-color-gray--0);
+		--app-background-pattern-color: var(--bn-base-color-scenic);
+		--bn-text-color: var(--bn-base-color-gray--90);
+
+		--bn-link-color: var(--bn-base-color-primary);
+	}
+
+
+	/* Dark theme */
+	[data-theme="dark"] {
+		--app-background-color: var(--bn-base-color-gray--100);
+		--app-background-pattern-color: var(--bn-base-color-scenic);
+		--bn-text-color: var(--bn-base-color-gray--5);
+
+		--bn-link-color: var(--bn-base-color-secondary-extra-dark);
+		--bn-text-color-reverse: var(--bn-base-color-gray--90);
+		--bn-text-color-light: var(--bn-base-color-gray--30);
 	}
 </style>
 
 <style>
-	:root {
-		color-scheme: light dark;
-
-		--app-background-color: light-dark(var(--bn-base-color-gray--0), var(--bn-base-color-gray--100));
-		--app-background-pattern-color: light-dark(var(--bn-base-color-secondary), var(--bn-base-color-primary));
-		--bn-text-color: light-dark(var(--bn-base-color-gray--90), var(--bn-base-color-gray--10));
-		--bn-text-color-reverse: light-dark(var(--bn-base-color-gray--10), var(--bn-base-color-gray--90));
-		--bn-text-color-light: light-dark(var(--bn-base-color-gray--70), var(--bn-base-color-gray--30));
-	}
-
 	html {
 		position: relative;
 	}
@@ -223,3 +257,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 </script>
+
+<style is:global>
+  :root[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+</style>

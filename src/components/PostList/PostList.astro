@@ -21,17 +21,16 @@ const posts = (await getCollection('posts'))
 <style>
   .postList {
 		flex: var(--bn-content-flex);
-		max-width: 800px;
 		list-style: none;
 		padding: 0;
 	}
 
   .postList__item {
-		margin-block-end: 48px;
+		margin-block-end: var(--bn-spacing-48);
 	}
 
 	.postList__itemTitleLink {
-		color: var(--bn-base-color-tertiary);
+		color: var(--bn-text-color);
 		text-decoration: none;
 
 		&:hover {
@@ -45,7 +44,7 @@ const posts = (await getCollection('posts'))
 	}
 
   .postList__itemReadMore {
-    color: var(--bn-base-color-gray--30);
+    color: var(--bn-link-color);
 		text-decoration: none;
 		font-weight: 600;
 

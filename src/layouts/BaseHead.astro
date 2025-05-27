@@ -11,6 +11,17 @@ const { pageTitle = BLOG_TITLE, description = BLOG_DESCRIPTION } = Astro.props;
 ---
 
 <head>
+  <!-- Set theme before paint to avoid flickering -->
+  <script is:inline>
+    let theme = localStorage.getItem('theme');
+    if (!theme) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';  
+    }
+
+    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

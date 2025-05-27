@@ -1,3 +1,11 @@
+:root {
+  --bn--component-color--property-label: var(--bn-base-color-primary);
+}
+
+[data-theme="dark"] {
+  --bn--component-color--property-label: var(--bn-base-color-secondary);
+}
+
 .character {
   display: flex;
   flex-direction: column;
@@ -33,7 +41,7 @@ picture {
   gap: var(--bn-spacing-8);
 
   span {
-    color: var(--bn-base-color-secondary);
+    color: var(--bn--component-color--property-label);
     font-weight: 600;
   }
 }
