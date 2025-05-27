@@ -1,0 +1,21 @@
+---
+import TopnavToggle from '../TopnavToogle/TopnavToogle.astro';
+import './styles.css';
+---
+
+<nav>
+  <span id="nav-label" hidden>Navigation</span>
+
+  <TopnavToggle />
+
+  <div class="topnav__menu" role="dialog" aria-labelledby="nav-label">
+    <ul class="topnav__links">
+      <li class="topnav__item">
+        <a class="topnav__link" href="/characters">Personajes</a>
+      </li>
+      <li class="topnav__item">
+        <a class="topnav__link" href="/relations-map">Relaciones</a>
+      </li>
+    </ul>
+  </div>
+</nav>

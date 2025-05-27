@@ -5,10 +5,6 @@
     --bn-logo-width-medium: 10rem;
     --bn-logo-width-large: 11.25rem;
 
-    --bn-nav-link-color-light: var(--bn-base-color-gray--90);
-    --bn-nav-link-color-dark: var(--bn-base-color-gray--5);
-    --bn-nav-link-color: light-dark(var(--bn-nav-link-color-light), var(--bn-nav-link-color-dark));
-
     --bn-header-background-color-light--scrolled: rgb(255 255 255 / 20%);
     --bn-header-background-color-dark--scrolled: rgb(0 0 0 / 20%);
     --bn-header-background-color--scrolled: light-dark(var(--bn-header-background-color-light--scrolled), var(--bn-header-background-color-dark--scrolled));
@@ -89,3 +85,14 @@
       width: var(--bn-logo-width-large);
     }
   }
+
+.header__themeToggle {
+  display: flex;
+  justify-content: end;
+  flex: 1 0 auto;
+  margin-inline-end: var(--bn-spacing-24);
+
+  @media (width > 40rem) {
+    order: 3;
+  }
+}

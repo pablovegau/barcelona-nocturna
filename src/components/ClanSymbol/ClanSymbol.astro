@@ -5,13 +5,24 @@ import { getCollection } from 'astro:content';
 interface Props {
   alt: string;
   id: string;
+  invertedColor?: boolean;
   size: number;
 }
 
-const { alt, id, size } = Astro.props;
+const { alt, id, invertedColor, size } = Astro.props;
 
 const clanSymbols = await getCollection('clans');
 const clanSymbol = clanSymbols.find((clan) => clan.id === id);
+
+const classes = [
+  { 'inverted-color': invertedColor }
+];
 ---
 
-<Image src={clanSymbol!.data.symbol} alt={alt} width={size} height={size} />
+<Image src={clanSymbol!.data.symbol} alt={alt} width={size} height={size} class:list={classes} />
+
+<style>
+  .inverted-color {
+    filter: brightness(0) invert(1);
+  }
+</style>

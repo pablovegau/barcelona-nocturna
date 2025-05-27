@@ -1,28 +1,19 @@
 ---
 interface Props {
   checked: boolean;
-  filterLabel?: string;
-  image: boolean;
   dataFilter: string;
   id: string;
   name: string;
   value: string;
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  symbolComponent: any;
 }
 
 const {
   checked,
-  filterLabel,
-  image = false,
   dataFilter,
   id,
   name,
   value,
-  symbolComponent,
 } = Astro.props;
-
-const SymbolComponent = symbolComponent;
 ---
 
 <input
@@ -35,10 +26,7 @@ const SymbolComponent = symbolComponent;
   class="filterItem"
 >
   <label for={id} class="filterItem__label">
-    {
-      image && symbolComponent && <SymbolComponent alt={`${name} symbol`} id={id} size={24} />
-    }
-    {filterLabel}
+    <slot />
   </label>
 </input>
 
@@ -52,20 +40,20 @@ const SymbolComponent = symbolComponent;
     align-items: center;
     gap: var(--bn-spacing-8);
     width: fit-content;
-    border-radius: 8px;
+    border-radius: var(--bn-border-radius-8);
     padding: 2px var(--bn-spacing-8);
-    background-color: var(--bn-base-color-secondary);
+    background-color: var(--bn-base-color-tertiary-light);
     color: var(--bn-text-color-reverse);
     transition: background-color .3s, transform .2s;
     cursor: pointer;
 
     &:hover {
       transform: scale(1.04);
-      background-color: var(--bn-base-color-tertiary);
+      background-color: var(--bn-base-color-tertiary-extra-light);
     }
   }
 
   .filterItem:checked + .filterItem__label {
-    background-color: var(--bn-base-color-primary);
+    background-color: var(--bn-base-color-secondary);
   }
 </style>

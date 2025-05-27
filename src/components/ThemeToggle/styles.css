@@ -1,0 +1,63 @@
+:root {
+  --bn--component--color--theme-toggler: var(--bn-base-color-scenic-dark);
+}
+
+[data-theme="dark"] {
+  --bn--component--color--theme-toggler: var(--bn-base-color-gray--0);
+}
+
+.theme-toggle {
+  border: none;
+  border-radius: 50%;
+  padding: var(--bn-spacing-4);
+  aspect-ratio: 1;
+  background: none;
+  color: var(--bn--component--color--theme-toggler);
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: rotate 0.3s cubic-bezier(.26,.68,.67,1.59);
+}
+
+.sun-and-moon {
+  inline-size: 100%;
+  block-size: 100%;
+  stroke-linecap: round;
+}
+
+.moon > circle {
+  transform: translate(0px, 0px);
+  transition: transform 0.25s ease-in-out;
+}
+
+html[data-theme="light"] .moon > circle {
+  transform: translate(-9px, -2px);
+}
+
+.sun {
+  transform-origin: center center;
+  scale: 1;
+  transition: scale 0.5s ease-in-out;
+}
+
+html[data-theme="light"] .sun {
+  scale: 1.75;
+}
+
+.sun-beans {
+  transform-origin: center center;
+  stroke-width: 2;
+  rotate: 0deg;
+  opacity: 1;
+  transition: rotate 0.5s cubic-bezier(.26,.68,.67,1.59), opacity 0.5s ease-in-out;
+}
+
+.theme-toggle:hover  {
+  rotate: 25deg;
+}
+
+[data-theme="light"] .sun-beans {
+  rotate: 45deg;
+  opacity: 0;
+}
