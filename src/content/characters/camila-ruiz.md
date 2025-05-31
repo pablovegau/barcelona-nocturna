@@ -11,7 +11,7 @@ image: '../../assets/character_images/camila-ruiz.png'
 name: 'Camila Ruiz'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

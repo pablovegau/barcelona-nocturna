@@ -11,7 +11,7 @@ image: '../../assets/character_images/amara-kessel.png'
 name: 'Amara Kessel'
 nationality: 'israelite'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

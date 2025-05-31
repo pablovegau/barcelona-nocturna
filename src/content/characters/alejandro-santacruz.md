@@ -11,7 +11,7 @@ image: '../../assets/character_images/alejandro-santacruz.png'
 name: 'Alejandro Santacruz'
 nationality: 'argentinian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['isabella-dangelo', 'lucas-roselli', 'livia-santoro', 'marco-requena']
 role: ''
 showInfo: true

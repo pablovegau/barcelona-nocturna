@@ -8,7 +8,7 @@ image: '../../assets/character_images/gabriel-leclerc.png'
 name: 'Gabriel Leclerc'
 nationality: 'french'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: ['etienne-miller']
 status: 'dead'
 tags: ['Sombras de un Ángel Caído']

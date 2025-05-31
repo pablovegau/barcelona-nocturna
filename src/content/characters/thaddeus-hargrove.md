@@ -11,7 +11,7 @@ image: '../../assets/character_images/thaddeus-hargrove.png'
 name: 'Thaddeus Hargrove'
 nationality: 'german'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

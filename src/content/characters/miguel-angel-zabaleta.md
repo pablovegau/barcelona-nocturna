@@ -11,7 +11,7 @@ image: '../../assets/character_images/miguel-angel-zabaleta.png'
 name: 'Miguel Á. Zabaleta'
 nationality: 'spanish'
 pattern: 'childrenVampireWorld'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['elena-venture', 'paris-fernandez', 'roc-puyol', 'ezequiel-medina']
 role: '---'
 showInfo: true

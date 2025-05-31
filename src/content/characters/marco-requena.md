@@ -11,7 +11,7 @@ image: '../../assets/character_images/marco-requena.png'
 name: 'Marco Requena'
 nationality: 'Egyptian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

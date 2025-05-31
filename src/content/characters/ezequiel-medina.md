@@ -11,7 +11,7 @@ image: '../../assets/character_images/ezequiel-medina.png'
 name: 'Ezequiel Medina'
 nationality: 'spanish'
 pattern: 'childrenVampireWorld'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['elena-venture', 'paris-fernandez', 'miguel-angel-zabaleta', 'roc-puyol']
 role: '---'
 showInfo: true

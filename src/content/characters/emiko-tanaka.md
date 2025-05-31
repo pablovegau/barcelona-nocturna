@@ -11,7 +11,7 @@ image: '../../assets/character_images/emiko-tanaka.png'
 name: 'Emiko Tanaka'
 nationality: 'japanese'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

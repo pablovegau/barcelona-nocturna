@@ -11,7 +11,7 @@ image: '../../assets/character_images/ragnar-bjornsson.png'
 name: 'Ragnar Bjornsson'
 nationality: 'icelander'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

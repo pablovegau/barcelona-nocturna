@@ -11,7 +11,7 @@ image: '../../assets/character_images/yasir-al-hadi.png'
 name: 'Yasir al-Hadi'
 nationality: 'Yemeni'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

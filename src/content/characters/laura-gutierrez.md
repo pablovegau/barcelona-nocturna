@@ -11,7 +11,7 @@ image: '../../assets/character_images/laura-gutierrez.png'
 name: 'Laura Gutiérrez'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

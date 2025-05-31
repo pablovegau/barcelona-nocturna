@@ -1,26 +1,24 @@
 ---
 import { Image, getImage } from 'astro:assets';
-import { getCollection } from 'astro:content';
 import ChildrenVampireWorld from '../../assets/polaroid_backgrounds/childrenVampireWorld.png';
-import InternalPolaroid from './InternalPolaroid/InternalPolaroid.tsx';
+
+import styles from './polaroid.module.css';
 
 interface Props {
-  keyName: string;
+  id: string;
+  altText?: string;
+  image?: { 
+    src: string,
+    width: number,
+    height: number,
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif"
+  };
+  name?: string;
+  pattern?: string;
   size?: 'sm' | 'md' | 'lg';
 }
 
-const { keyName, size } = Astro.props;
-
-// TODO: Review why I ask for all the collection and not just the one I need
-const characters = await getCollection('characters');
-const characterRaw = characters.find((character) => character.id === keyName);
-
-const {
-  altText = '',
-  image,
-  name = 'john-doe',
-  pattern,
-} = characterRaw?.data || {};
+const { altText = '', id, image, name, pattern, size = 'md' } = Astro.props;
 
 let optimizedBackground: { src: string } | undefined;
 
@@ -32,16 +30,26 @@ if (pattern === 'childrenVampireWorld') {
 }
 
 const backgroundURL = optimizedBackground?.src || '';
+
+const polaroidClasses = [
+  styles.polaroid, {
+    [styles[size]]: size
+  }
+]
 ---
 
-<a href={`/characters/${characterRaw?.id}`}>
-  <InternalPolaroid client:load
-    backgroundURL={backgroundURL}
-    name={name}
-    size={size}
+<a href={`/characters/${id}`}>
+  <div
+    class:list={polaroidClasses}
+    style={{ '--background': `url(${backgroundURL})` } as React.CSSProperties}
   >
-    {image && <Image src={image} alt={altText} format="webp" quality="mid" transition:name={`character-${characterRaw?.id}`}/>}
-  </InternalPolaroid>
+    <figure>
+      <div class={styles.polaroid__image}>
+        {image && <Image src={image} alt={altText} format="webp" quality="mid" transition:name={`character-${id}`}/>}
+      </div>
+      <figcaption>{name}</figcaption>
+    </figure>
+  </div>
 </a>
 
 <style>

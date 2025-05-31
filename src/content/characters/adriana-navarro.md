@@ -11,7 +11,7 @@ image: '../../assets/character_images/adriana-navarro.png'
 name: 'Adriana Navarro'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['javier-gonzalez', 'elena-torres']
 role: ''
 showInfo: true

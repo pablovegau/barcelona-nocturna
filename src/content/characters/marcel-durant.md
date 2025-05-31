@@ -11,7 +11,7 @@ image: '../../assets/character_images/marcel-durant.png'
 name: 'Marcel Durant'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

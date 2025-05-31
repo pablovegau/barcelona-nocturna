@@ -11,7 +11,7 @@ image: '../../assets/character_images/hector-vega.png'
 name: 'Hector Vega'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['gabriel-leclerc']
 status: 'unlive'
 tags: ['Sombras de un Ángel Caído']

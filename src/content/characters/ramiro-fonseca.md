@@ -8,7 +8,7 @@ image: '../../assets/character_images/ramiro-fonseca.png'
 name: 'Ramiro Fonseca'
 nationality: 'spanish'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 showInfo: true
 status: 'living'

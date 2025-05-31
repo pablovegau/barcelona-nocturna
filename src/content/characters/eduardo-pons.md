@@ -11,7 +11,7 @@ image: '../../assets/character_images/eduardo-pons.png'
 name: 'Eduardo Pons'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'primogen'
 showInfo: false

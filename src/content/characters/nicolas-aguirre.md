@@ -11,7 +11,7 @@ image: '../../assets/character_images/nicolas-aguirre.png'
 name: 'Nicolás Aguirre'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

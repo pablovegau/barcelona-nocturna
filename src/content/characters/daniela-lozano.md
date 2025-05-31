@@ -11,7 +11,7 @@ image: '../../assets/character_images/daniela-lozano.png'
 name: 'Daniela Lozano'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

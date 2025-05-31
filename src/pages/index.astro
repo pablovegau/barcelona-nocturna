@@ -1,13 +1,15 @@
 ---
-import BlobBlood from '../components/BlobBlood/BlobBlood.astro';
+import { getCharactersById } from '@domain/characters';
 import Hero from '../components/Hero/Hero.astro';
 import PostList from '../components/PostList/PostList.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const characters = await getCharactersById(["elena-venture", "roc-puyol", "miguel-angel-zabaleta", "paris-fernandez", "ezequiel-medina"])
 ---
 
 <BaseLayout>
 	<!-- <BlobBlood /> -->
-	<Hero />
+	<Hero characters={characters} />
 
 	<div class="content">
 		<PostList/>

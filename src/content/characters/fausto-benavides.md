@@ -11,7 +11,7 @@ image: '../../assets/character_images/fausto-benavides.png'
 name: 'Fausto Benavides'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'prince'
 showInfo: false

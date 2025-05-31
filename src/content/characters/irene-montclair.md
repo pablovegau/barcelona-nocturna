@@ -11,7 +11,7 @@ image: '../../assets/character_images/irene-montclair.png'
 name: 'Irene Montclair'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'primogen'
 showInfo: false

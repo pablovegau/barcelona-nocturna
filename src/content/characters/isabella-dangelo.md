@@ -11,7 +11,7 @@ image: '../../assets/character_images/isabella-dangelo.png'
 name: 'Isabella D’Angelo'
 nationality: 'italian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'independent lider'
 showInfo: false

@@ -11,7 +11,7 @@ image: '../../assets/character_images/mara-kovac.png'
 name: 'Mara Kovac'
 nationality: 'croatian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'primogen'
 showInfo: false

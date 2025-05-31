@@ -11,7 +11,7 @@ image: '../../assets/character_images/freya-larsen.png'
 name: 'Freya Larsen'
 nationality: 'norwegian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

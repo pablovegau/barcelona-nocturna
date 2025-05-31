@@ -1,18 +1,31 @@
 ---
 import Polaroid from '@/components/Polaroid/Polaroid.astro';
 
+import { getCharactersById } from '@domain/characters';
+
 interface Props {
   names?: string[];
   size?: 'sm' | 'md' | 'lg';
 }
 
 const { names, size = 'sm' } = Astro.props;
+
+const characters = await getCharactersById(names || []);
 ---
 
 <section class="polaroidGroup">
-  {names?.map((name) => (
-    <Polaroid keyName={name} size={size} />
-  ))}
+  {characters?.map((character) => {
+    const { id, data } = character;
+    const { altText, image, name, pattern } = data || {};
+
+    return <Polaroid 
+      altText={altText}
+      image={image}
+      id={id} 
+      name={name}
+      pattern={pattern}
+      size={size} />
+  })}
 </section>
 
 <style>

@@ -11,7 +11,7 @@ image: '../../assets/character_images/silvia-caceres.png'
 name: 'Silvia Cáceres'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'censor'
 showInfo: false

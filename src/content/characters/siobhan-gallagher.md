@@ -11,7 +11,7 @@ image: '../../assets/character_images/siobhan-gallagher.png'
 name: 'Siobhán Gallagher'
 nationality: 'irish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

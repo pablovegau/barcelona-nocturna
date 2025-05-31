@@ -8,7 +8,7 @@ image: '../../assets/character_images/tau.png'
 name: 'Tau'
 nationality: 'australian'
 pattern: 'childrenVampireWorld'
-race: 'ghoul'
+entityType: 'ghoul'
 related_characters: ['roc-puyol']
 status: 'living'
 tags: ['Ghoul']

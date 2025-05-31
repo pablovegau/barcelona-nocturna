@@ -11,7 +11,7 @@ image: '../../assets/character_images/lucia-valdez.png'
 name: 'Lucia Valdez'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['elena-torres', 'javier-gonzalez']
 role: 'shadow'
 status: 'unlive'

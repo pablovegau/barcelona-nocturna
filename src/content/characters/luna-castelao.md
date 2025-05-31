@@ -8,7 +8,7 @@ image: '../../assets/character_images/luna-castelao.png'
 name: 'Luna Castelao'
 nationality: 'spanish'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 showInfo: false
 status: 'living'

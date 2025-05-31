@@ -11,7 +11,7 @@ image: '../../assets/character_images/alexander-volkov.png'
 name: 'Alexander Volkov'
 nationality: 'russian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['lorelei-klein']
 role: ''
 showInfo: false

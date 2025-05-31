@@ -11,7 +11,7 @@ image: '../../assets/character_images/elizabeth-walker.png'
 name: 'Elizabeth Walker'
 nationality: 'american'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'emissary'
 showInfo: false

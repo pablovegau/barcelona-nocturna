@@ -11,7 +11,7 @@ image: '../../assets/character_images/lorelay-klein.png'
 name: 'Lorelay Klein'
 nationality: 'german'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['alexander-volkov']
 role: ''
 showInfo: false

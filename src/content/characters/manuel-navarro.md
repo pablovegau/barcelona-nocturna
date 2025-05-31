@@ -11,7 +11,7 @@ image: '../../assets/character_images/manuel-navarro.png'
 name: 'Manuel Navarro'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'harpy'
 showInfo: false
