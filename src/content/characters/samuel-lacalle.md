@@ -11,7 +11,7 @@ image: '../../assets/character_images/samuel-lacalle.png'
 name: 'Samuel Lacalle'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'Gang Leader'
 showInfo: false

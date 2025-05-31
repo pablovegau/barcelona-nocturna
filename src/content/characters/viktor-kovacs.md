@@ -12,7 +12,7 @@ name: 'unknown'
 # name: 'Viktor Kovács'
 nationality: 'romanian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: true

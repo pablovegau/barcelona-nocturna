@@ -8,7 +8,7 @@ image: '../../assets/character_images/diego-ruiz.png'
 name: 'Diego Ruiz'
 nationality: 'spanish'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 showInfo: false
 status: 'living'

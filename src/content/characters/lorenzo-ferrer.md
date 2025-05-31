@@ -11,7 +11,7 @@ image: '../../assets/character_images/lorenzo-ferrer.png'
 name: 'Lorenzo Ferrer'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'primogen'
 showInfo: false

@@ -11,7 +11,7 @@ image: '../../assets/character_images/amira-al-nasir.png'
 name: 'Amira Al-Nasir'
 nationality: 'Lebanese'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['tariq-ibn-jafar', 'victor-morales', 'mara-kovac', 'raul-delgado']
 role: 'sheriff'
 showInfo: true

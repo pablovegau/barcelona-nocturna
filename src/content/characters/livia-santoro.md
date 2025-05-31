@@ -11,7 +11,7 @@ image: '../../assets/character_images/livia-santoro.png'
 name: 'Livia Santoro'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

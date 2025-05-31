@@ -11,7 +11,7 @@ image: '../../assets/character_images/elena-venture.png'
 name: 'Elena Venture'
 nationality: 'spanish'
 pattern: 'childrenVampireWorld'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['miguel-angel-zabaleta', 'paris-fernandez', 'roc-puyol', 'ezequiel-medina']
 role: '---'
 showInfo: true

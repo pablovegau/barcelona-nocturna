@@ -11,7 +11,7 @@ image: '../../assets/character_images/aria-tzavalos.png'
 name: 'Aria Tzavalos'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

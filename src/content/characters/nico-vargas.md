@@ -11,7 +11,7 @@ image: '../../assets/character_images/nico-vargas.png'
 name: 'Nico Vargas'
 nationality: 'spanish (gipsy)'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['mara-kovac']
 role: ''
 showInfo: false

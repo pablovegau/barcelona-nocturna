@@ -11,7 +11,7 @@ image: '../../assets/character_images/eva-moreno.png'
 name: 'Eva Moreno'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'herald'
 showInfo: false

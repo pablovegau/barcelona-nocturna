@@ -11,7 +11,7 @@ image: '../../assets/character_images/niara-kalua.png'
 name: 'Niara Kalua'
 nationality: 'malawian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['gabriel-leclerc']
 role: ''
 showInfo: false

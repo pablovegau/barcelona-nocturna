@@ -8,7 +8,7 @@ image: '../../assets/character_images/samantha-diamante.png'
 name: 'Samantha Diamante'
 nationality: 'spanish'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: ['gabriel-leclerc', 'maria-peineta']
 status: 'living'
 tags: ['El Ángel de Bruma', 'Sombras de un Ángel Caído']

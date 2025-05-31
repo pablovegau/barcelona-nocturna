@@ -11,7 +11,7 @@ image: '../../assets/character_images/seraphine-nocturne.png'
 name: 'Seraphine Nocturne'
 nationality: 'Austrian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

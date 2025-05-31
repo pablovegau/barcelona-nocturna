@@ -8,7 +8,7 @@ image: '../../assets/character_images/jaime-dominguez.png'
 name: 'Jaime Dominguez'
 nationality: 'colombian'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 showInfo: false
 status: 'living'

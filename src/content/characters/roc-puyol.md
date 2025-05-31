@@ -11,7 +11,7 @@ image: '../../assets/character_images/roc-puyol.png'
 name: 'Roc Puyol'
 nationality: 'spanish'
 pattern: 'childrenVampireWorld'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['elena-venture', 'paris-fernandez', 'miguel-angel-zabaleta', 'ezequiel-medina']
 role: '---'
 showInfo: true

@@ -8,7 +8,7 @@ image: '../../assets/character_images/mateo-herrera.png'
 name: 'Mateo Herrera'
 nationality: 'venezuelan'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 role: 'Médico forense'
 status: 'living'

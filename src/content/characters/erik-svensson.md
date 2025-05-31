@@ -11,7 +11,7 @@ image: '../../assets/character_images/erik-svensson.png'
 name: 'Erik Svensson'
 nationality: ''
 pattern: 'swedish'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

@@ -11,7 +11,7 @@ image: '../../assets/character_images/ares-salazar.png'
 name: 'Ares Salazar'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'Gang Leader'
 showInfo: false

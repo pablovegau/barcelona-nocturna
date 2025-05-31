@@ -11,7 +11,7 @@ image: '../../assets/character_images/elena-torres.png'
 name: 'Elena Torres'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['javier-gonzalez', 'lucia-valdez']
 role: 'Baronera de Barcelona'
 status: 'unlive'

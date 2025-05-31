@@ -8,7 +8,7 @@ image: '../../assets/character_images/pavel-kuznetsov.png'
 name: 'Pavel Kuznetsov'
 nationality: 'russian'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 showInfo: false
 status: 'living'

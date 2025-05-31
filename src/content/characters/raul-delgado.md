@@ -11,7 +11,7 @@ image: '../../assets/character_images/raul-delgado.png'
 name: 'Raúl Delgado'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'primogen'
 showInfo: false

@@ -28,9 +28,9 @@ const clans = await getClans();
             value={clan.id}
           >
             <ClanSymbol 
-              alt={`${clan.data.name_es} symbol`} 
-              id={clan.id}
-              size={24} 
+              alt={`${clan.data.name_es} symbol`}
+              size={24}
+              symbol={clan.data.symbol}
             />
             {clan.data.name_es}
           </FilterItem>

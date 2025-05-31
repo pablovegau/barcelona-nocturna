@@ -11,7 +11,7 @@ image: '../../assets/character_images/zahra-hashemi.png'
 name: 'Zahra Hashemi'
 nationality: 'Afghan'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: true

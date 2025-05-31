@@ -8,7 +8,7 @@ image: '../../assets/character_images/lucia-fernandez.png'
 name: 'Lucia Fernández'
 nationality: 'spanish'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 showInfo: false
 status: 'living'

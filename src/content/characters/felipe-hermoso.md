@@ -8,7 +8,7 @@ image: '../../assets/character_images/felipe-hermoso.png'
 name: 'Felipe "El Hermoso"'
 nationality: 'spanish'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 status: 'living'
 tags: ['Sombras de un Ángel Caído']

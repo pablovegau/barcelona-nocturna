@@ -11,7 +11,7 @@ image: '../../assets/character_images/lucas-medina.png'
 name: 'Lucas Medina'
 nationality: 'argentinian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

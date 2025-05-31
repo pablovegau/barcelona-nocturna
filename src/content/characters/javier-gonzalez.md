@@ -11,7 +11,7 @@ image: '../../assets/character_images/javier-gonzalez.png'
 name: 'Javier Gonzalez'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['elena-torres', 'lucia-valdez']
 status: 'unlive'
 tags: []

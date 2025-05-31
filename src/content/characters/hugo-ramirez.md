@@ -8,7 +8,7 @@ image: '../../assets/character_images/hugo-ramirez.png'
 name: 'Hugo Ramírez'
 nationality: 'spanish'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: ['gabriel-leclerc']
 role: 'Técnico de sonido en el Ángel de Bruma'
 status: 'living'

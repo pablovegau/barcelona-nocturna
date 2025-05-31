@@ -11,7 +11,7 @@ image: '../../assets/character_images/dante-giscombe.png'
 name: 'Dante Giscombe'
 nationality: 'Congolese'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'Gang Leader'
 showInfo: false

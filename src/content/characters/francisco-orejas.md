@@ -8,7 +8,7 @@ image: '../../assets/character_images/francisco-orejas.png'
 name: 'Francisco Orejas'
 nationality: 'spanish'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: ['javier-garcia']
 status: 'living'
 tags: ['Sombras de un Ángel Caído']

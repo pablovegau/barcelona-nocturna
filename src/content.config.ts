@@ -26,6 +26,19 @@ const factions = defineCollection({
     }),
 });
 
+const entityTypes = defineCollection({
+  loader: glob({
+    pattern: 'src/content/entityTypes/**/*.md',
+  }),
+  schema: () =>
+    z.object({
+      slug: z.string(),
+      name: z.string(),
+      name_es: z.string(),
+      category: z.string(),
+    }),
+});
+
 const characters = defineCollection({
   loader: glob({
     pattern: 'src/content/characters/**/*.{md,mdx}',
@@ -37,16 +50,6 @@ const characters = defineCollection({
       character_type: z.enum(['npc', 'pc']),
       clan: reference('clans').optional(),
       coterie: z.string().optional(),
-      cult: z
-        .enum([
-          'anarchs',
-          'camarilla',
-          'sabbat',
-          'independent',
-          'autarkis',
-          'unknown',
-        ])
-        .optional(),
       faction: reference('factions').optional(),
       description: z.string().optional(),
       hide: z.boolean(),
@@ -54,7 +57,7 @@ const characters = defineCollection({
       name: z.string(),
       nationality: z.string(),
       pattern: z.string(),
-      race: z.enum(['kindred', 'ghoul', 'mortal', 'garou']),
+      entityType: reference('entityTypes'),
       related_characters: z.array(z.string()).optional(),
       role: z.string().optional(), // TODO: this can be an array
       showInfo: z.boolean().optional(),
@@ -83,4 +86,5 @@ export const collections = {
   clans,
   factions,
   posts,
+  entityTypes,
 };

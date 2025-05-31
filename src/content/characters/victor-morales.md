@@ -11,7 +11,7 @@ image: '../../assets/character_images/victor-morales.png'
 name: 'Victor Morales'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: 'scourge'
 showInfo: false

@@ -1,22 +1,64 @@
 ---
+import type { Character } from '@domain/types'
 import Polaroid from '@/components/Polaroid/Polaroid.astro';
+
+interface Props {
+	characters: Character[]
+}
+
+const { characters } = Astro.props;
 ---
 
 <div class="polaroid_wrapper">
   <div class="one">
-    <Polaroid keyName="elena-venture" size="sm" />
+    <Polaroid 
+			id={characters[0].id} 
+			altText={characters[0].data.altText} 
+			image={characters[0].data.image}
+			name={characters[0].data.name}
+			pattern={characters[0].data.pattern}
+			size="sm" 
+		/>
   </div>
   <div class="two">
-		<Polaroid keyName="roc-puyol" size="sm" />
+		<Polaroid 
+			id={characters[1].id} 
+			altText={characters[1].data.altText} 
+			image={characters[1].data.image}
+			name={characters[1].data.name}
+			pattern={characters[1].data.pattern}
+			size="sm" 
+		/>
   </div>
   <div class="three">
-		<Polaroid keyName="miguel-angel-zabaleta" size="sm" />
+		<Polaroid 
+			id={characters[2].id} 
+			altText={characters[2].data.altText} 
+			image={characters[2].data.image}
+			name={characters[2].data.name}
+			pattern={characters[2].data.pattern}
+			size="sm" 
+		/>
   </div>
   <div class="four">
-		<Polaroid keyName="paris-fernandez" size="sm" />
+		<Polaroid 
+			id={characters[3].id} 
+			altText={characters[3].data.altText} 
+			image={characters[3].data.image}
+			name={characters[3].data.name}
+			pattern={characters[3].data.pattern}
+			size="sm" 
+		/>
   </div>
 	<div class="five">
-		<Polaroid keyName="ezequiel-medina" size="sm" />
+		<Polaroid 
+			id={characters[4].id} 
+			altText={characters[4].data.altText} 
+			image={characters[4].data.image}
+			name={characters[4].data.name}
+			pattern={characters[4].data.pattern}
+			size="sm" 
+		/>
   </div>
 </div>
 

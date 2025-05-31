@@ -11,7 +11,7 @@ image: '../../assets/character_images/selene-castellanos.png'
 name: 'Selene Castellanos'
 nationality: 'spanish'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

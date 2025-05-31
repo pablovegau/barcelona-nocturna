@@ -11,7 +11,7 @@ image: '../../assets/character_images/lucien-dubois.png'
 name: 'Lucien Dubois'
 nationality: 'french'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: ['gabriel-leclerc']
 role: ''
 showInfo: false

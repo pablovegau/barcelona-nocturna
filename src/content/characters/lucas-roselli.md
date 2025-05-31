@@ -11,7 +11,7 @@ image: '../../assets/character_images/lucas-roselli.png'
 name: 'Lucas Roselli'
 nationality: 'italian'
 pattern: 'default'
-race: 'kindred'
+entityType: 'vampire'
 related_characters: []
 role: ''
 showInfo: false

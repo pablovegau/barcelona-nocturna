@@ -8,7 +8,7 @@ image: '../../assets/character_images/etienne-miller.png'
 name: 'Étienne Miller'
 nationality: 'french'
 pattern: 'default'
-race: 'mortal'
+entityType: 'human'
 related_characters: []
 status: 'living'
 tags: ['Sombras de un Ángel Caído']
