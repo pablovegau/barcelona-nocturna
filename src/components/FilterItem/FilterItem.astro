@@ -3,24 +3,21 @@ import './styles.css';
 
 interface Props {
   checked: boolean;
-  dataFilter: string;
+  dataFilterValue: string;
+  dataFilterType: string;
   id: string;
   name: string;
   value: string;
 }
 
-const {
-  checked,
-  dataFilter,
-  id,
-  name,
-  value,
-} = Astro.props;
+const { checked, dataFilterValue, dataFilterType, id, name, value } =
+  Astro.props;
 ---
 
 <input
   checked={checked}
-  data-filter={dataFilter}
+  data-filter-value={dataFilterValue}
+  data-filter-type={dataFilterType}
   id={id}
   name={name}
   type="checkbox"

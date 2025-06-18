@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 
-import { getCharactersNamesFilteredByClan } from '@/domain/characters';
+import { getCharactersNamesFiltered } from '@/domain/characters';
 
 import Filters from '@/components/Filters/Filters.astro';
 import Heading from '@/components/Heading/Heading.astro';
@@ -11,9 +11,19 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import getSearchParamAsArray from '@/lib/getSearchParamAsArray';
 
 const selectedClans = getSearchParamAsArray(Astro.url, 'clan');
+const selectedEntityTypes = getSearchParamAsArray(Astro.url, 'entityType');
+const selectedFactions = getSearchParamAsArray(Astro.url, 'faction');
 
-const filteredCharacterNames = await getCharactersNamesFilteredByClan(
+const selectedFilters = [
+  ...selectedClans,
+  ...selectedEntityTypes,
+  ...selectedFactions
+];
+
+const filteredCharacterNames = await getCharactersNamesFiltered(
   selectedClans,
+  selectedEntityTypes,
+  selectedFactions
 );
 ---
 
@@ -25,7 +35,7 @@ const filteredCharacterNames = await getCharactersNamesFilteredByClan(
       <PolaroidGroup names={filteredCharacterNames} size='sm' />
     </div>
     <aside class="characters__filters">
-      <Filters filterItems={selectedClans}/>
+      <Filters filterItems={selectedFilters}/>
     </aside>
   </div>
 </BaseLayout>
