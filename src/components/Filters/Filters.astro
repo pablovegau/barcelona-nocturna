@@ -130,7 +130,7 @@ const factions = await getFactions();
   filterClans?.addEventListener('toggle', () => {
     const newUrl = setNewURLParamsToggleClans({
       url: new URL(window.location.href),
-      isFilterClansOpen: filterClans.open
+      isFilterClansOpen: (filterClans as HTMLDetailsElement).open
     });
 
     // Actualizar la URL sin recargar la página
@@ -142,7 +142,7 @@ const factions = await getFactions();
   filterEntityType?.addEventListener('toggle', () => {
     const newUrl = setNewURLParamsToggleEntityTypes({
       url: new URL(window.location.href),
-      isFilterEntityTypesOpen: filterEntityType.open
+      isFilterEntityTypesOpen: (filterClans as HTMLDetailsElement).open
     });
 
     // Actualizar la URL sin recargar la página
@@ -154,7 +154,7 @@ const factions = await getFactions();
   filterFactions?.addEventListener('toggle', () => {
     const newUrl = setNewURLParamsToggleFactions({
       url: new URL(window.location.href),
-      isFilterFactionsOpen: filterFactions.open
+      isFilterFactionsOpen: (filterClans as HTMLDetailsElement).open
     });
 
     // Actualizar la URL sin recargar la página
