@@ -97,3 +97,17 @@ export async function getCharactersNamesFilteredByClan(clans: string[]) {
 
   return characterIds;
 }
+
+export async function getCharactersNamesFiltered(clans: string[], entityTypes: string[], selectedFactions: string[]) {
+  const characters = await getVisibleCharacters();
+
+  const filteredCharacters = characters.filter(({ data }) => {
+    const matchesEntityType = entityTypes.length === 0 || (data.entityType?.id && entityTypes.includes(data.entityType.id));
+    const matchesClan = clans.length === 0 || (data.clan?.id && clans.includes(data.clan.id));
+    const matchesFaction = selectedFactions.length === 0 || (data.faction?.id && selectedFactions.includes(data.faction.id));
+    
+    return matchesEntityType && matchesClan && matchesFaction;
+  });
+
+  return getCharactersIds(filteredCharacters);
+}

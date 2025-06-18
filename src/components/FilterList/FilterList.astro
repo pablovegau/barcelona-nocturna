@@ -1,9 +1,15 @@
 ---
+const { isFilterOpen, collectionName, filterByLabel } = Astro.props;
+
+import '../Filters/styles.css';
 ---
 
-<div class="filterList">
-  <slot />
-</div>
+<details class="filters" id={`filter-${collectionName}`} open={isFilterOpen}>
+  <summary>{`Filtrar por ${filterByLabel}`}</summary>
+    <div class="filterList">
+      <slot />
+    </div>
+  </details>
 
 <style>
   .filterList {

@@ -1,0 +1,43 @@
+.filters {
+  margin-block-start: var(--bn-spacing-28);
+}
+
+details > summary {
+  display: flex;
+  align-items: center;
+  font-size: var(--bn-text-font-large);
+  font-weight: bold;
+  width: fit-content;
+}
+
+details[open] > summary {
+  margin-bottom: var(--bn-spacing-16);
+}
+
+details > summary::before {
+  content: '';
+  width: 28px;
+  aspect-ratio: 1;
+  background-image: url('/src/assets/success.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: var(--bn-spacing-8);
+  transform: rotate(-90deg);
+  transition: transform 0.1s ease-in-out;
+
+  /* Change color to white */
+  filter: brightness(0) invert(1);
+}
+
+html[data-theme="light"] details > summary::before {
+  filter: none;
+}
+
+details[open] > summary::before {
+  transform: rotate(0);
+}
+
+details > summary:hover {
+  cursor: pointer;
+}
