@@ -1,3 +1,7 @@
+.filterItem__container {
+  display: inline-block;
+}
+
 .filterItem {
   display: none;
 }

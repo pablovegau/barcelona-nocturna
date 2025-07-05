@@ -14,17 +14,18 @@ const { checked, dataFilterValue, dataFilterType, id, name, value } =
   Astro.props;
 ---
 
-<input
-  checked={checked}
-  data-filter-value={dataFilterValue}
-  data-filter-type={dataFilterType}
-  id={id}
-  name={name}
-  type="checkbox"
-  value={value}
-  class="filterItem"
->
+<div class="filterItem__container">
+  <input
+    checked={checked}
+    data-filter-value={dataFilterValue}
+    data-filter-type={dataFilterType}
+    id={id}
+    name={name}
+    type="checkbox"
+    value={value}
+    class="filterItem"
+  />
   <label for={id} class="filterItem__label">
     <slot />
   </label>
-</input>
+</div>
