@@ -1,0 +1,190 @@
+---
+import { getClans } from '@domain/clans';
+import { getEntityTypes } from '@domain/entityTypes';
+import { getFactions } from '@domain/factions';
+
+import ClanSymbol from '@/components/ClanSymbol/ClanSymbol.astro';
+import FilterItem from '@/components/FilterItem/FilterItem.astro';
+import FilterList from '@/components/FilterList/FilterList.astro';
+
+import './styles.css';
+
+const isFilterClansOpen =
+  Astro.url.searchParams.get('clansFilterOpen') === 'true';
+
+const isFilterEntityTypesOpen =
+  Astro.url.searchParams.get('entityTypesFilterOpen') === 'true';
+
+const isFilterFactionsOpen =
+  Astro.url.searchParams.get('factionsFilterOpen') === 'true';
+
+const { filterItems } = Astro.props;
+
+const clans = await getClans();
+const entityTypes = await getEntityTypes();
+const factions = await getFactions();
+---
+
+<div>
+  <FilterList isFilterOpen={isFilterClansOpen} collectionName="clans" filterByLabel="Clan">
+    {clans.map((clan) => {
+      const isChecked:boolean = filterItems.includes(clan.id);
+
+      return (
+        <FilterItem
+          checked={isChecked}
+          dataFilterValue={clan.id}
+          dataFilterType="clan"
+          id={clan.id}
+          name={clan.data.name}
+          value={clan.id}
+        >
+          <ClanSymbol 
+            alt={`${clan.data.name_es} symbol`}
+            size={24}
+            symbol={clan.data.symbol}
+          />
+          {clan.data.name_es}
+        </FilterItem>
+      )
+    })}
+  </FilterList>
+  
+    <FilterList isFilterOpen={isFilterEntityTypesOpen} collectionName="entityTypes" filterByLabel="Entidad">
+      {entityTypes.map((entityType) => {
+        const isChecked:boolean = filterItems.includes(entityType.id);
+
+        return (
+          <FilterItem
+            checked={isChecked}
+            dataFilterValue={entityType.id}
+            dataFilterType="entityType"
+            id={entityType.id}
+            name={entityType.data.name}
+            value={entityType.id}
+          >
+            {entityType.data.name_es}
+          </FilterItem>
+        )
+      })}
+    </FilterList>
+
+    <FilterList isFilterOpen={isFilterFactionsOpen} collectionName="factions" filterByLabel="Facción">
+      {factions.map((faction) => {
+        const isChecked:boolean = filterItems.includes(faction.id);
+
+        return (
+          <FilterItem
+            checked={isChecked}
+            dataFilterValue={faction.id}
+            dataFilterType="faction"
+            id={faction.id}
+            name={faction.data.name}
+            value={faction.id}
+          >
+            {faction.data.name_es}
+          </FilterItem>
+        )
+      })}
+    </FilterList>
+</div>
+
+<style>
+ 
+</style> 
+
+<!-- This script controls the open filters -->
+<script>
+  function setNewURLParamsToggle({ url, isFilterOpen, paramName }: { url: URL; isFilterOpen: boolean; paramName: string }) {
+    if (isFilterOpen) {
+      url.searchParams.set(`${paramName}FilterOpen`, 'true');
+    } else {
+      url.searchParams.delete(`${paramName}FilterOpen`);
+    }
+
+    return url;
+  }
+
+  function setupFilterToggleListener(filterId: string, paramName: string) {
+    const filterElement = document.querySelector(filterId);
+    
+    if (!filterElement) {
+      console.warn(`Filter element not found: ${filterId}`);
+      return;
+    }
+
+    filterElement.addEventListener('toggle', (event) => {
+      const details = event.target as HTMLDetailsElement;
+      const newUrl = setNewURLParamsToggle({
+        url: new URL(window.location.href),
+        isFilterOpen: details.open,
+        paramName
+      });
+
+      window.history.replaceState({}, '', newUrl);
+    });
+  }
+
+  setupFilterToggleListener('#filter-clans', 'clans');
+  setupFilterToggleListener('#filter-entityTypes', 'entityTypes');
+  setupFilterToggleListener('#filter-factions', 'factions');
+</script>
+
+<script>
+  import getSearchParamAsArray from "@/lib/getSearchParamAsArray";
+  import setNewURLParams from "@/lib/setNewURLParams";
+
+  function handleFilterChange(event: Event, filterType: string) {
+    const target = event.target as HTMLInputElement;
+    const isChecked = target.checked;
+    const filterValue = target.dataset.filterValue;
+
+    if (!filterValue) return;
+
+    const currentUrl = new URL(window.location.href);
+    const existingParams = getSearchParamAsArray(currentUrl, filterType);
+    const newParams = isChecked 
+      ? [...existingParams, filterValue]
+      : existingParams.filter((param) => param !== filterValue);
+
+    const newUrl = setNewURLParams({
+      key: filterType,
+      url: currentUrl,
+      valueArray: newParams as string[],
+    });
+
+    window.location.assign(newUrl.toString());
+  }
+
+  function setupFilterChangeListeners(filterType: string) {
+    const filters = document.querySelectorAll(`[data-filter-type="${filterType}"]`);
+    
+    if (filters.length === 0) {
+      console.warn(`No filters found for type: ${filterType}`);
+      return;
+    }
+    
+    filters.forEach(filter => {
+      filter.addEventListener('change', (event) => {
+        event.preventDefault();
+        handleFilterChange(event, filterType);
+      });
+    });
+  }
+
+  // Ensure DOM is fully loaded before setting up listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    setupFilterChangeListeners('clan');
+    setupFilterChangeListeners('entityType');
+    setupFilterChangeListeners('faction');
+  });
+
+  // Also set up listeners immediately in case the script runs after DOMContentLoaded
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(() => {
+      setupFilterChangeListeners('clan');
+      setupFilterChangeListeners('entityType');
+      setupFilterChangeListeners('faction');
+    }, 100);
+  }
+</script>

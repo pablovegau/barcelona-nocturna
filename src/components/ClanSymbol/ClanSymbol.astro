@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
 
 interface Props {
   alt: string;
@@ -16,9 +15,7 @@ interface Props {
 
 const { alt, invertedColor, size, symbol } = Astro.props;
 
-const classes = [
-  { 'inverted-color': invertedColor }
-];
+const classes = invertedColor ? ['inverted-color'] : [];
 ---
 
 <Image src={symbol} alt={alt} width={size} height={size} class:list={classes} />
