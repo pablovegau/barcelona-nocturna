@@ -1,9 +1,21 @@
 ---
-import { getCollection } from 'astro:content';
 import Heading from '@/components/Heading/Heading.astro';
 
-const posts = (await getCollection('posts'))
-	.sort(((a, b) => b.data.slug.localeCompare(a.data.slug)));
+interface Props {
+  posts: {
+		id: string;
+		data: {
+			title: string;
+			abstract: string;
+			publishDate: string;
+			sessionDate: string;
+			tags: string[];
+			isDraft: boolean;
+		};
+	}[];
+}
+
+const { posts } = Astro.props;
 ---
 
 <ul class="postList">
@@ -13,7 +25,7 @@ const posts = (await getCollection('posts'))
         <a class="postList__itemTitleLink" href={`/posts/${post.id}`}>{post.data.title}</a>
       </Heading>
       <p class="postList__itemAbstract">{post.data.abstract}</p>
-      <a class="postList__itemReadMore" class="" href={`/posts/${post.id}`}>Leer más</a>
+      <a class="postList__itemReadMore" href={`/posts/${post.id}`}>Leer más</a>
     </li>
   ))}
 </ul>
