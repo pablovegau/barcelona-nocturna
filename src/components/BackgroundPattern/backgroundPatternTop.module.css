@@ -1,0 +1,15 @@
+.backgroundPattern {
+  position: absolute;
+  top: -350px;
+  z-index: -1;
+  width: 100%;
+  pointer-events: none;
+
+  @media (width > 40rem) {
+    top: -150px;
+  }
+}
+
+.backgroundPattern svg {
+  fill: var(--app-background-pattern-color);
+} 

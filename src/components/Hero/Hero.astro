@@ -1,6 +1,7 @@
 ---
 import type { Character } from '@domain/types'
 import Polaroid from '@/components/Polaroid/Polaroid.astro';
+import styles from './styles.module.css';
 
 interface Props {
 	characters: Character[]
@@ -9,8 +10,8 @@ interface Props {
 const { characters } = Astro.props;
 ---
 
-<div class="polaroid_wrapper">
-  <div class="one">
+<div class={styles.polaroid_wrapper}>
+  <div class={styles.one}>
     <Polaroid 
 			id={characters[0].id} 
 			altText={characters[0].data.altText} 
@@ -20,7 +21,7 @@ const { characters } = Astro.props;
 			size="sm" 
 		/>
   </div>
-  <div class="two">
+  <div class={styles.two}>
 		<Polaroid 
 			id={characters[1].id} 
 			altText={characters[1].data.altText} 
@@ -30,7 +31,7 @@ const { characters } = Astro.props;
 			size="sm" 
 		/>
   </div>
-  <div class="three">
+  <div class={styles.three}>
 		<Polaroid 
 			id={characters[2].id} 
 			altText={characters[2].data.altText} 
@@ -40,7 +41,7 @@ const { characters } = Astro.props;
 			size="sm" 
 		/>
   </div>
-  <div class="four">
+  <div class={styles.four}>
 		<Polaroid 
 			id={characters[3].id} 
 			altText={characters[3].data.altText} 
@@ -50,7 +51,7 @@ const { characters } = Astro.props;
 			size="sm" 
 		/>
   </div>
-	<div class="five">
+	<div class={styles.five}>
 		<Polaroid 
 			id={characters[4].id} 
 			altText={characters[4].data.altText} 
@@ -61,44 +62,3 @@ const { characters } = Astro.props;
 		/>
   </div>
 </div>
-
-<style>
-  .polaroid_wrapper {
-		display: none;
-		justify-content: center;
-		flex-wrap: wrap;
-
-		@media (width > 40rem) {
-      display: flex;
-    }
-	}
-
-	.one {
-		position: relative;
-		transform: rotate(-10deg);
-	}
-
-	.two {
-		position: relative;
-		transform: rotate(10deg);
-	}
-
-	.three {
-		position: relative;
-		transform: rotate(-7deg);
-	}
-
-	.four {
-		position: relative;
-		transform: rotate(4deg);
-	}
-
-	.five {
-		position: relative;
-		transform: rotate(-5deg);
-	}
-
-	.one:hover, .two:hover, .three:hover, .four:hover, .five:hover {
-		z-index: 2;
-	}
-</style>

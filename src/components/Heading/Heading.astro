@@ -1,5 +1,5 @@
 ---
-import './styles.css';
+import styles from './styles.module.css';
 
 const headingOptions = {
   h1: 'xxl',
@@ -14,17 +14,12 @@ interface Props {
   align?: 'left' | 'center' | 'right';
   size: keyof typeof headingOptions;
   tagName: keyof typeof headingOptions;
-  transitionName?: string;
 }
 
-const { align = 'left', size, tagName, transitionName } = Astro.props;
+const { align = 'left', size, tagName } = Astro.props;
 const Tag = tagName;
 ---
 
-<Tag class:list={["heading", headingOptions[size], align]} transition:name={transitionName}>
+<Tag class:list={[styles.heading, styles[headingOptions[size]], styles[align]]}>
   <slot />
 </Tag>
-
-<style>
-  
-</style>

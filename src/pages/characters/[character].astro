@@ -57,7 +57,8 @@ const { Content } = await render(original);
         widths={[360, 540, 720]}
         sizes={`(max-width: 360px) 260px, (max-width: 720px) 540px, (max-width: 1600px) 720px`}
         src={image}
-        transition:name={`character-${character}`}
+        loading="lazy"
+
       />
     </div>
     {showInfo && (

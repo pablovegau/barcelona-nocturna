@@ -45,7 +45,7 @@ const polaroidClasses = [
   >
     <figure>
       <div class={styles.polaroid__image}>
-        {image && <Image src={image} alt={altText} format="webp" quality="mid" transition:name={`character-${id}`}/>}
+        {image && <Image src={image} alt={altText} format="webp" quality="mid" loading="lazy" />}
       </div>
       <figcaption>{name}</figcaption>
     </figure>

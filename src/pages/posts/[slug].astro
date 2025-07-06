@@ -28,7 +28,7 @@ const { Content, headings } = await render(post);
 ---
 
 <BaseLayout pageTitle={title}>
-  <Heading tagName="h1" size="h1" transitionName={`blogTitle-${slug}`}>{title}</Heading>
+  <Heading tagName="h1" size="h1">{title}</Heading>
 
   <div class="blog">
     <article class="blog__content" aria-label="Post content">

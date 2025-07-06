@@ -1,5 +1,5 @@
 ---
-import './styles.css';
+import styles from './styles.module.css';
 
 interface Props {
   checked: boolean;
@@ -14,7 +14,7 @@ const { checked, dataFilterValue, dataFilterType, id, name, value } =
   Astro.props;
 ---
 
-<div class="filterItem__container">
+<div class={styles.container}>
   <input
     checked={checked}
     data-filter-value={dataFilterValue}
@@ -23,9 +23,9 @@ const { checked, dataFilterValue, dataFilterType, id, name, value } =
     name={name}
     type="checkbox"
     value={value}
-    class="filterItem"
+    class={styles.filterItem}
   />
-  <label for={id} class="filterItem__label">
+  <label for={id} class={styles.label}>
     <slot />
   </label>
 </div>
