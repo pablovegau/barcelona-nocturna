@@ -1,0 +1,5 @@
+.filterList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bn-spacing-8);
+} 

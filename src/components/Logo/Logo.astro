@@ -1,14 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-
-import './styles.css';
+import styles from './styles.module.css';
 
 import LogoImage from '@/assets/logo_dark_version.svg';
 const { mobileAligment } = Astro.props;
 ---
 
 <a
-  class="logo"
+  class={styles.logo}
   data-mobile-alignment={mobileAligment}
   href="/"
 >

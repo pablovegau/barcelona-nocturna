@@ -1,7 +1,7 @@
 # Lista de Mejoras Propuestas para Barcelona Nocturna
 
 ## 1. Optimizaciones de Rendimiento
-- [ ] Implementar carga perezosa (lazy loading) para imágenes de personajes
+- [x] Implementar carga perezosa (lazy loading) para imágenes de personajes
 - [ ] Añadir directivas de precarga para assets críticos (fuentes, CSS principal)
 - [ ] Considerar implementar un Service Worker para funcionalidad offline
 - [ ] Añadir resource hints (preconnect, prefetch) para recursos externos

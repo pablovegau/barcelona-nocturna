@@ -1,0 +1,38 @@
+.polaroid_wrapper {
+  display: none;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (width > 40rem) {
+    display: flex;
+  }
+}
+
+.one {
+  position: relative;
+  transform: rotate(-10deg);
+}
+
+.two {
+  position: relative;
+  transform: rotate(10deg);
+}
+
+.three {
+  position: relative;
+  transform: rotate(-7deg);
+}
+
+.four {
+  position: relative;
+  transform: rotate(4deg);
+}
+
+.five {
+  position: relative;
+  transform: rotate(-5deg);
+}
+
+.one:hover, .two:hover, .three:hover, .four:hover, .five:hover {
+  z-index: 2;
+} 

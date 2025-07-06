@@ -1,4 +1,6 @@
 ---
+import styles from './styles.module.css';
+
 const { isFilterOpen, collectionName, filterByLabel } = Astro.props;
 
 // TODO: Revisar de donde vienen los estilos de los filtros
@@ -6,15 +8,7 @@ const { isFilterOpen, collectionName, filterByLabel } = Astro.props;
 
 <details class="filters" id={`filter-${collectionName}`} open={isFilterOpen}>
   <summary>{`Filtrar por ${filterByLabel}`}</summary>
-    <div class="filterList">
+    <div class={styles.filterList}>
       <slot />
     </div>
   </details>
-
-<style>
-  .filterList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--bn-spacing-8)
-  }
-</style>

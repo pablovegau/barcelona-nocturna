@@ -1,5 +1,6 @@
 ---
 import Heading from '@/components/Heading/Heading.astro';
+import styles from './styles.module.css';
 
 interface Props {
   posts: {
@@ -18,50 +19,14 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<ul class="postList">
+<ul class={styles.postList}>
   {posts.map((post) => (
-    <li class="postList__item">
-      <Heading tagName="h2" size="h2" transitionName={`blogTitle-${post.id}`}>
-        <a class="postList__itemTitleLink" href={`/posts/${post.id}`}>{post.data.title}</a>
+    <li class={styles.postList__item}>
+              <Heading tagName="h2" size="h2">
+        <a class={styles.postList__itemTitleLink} href={`/posts/${post.id}`}>{post.data.title}</a>
       </Heading>
-      <p class="postList__itemAbstract">{post.data.abstract}</p>
-      <a class="postList__itemReadMore" href={`/posts/${post.id}`}>Leer más</a>
+      <p class={styles.postList__itemAbstract}>{post.data.abstract}</p>
+      <a class={styles.postList__itemReadMore} href={`/posts/${post.id}`}>Leer más</a>
     </li>
   ))}
 </ul>
-
-<style>
-  .postList {
-		flex: var(--bn-content-flex);
-		list-style: none;
-		padding: 0;
-	}
-
-  .postList__item {
-		margin-block-end: var(--bn-spacing-48);
-	}
-
-	.postList__itemTitleLink {
-		color: var(--bn-text-color);
-		text-decoration: none;
-
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-
-	.postList__itemAbstract {
-		margin-block-start: var(--bn-spacing-12);
-		margin-block-end: var(--bn-spacing-8);
-	}
-
-  .postList__itemReadMore {
-    color: var(--bn-link-color);
-		text-decoration: none;
-		font-weight: 600;
-
-		&:hover {
-			text-decoration: underline;
-		}
-  }
-</style>

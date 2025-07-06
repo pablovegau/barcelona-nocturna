@@ -113,6 +113,6 @@ import './styles.css';
     setTimeout(initializeMenu, 10);
   }
 
-  // Handle Astro navigation more efficiently
-  document.addEventListener('astro:page-load', initializeMenu);
+  // Handle page navigation
+  document.addEventListener('DOMContentLoaded', initializeMenu);
 </script>

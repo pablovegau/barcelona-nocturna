@@ -2,42 +2,16 @@
 import { Image } from 'astro:assets';
 
 import darkPackLogo from '@/assets/dark_pack_logo.svg';
+import styles from './styles.module.css';
 ---
 
 <!-- TODO: Use Dark Pack logo as a SVG -->
-<footer class="footer">
-  <div class="footer__content">
-    <div class="footer__darkPack">
+<footer class={styles.footer}>
+  <div class={styles.footer__content}>
+    <div class={styles.footer__darkPack}>
       <a href="/dark-pack" aria-label="Dark Pack agreement link">
         <Image src={darkPackLogo} alt="Dark Pack agreement logo" width={100} quality='max' format='avif'/>
       </a>
     </div>
   </div>
 </footer>
-
-<style>
-  .footer {
-    width: 100%;
-  }
-
-  .footer__content {
-    display: flex;
-    align-items: end;
-    height: 350px;
-    max-width: var(--bn-work-space-max-width);
-    margin: 0 auto;
-    padding-block-end: var(--bn-spacing-32);
-    padding-inline: var(--bn-spacing-32);
-  }
-
-  .footer__darkPack {
-    img {
-      display: block;
-      transition: transform 0.3s ease-in-out;
-
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-</style>
