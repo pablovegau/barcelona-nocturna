@@ -1,10 +1,13 @@
 ---
 import { getCharactersById } from '@domain/characters';
+import { getCollection } from 'astro:content';
 import Hero from '../components/Hero/Hero.astro';
 import PostList from '../components/PostList/PostList.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const characters = await getCharactersById(["elena-venture", "roc-puyol", "miguel-angel-zabaleta", "paris-fernandez", "ezequiel-medina"])
+const posts = (await getCollection('posts'))
+	.sort(((a, b) => b.data.slug.localeCompare(a.data.slug)));
 ---
 
 <BaseLayout>
@@ -12,7 +15,7 @@ const characters = await getCharactersById(["elena-venture", "roc-puyol", "migue
 	<Hero characters={characters} />
 
 	<div class="content">
-		<PostList/>
+		<PostList posts={posts}/>
 
 		<aside>
 			<!-- Por ahora vacio -->
