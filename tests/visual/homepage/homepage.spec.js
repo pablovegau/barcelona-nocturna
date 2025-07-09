@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// Helper function para identificar dispositivos móviles
 function isMobileDevice(projectName) {
   const mobileDevices = ['iPhone 13', 'iPhone SE', 'Pixel 5', 'Galaxy S9+'];
   return mobileDevices.includes(projectName);
@@ -26,18 +25,14 @@ test.describe('Homepage', () => {
 
   test('Scroll', async ({ page }) => {
     await page.evaluate(() => window.scrollTo(0, 400));
-    // await page.waitForTimeout(500);
     
     await expect(page).toHaveScreenshot();
   });
 
   test('Scroll - dark theme', async ({ page }) => {
     await page.click('#theme-toggle');
-    // await page.waitForTimeout(500);
-
     await page.evaluate(() => window.scrollTo(0, 400));
-    // await page.waitForTimeout(500);
-    
+
     await expect(page).toHaveScreenshot();
   });
 
@@ -45,8 +40,7 @@ test.describe('Homepage', () => {
     test.skip(!isMobileDevice(testInfo.project.name), 'Este test solo se ejecuta en dispositivos móviles');
     
     await page.click('.topnav__control');
-    // await page.waitForTimeout(300);
-    
+
     await expect(page).toHaveScreenshot();
   });
 
@@ -54,10 +48,7 @@ test.describe('Homepage', () => {
     test.skip(!isMobileDevice(testInfo.project.name), 'Este test solo se ejecuta en dispositivos móviles');
     
     await page.click('#theme-toggle');
-    // await page.waitForTimeout(500);
-    
     await page.click('.topnav__control');
-    // await page.waitForTimeout(300);
     
     await expect(page).toHaveScreenshot();
   });
