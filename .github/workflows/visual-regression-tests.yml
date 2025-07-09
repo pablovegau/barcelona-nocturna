@@ -27,8 +27,8 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Build the project
-      run: npm run build
+    - name: Build the project for testing
+      run: npm run build:test
 
     - name: Verify build output
       run: |
@@ -42,8 +42,8 @@ jobs:
 
     - name: Start preview server
       run: |
-        echo "Starting Astro preview server..."
-        nohup npm run preview -- --host 0.0.0.0 > server.log 2>&1 &
+        echo "Starting static server with serve..."
+        nohup npm run serve > server.log 2>&1 &
         echo "Server started with PID: $!"
         echo "SERVER_PID=$!" >> $GITHUB_ENV
       

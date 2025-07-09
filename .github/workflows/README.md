@@ -11,10 +11,11 @@ This workflow runs automatically on:
 ### What does it do?
 
 1. **Installs dependencies** and Playwright browsers
-2. **Builds the project** and starts the preview server
-3. **Runs visual tests** comparing current screenshots with baselines
-4. **Generates reports** and artifacts if there are differences
-5. **Comments on the PR** with results automatically
+2. **Builds the project** using static configuration for testing
+3. **Starts a static server** to serve the built files
+4. **Runs visual tests** comparing current screenshots with baselines
+5. **Generates reports** and artifacts if there are differences
+6. **Comments on the PR** with results automatically
 
 ### Possible results
 
@@ -79,6 +80,11 @@ tests/visual/homepage/
 
 ## 🛠️ Configuration
 
+### Astro Configuration
+- **Production**: Uses `@astrojs/netlify` adapter for Netlify deployment
+- **Testing**: Uses `astro.config.test.mjs` with static output for GitHub Actions
+- **Build command**: `npm run build:test` generates static files compatible with simple HTTP servers
+
 ### Playwright Config
 - **Browsers**: Chrome, Firefox, Safari
 - **Devices**: Desktop (1440x900), iPad Pro, iPad, iPhone 13, iPhone SE, Pixel 5, Galaxy S9+
@@ -89,14 +95,16 @@ tests/visual/homepage/
 - **Timeout**: 60 minutes
 - **OS**: Ubuntu Latest
 - **Retention**: Artifacts are kept for 30 days
+- **Server**: Uses `serve` package to host static files on port 4173
 
 ## 🚨 Troubleshooting
 
 ### Server fails to start in CI
-- **Cause**: Preview server not starting properly in GitHub Actions
-- **Solution**: Check server logs in the workflow output. The workflow now includes:
+- **Cause**: Netlify adapter doesn't support `astro preview` command
+- **Solution**: The workflow now uses:
+  - Static build configuration (`astro.config.test.mjs`) 
+  - `serve` package instead of `astro preview`
   - Build verification step
-  - Enhanced server startup with host binding (`--host 0.0.0.0`)
   - Detailed logging and better error handling
   - Server logs displayed on failure
 
@@ -113,8 +121,8 @@ tests/visual/homepage/
 - **Solution**: Review that tests properly wait for dynamic content
 
 ### Server connection refused
-- **Cause**: Preview server not binding to correct interface in CI
-- **Solution**: The workflow now uses `--host 0.0.0.0` to ensure server is accessible
+- **Cause**: Server not accessible or failed to start
+- **Solution**: The workflow uses `serve` which automatically binds to all interfaces and provides better CI compatibility
 
 ## 📚 Useful links
 
