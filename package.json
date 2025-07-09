@@ -6,7 +6,7 @@
 		"dev": "astro dev",
 		"dev:host": "astro dev --host",
 		"build": "astro check && astro build",
-		"build:test": "astro check && astro build --config astro.config.test.mjs",
+		"build:test": "node scripts/prepare-test-build.js && astro check && astro build --config astro.config.test.mjs && node scripts/restore-after-test-build.js",
 		"preview": "astro preview",
 		"serve": "serve dist -l 4173",
 		"astro": "astro",
@@ -36,6 +36,7 @@
 		"@biomejs/biome": "1.9.4",
 		"@playwright/test": "^1.53.2",
 		"clsx": "^2.1.1",
+		"glob": "^10.3.10",
 		"lightningcss": "^1.30.1",
 		"serve": "^14.2.3"
 	}

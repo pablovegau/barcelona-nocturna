@@ -34,3 +34,6 @@ playwright/.auth/
 **/playwright-report/
 **/*-actual.png
 **/*-diff.png
+
+# Testing build artifacts
+*.backup

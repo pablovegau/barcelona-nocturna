@@ -5,8 +5,11 @@ import react from '@astrojs/react';
 // Configuration specifically for testing - generates static files
 export default defineConfig({
   integrations: [react(), mdx()],
-  // No adapter = static output
+  // Force static output for all pages
   output: 'static',
+  // Clean configuration for testing
+  trailingSlash: 'ignore',
+  compressHTML: true,
   vite: {
     css: {
       transformer: 'lightningcss',
