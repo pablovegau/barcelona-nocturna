@@ -92,6 +92,14 @@ tests/visual/homepage/
 
 ## 🚨 Troubleshooting
 
+### Server fails to start in CI
+- **Cause**: Preview server not starting properly in GitHub Actions
+- **Solution**: Check server logs in the workflow output. The workflow now includes:
+  - Build verification step
+  - Enhanced server startup with host binding (`--host 0.0.0.0`)
+  - Detailed logging and better error handling
+  - Server logs displayed on failure
+
 ### "Screenshots differ" in CI but work locally
 - **Cause**: Differences between operating systems (macOS vs Linux)
 - **Solution**: Use the manual workflow to generate baselines on the same OS as CI
@@ -103,6 +111,10 @@ tests/visual/homepage/
 ### Sporadic failures
 - **Cause**: Elements loading asynchronously
 - **Solution**: Review that tests properly wait for dynamic content
+
+### Server connection refused
+- **Cause**: Preview server not binding to correct interface in CI
+- **Solution**: The workflow now uses `--host 0.0.0.0` to ensure server is accessible
 
 ## 📚 Useful links
 
