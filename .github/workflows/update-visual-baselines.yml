@@ -1,0 +1,81 @@
+name: Update Visual Baselines
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for updating the baselines'
+        required: true
+        default: 'Approved design changes'
+
+jobs:
+  update-baselines:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+
+    - name: Build the project
+      run: npm run build
+
+    - name: Start preview server
+      run: npm run preview &
+      
+    - name: Wait for server to be ready
+      run: |
+        timeout 60 bash -c 'until curl -f http://localhost:4173; do sleep 2; done'
+
+    - name: Update visual baselines
+      run: npm run test:visual -- --update-snapshots
+
+    - name: Check for changes
+      id: changes
+      run: |
+        if git diff --quiet; then
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push changes
+      if: steps.changes.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add tests/visual/
+        git commit -m "chore: update visual regression baselines
+
+        Reason: ${{ github.event.inputs.reason }}
+        
+        Updated by: ${{ github.actor }}
+        Workflow: ${{ github.workflow }} #${{ github.run_number }}"
+        git push
+
+    - name: Create summary
+      run: |
+        if [ "${{ steps.changes.outputs.has_changes }}" == "true" ]; then
+          echo "✅ Baselines updated successfully" >> $GITHUB_STEP_SUMMARY
+          echo "📝 Reason: ${{ github.event.inputs.reason }}" >> $GITHUB_STEP_SUMMARY
+          echo "👤 Executed by: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Changes have been committed automatically." >> $GITHUB_STEP_SUMMARY
+        else
+          echo "ℹ️ No changes detected in baselines" >> $GITHUB_STEP_SUMMARY
+          echo "Current screenshots match existing ones." >> $GITHUB_STEP_SUMMARY
+        fi 

@@ -23,3 +23,14 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Playwright - temporal files (keep baseline screenshots)
+test-results/
+playwright-report/
+playwright/.auth/
+
+# Ignore only diff/actual images, keep baseline screenshots
+**/test-results/
+**/playwright-report/
+**/*-actual.png
+**/*-diff.png
