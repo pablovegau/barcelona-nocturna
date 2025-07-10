@@ -8,6 +8,10 @@ on:
         required: true
         default: 'Approved design changes'
 
+# Grant GITHUB_TOKEN the permissions required
+permissions:
+  contents: write
+
 jobs:
   update-baselines:
     timeout-minutes: 60
