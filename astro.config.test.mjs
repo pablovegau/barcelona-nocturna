@@ -1,24 +1,24 @@
 import mdx from '@astrojs/mdx';
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
+import node from '@astrojs/node';
 
 /**
  * Specific configuration for Visual Regression Tests (VRT)
  * 
  * Why do we need this separate config file?
  * - Main astro.config.mjs uses adapter: netlify() for production
- * - Netlify adapter generates files optimized for Netlify Functions
- * - These files are NOT compatible with simple HTTP servers like 'serve'
- * - VRT needs a basic server that serves static files
+ * - VRT needs a configuration that works with both static and SSR pages
+ * - Some pages (like /characters) use server-side filtering and need SSR
  * 
  * When is this used?
  * - During Visual Regression Tests execution in CI (GitHub Actions)
  * - With command: astro build --config astro.config.test.mjs
- * - Followed by: serve dist -l 4173 (simple HTTP server)
+ * - Followed by: node ./dist/server/entry.mjs (starts Node.js server)
  * 
  * What makes it different?
- * - output: 'static' → Generates standard HTML/CSS/JS static files
- * - NO adapter → Compatible with any HTTP server
+ * - output: 'server' → Enables SSR for pages that need it (like /characters)
+ * - adapter: node() → Allows SSR pages to work in test environment
  * - Same integrations and CSS config as production
  * 
  * Note: This could be simplified by migrating server-side filters to client-side
@@ -26,7 +26,10 @@ import react from '@astrojs/react';
  */
 export default defineConfig({
   integrations: [react(), mdx()],
-  output: 'static',
+  output: 'server',
+  adapter: node({
+    mode: 'standalone'
+  }),
   vite: {
     css: {
       transformer: 'lightningcss',
