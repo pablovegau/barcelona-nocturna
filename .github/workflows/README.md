@@ -95,7 +95,7 @@ tests/visual/homepage/
 - **Timeout**: 60 minutes
 - **OS**: Ubuntu Latest
 - **Retention**: Artifacts are kept for 30 days
-- **Server**: Uses `serve` package to host static files on port 4173
+- **Server**: Uses Node.js server to host files on port 4321
 
 ## 🚨 Troubleshooting
 
