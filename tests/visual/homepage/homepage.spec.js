@@ -40,6 +40,7 @@ test.describe('Homepage', () => {
     test.skip(!isMobileDevice(testInfo.project.name), 'Este test solo se ejecuta en dispositivos móviles');
     
     await page.click('.topnav__control');
+    await page.waitForTimeout(500); // Esperar que termine la animación
 
     await expect(page).toHaveScreenshot();
   });
@@ -48,8 +49,10 @@ test.describe('Homepage', () => {
     test.skip(!isMobileDevice(testInfo.project.name), 'Este test solo se ejecuta en dispositivos móviles');
     
     await page.click('#theme-toggle');
+    await page.waitForTimeout(500); // Esperar cambio de tema
     await page.click('.topnav__control');
-    
+    await page.waitForTimeout(500); // Esperar que termine la animación
+
     await expect(page).toHaveScreenshot();
   });
 
