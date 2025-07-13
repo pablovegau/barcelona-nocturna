@@ -114,6 +114,9 @@
 - Documentar patrones y mejores prácticas de testing
 - Establecer procesos para mantenimiento y actualización de tests
 
+## 8. Configuración y Desarrollo
+- [ ] **Simplificar configuración de Astro eliminando adapter**: Actualmente usamos el adapter de Netlify (`@astrojs/netlify`) que requiere tener dos archivos de configuración (`astro.config.mjs` y `astro.config.test.mjs`). La página de personajes usa filtros server-side (`?clans=brujah&entityTypes=vampire`) que requieren SSR. Evaluar migrar filtros a client-side (JavaScript) para poder usar solo `output: 'static'`, eliminando la necesidad del adapter y simplificando la configuración a un solo archivo. Esto facilitaría el setup de VRT y development en general.
+
 ## Notas Adicionales
 - Esta lista es un documento vivo que debe ser actualizado según evolucionen las necesidades del proyecto
 - Las tareas están marcadas con checkboxes para facilitar el seguimiento
