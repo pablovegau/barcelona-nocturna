@@ -81,9 +81,9 @@ tests/visual/homepage/
 ## 🛠️ Configuration
 
 ### Astro Configuration
-- **Production**: Uses `@astrojs/netlify` adapter for Netlify deployment
-- **Testing**: Uses `astro.config.test.mjs` with static output for GitHub Actions
-- **Build command**: `npm run build:test` generates static files compatible with simple HTTP servers
+- **Unified Configuration**: Uses `@astrojs/node` adapter for both development and production
+- **Server Mode**: Uses `output: 'server'` to support SSR pages like `/characters` with dynamic filtering
+- **Build Command**: `npm run build` generates server-ready files for all environments
 
 ### Playwright Config
 - **Browsers**: Chrome, Firefox, Safari
@@ -100,13 +100,12 @@ tests/visual/homepage/
 ## 🚨 Troubleshooting
 
 ### Server fails to start in CI
-- **Cause**: Netlify adapter doesn't support `astro preview` command
+- **Cause**: Configuration issues or build problems
 - **Solution**: The workflow now uses:
-  - Static build configuration (`astro.config.test.mjs`) 
-  - `serve` package instead of `astro preview`
+  - Unified configuration with `@astrojs/node` adapter
+  - `npm run build` followed by `node ./dist/server/entry.mjs`
   - Build verification step
-  - Detailed logging and better error handling
-  - Server logs displayed on failure
+  - Playwright manages the server automatically
 
 ### "Screenshots differ" in CI but work locally
 - **Cause**: Differences between operating systems (macOS vs Linux)
@@ -122,7 +121,7 @@ tests/visual/homepage/
 
 ### Server connection refused
 - **Cause**: Server not accessible or failed to start
-- **Solution**: The workflow uses `serve` which automatically binds to all interfaces and provides better CI compatibility
+- **Solution**: The workflow uses Node.js server which automatically binds to all interfaces and provides better CI compatibility
 
 ## 📚 Useful links
 

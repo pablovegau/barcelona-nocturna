@@ -6,7 +6,6 @@
 		"dev": "astro dev",
 		"dev:host": "astro dev --host",
 		"build": "astro check && astro build",
-		"build:test": "astro build --config astro.config.test.mjs",
 		"preview": "astro preview",
 		"serve": "serve dist -l 4173",
 		"astro": "astro",

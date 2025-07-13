@@ -34,7 +34,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Build the project for testing
-      run: npm run build:test
+      run: npm run build
 
     - name: Verify build output
       run: |

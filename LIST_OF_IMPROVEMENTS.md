@@ -115,7 +115,7 @@
 - Establecer procesos para mantenimiento y actualización de tests
 
 ## 8. Configuración y Desarrollo
-- [ ] **Simplificar configuración de Astro eliminando adapter**: Actualmente usamos el adapter de Netlify (`@astrojs/netlify`) que requiere tener dos archivos de configuración (`astro.config.mjs` y `astro.config.test.mjs`). La página de personajes usa filtros server-side (`?clans=brujah&entityTypes=vampire`) que requieren SSR. Evaluar migrar filtros a client-side (JavaScript) para poder usar solo `output: 'static'`, eliminando la necesidad del adapter y simplificando la configuración a un solo archivo. Esto facilitaría el setup de VRT y development en general.
+- [x] **Simplificar configuración de Astro eliminando adapter**: ✅ **COMPLETADO** - Migrado de `@astrojs/netlify` a `@astrojs/node` para unificar configuración. Eliminado `astro.config.test.mjs` y ahora usamos una sola configuración con `output: 'server'` que soporta tanto páginas estáticas como SSR. Esto simplifica el desarrollo, testing y deployment manteniendo la funcionalidad de filtros server-side.
 
 ## Notas Adicionales
 - Esta lista es un documento vivo que debe ser actualizado según evolucionen las necesidades del proyecto
