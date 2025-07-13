@@ -12,9 +12,9 @@ import node from '@astrojs/node';
  * - Some pages (like /characters) use server-side filtering and need SSR
  * 
  * When is this used?
- * - During Visual Regression Tests execution in CI (GitHub Actions)
+ * - During Visual Regression Tests execution in CI (GitHub Actions)  
  * - With command: astro build --config astro.config.test.mjs
- * - Followed by: node ./dist/server/entry.mjs (starts Node.js server)
+ * - Playwright automatically starts the server using this configuration
  * 
  * What makes it different?
  * - output: 'server' → Enables SSR for pages that need it (like /characters)

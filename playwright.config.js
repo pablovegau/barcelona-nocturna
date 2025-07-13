@@ -85,7 +85,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'npm run dev',
+    command: process.env.CI ? 'node ./dist/server/entry.mjs' : 'npm run dev',
     port: 4321,
     reuseExistingServer: !process.env.CI,
     timeout: 120000,

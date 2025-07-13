@@ -46,47 +46,14 @@ jobs:
         fi
         echo "✅ Build output verified"
 
-    - name: Start preview server
-      run: |
-        echo "Starting Node.js server..."
-        nohup node ./dist/server/entry.mjs > server.log 2>&1 &
-        echo "Server started with PID: $!"
-        echo "SERVER_PID=$!" >> $GITHUB_ENV
-      
-    - name: Wait for server to be ready
-      run: |
-        echo "Waiting for server to be ready..."
-        for i in {1..30}; do
-          if curl -s -f http://localhost:4321 > /dev/null 2>&1; then
-            echo "✅ Server is ready!"
-            exit 0
-          fi
-          echo "⏳ Attempt $i: Server not ready yet, waiting 2 seconds..."
-          sleep 2
-        done
-        echo "❌ Server failed to start after 60 seconds"
-        echo "Server logs:"
-        cat server.log || echo "No server logs found"
-        exit 1
+
 
     - name: Run Playwright tests
       id: test-step
       run: npm run test:visual
       continue-on-error: true
 
-    - name: Show server logs on failure
-      if: failure()
-      run: |
-        echo "📋 Server logs (last 50 lines):"
-        tail -50 server.log || echo "No server logs found"
 
-    - name: Stop preview server
-      if: always()
-      run: |
-        if [ ! -z "$SERVER_PID" ]; then
-          echo "Stopping server with PID: $SERVER_PID"
-          kill $SERVER_PID || true
-        fi
 
     - name: Upload Playwright Report
       uses: actions/upload-artifact@v4
