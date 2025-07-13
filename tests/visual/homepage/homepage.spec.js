@@ -39,6 +39,16 @@ test.describe('Homepage', () => {
   test('Mobile menu', async ({ page }, testInfo) => {
     test.skip(!isMobileDevice(testInfo.project.name), 'Este test solo se ejecuta en dispositivos móviles');
     
+    // Deshabilitar animaciones infinitas del blob antes de capturar
+    await page.addStyleTag({
+      content: `
+        .blob {
+          animation: none !important;
+          transform: none !important;
+        }
+      `
+    });
+    
     await page.click('.topnav__control');
     await page.waitForTimeout(500); // Esperar que termine la animación
 
@@ -47,6 +57,16 @@ test.describe('Homepage', () => {
 
   test('Mobile menu - dark theme', async ({ page }, testInfo) => {
     test.skip(!isMobileDevice(testInfo.project.name), 'Este test solo se ejecuta en dispositivos móviles');
+    
+    // Deshabilitar animaciones infinitas del blob antes de capturar
+    await page.addStyleTag({
+      content: `
+        .blob {
+          animation: none !important;
+          transform: none !important;
+        }
+      `
+    });
     
     await page.click('#theme-toggle');
     await page.waitForTimeout(500); // Esperar cambio de tema

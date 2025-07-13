@@ -16,7 +16,7 @@ export default defineConfig({
       threshold: 0.2,
       animation: 'disabled',
       mode: 'default',
-      maxDiffPixelRatio: 0.01,
+      maxDiffPixelRatio: 0.1, // Aumentar tolerancia para animaciones infinitas del blob
     },
   },
 
