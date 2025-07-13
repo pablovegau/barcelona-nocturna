@@ -1,5 +1,5 @@
 ---
-// export const prerender = false; // Temporarily disabled for testing
+export const prerender = false;
 
 import { getCharactersNamesFiltered } from '@/domain/characters';
 
@@ -10,9 +10,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 import getSearchParamAsArray from '@/lib/getSearchParamAsArray';
 
-const selectedClans: string[] = []; // Default for testing
-const selectedEntityTypes: string[] = []; // Default for testing
-const selectedFactions: string[] = []; // Default for testing
+const selectedClans = getSearchParamAsArray(Astro.url, 'clan');
+const selectedEntityTypes = getSearchParamAsArray(Astro.url, 'entityType');
+const selectedFactions = getSearchParamAsArray(Astro.url, 'faction');
 
 const selectedFilters = [
   ...selectedClans,
