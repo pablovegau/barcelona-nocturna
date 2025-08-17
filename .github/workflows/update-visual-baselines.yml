@@ -8,7 +8,6 @@ on:
         required: true
         default: 'Approved design changes'
 
-# Grant GITHUB_TOKEN the permissions required
 permissions:
   contents: write
 
@@ -48,12 +47,8 @@ jobs:
         fi
         echo "✅ Build output verified"
 
-
-
     - name: Update visual baselines
       run: npm run test:visual -- --update-snapshots
-
-
 
     - name: Check for changes
       id: changes

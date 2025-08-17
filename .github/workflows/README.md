@@ -11,9 +11,9 @@ This workflow runs automatically on:
 ### What does it do?
 
 1. **Installs dependencies** and Playwright browsers
-2. **Builds the project** using static configuration for testing
-3. **Starts a static server** to serve the built files
-4. **Runs visual tests** comparing current screenshots with baselines
+2. **Builds the project** using unified Node.js configuration
+3. **Runs visual tests** (Playwright manages the server automatically)
+4. **Compares screenshots** with baselines
 5. **Generates reports** and artifacts if there are differences
 6. **Comments on the PR** with results automatically
 
@@ -73,9 +73,11 @@ Reason: "Header design update according to PR #123"
 tests/visual/homepage/
 ├── homepage.spec.js                     # Playwright tests
 └── homepage.spec.js-snapshots/         # Baseline screenshots
-    ├── Homepage-Base-view-1-Desktop-Chrome-darwin.png
-    ├── Homepage-Base-view-1-iPhone-13-darwin.png
-    └── ... (more screenshots for different devices)
+    ├── Homepage-Base-view---dark-theme-1-Desktop-Chrome-linux.png
+    ├── Homepage-Base-view---dark-theme-1-iPhone-13-linux.png
+    ├── Homepage-Base-view-1-Desktop-Chrome-linux.png
+    ├── Homepage-Base-view-1-iPhone-13-linux.png
+    └── ... (more screenshots for all browser/device/theme combinations)
 ```
 
 ## 🛠️ Configuration
@@ -86,16 +88,17 @@ tests/visual/homepage/
 - **Build Command**: `npm run build` generates server-ready files for all environments
 
 ### Playwright Config
-- **Browsers**: Chrome, Firefox, Safari
-- **Devices**: Desktop (1440x900), iPad Pro, iPad, iPhone 13, iPhone SE, Pixel 5, Galaxy S9+
-- **Conditional tests**: Mobile menu tests only run on mobile devices
+- **Desktop Browsers**: Chrome, Firefox, Safari (all at 1440x900)
+- **Mobile Devices**: iPhone 13, iPhone SE, Pixel 5, Galaxy S9+
+- **Tablet Devices**: iPad Pro, iPad
+- **Test Strategy**: Each test runs across all browser/device combinations (44+ screenshots total) including light/dark themes
 
 ### GitHub Actions
 - **Node.js**: v18
-- **Timeout**: 60 minutes
+- **Timeout**: 60 minutes (typical runs: 5-10 minutes)
 - **OS**: Ubuntu Latest
 - **Retention**: Artifacts are kept for 30 days
-- **Server**: Uses Node.js server to host files on port 4321
+- **Server**: Node.js server on port 4321 (Playwright manages automatically)
 
 ## 🚨 Troubleshooting
 
@@ -108,16 +111,16 @@ tests/visual/homepage/
   - Playwright manages the server automatically
 
 ### "Screenshots differ" in CI but work locally
-- **Cause**: Differences between operating systems (macOS vs Linux)
-- **Solution**: Use the manual workflow to generate baselines on the same OS as CI
+- **Cause**: Differences between operating systems or rendering engines
+- **Solution**: Use the manual workflow to generate baselines on the same OS as CI (Linux)
 
 ### Very slow tests
-- **Cause**: Many configured devices
-- **Solution**: Consider reducing the device matrix for routine PRs
+- **Cause**: Comprehensive testing across 9 devices × multiple themes = 44+ screenshots
+- **Solution**: Tests run in parallel; consider reducing device matrix for routine PRs if needed
 
 ### Sporadic failures
-- **Cause**: Elements loading asynchronously
-- **Solution**: Review that tests properly wait for dynamic content
+- **Cause**: Elements loading asynchronously or network issues in CI
+- **Solution**: Tests include automatic retries; check if specific components need longer wait times
 
 ### Server connection refused
 - **Cause**: Server not accessible or failed to start
@@ -126,5 +129,6 @@ tests/visual/homepage/
 ## 📚 Useful links
 
 - [Playwright Documentation](https://playwright.dev/)
-- [GitHub Actions](https://docs.github.com/en/actions)
-- [Visual Testing Best Practices](https://playwright.dev/docs/test-screenshots) 
+- [Playwright Screenshots Testing](https://playwright.dev/docs/test-screenshots)
+- [Astro Node.js Adapter](https://docs.astro.build/en/guides/integrations-guide/node/)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)

@@ -1,5 +1,7 @@
 # Lista de Mejoras Propuestas para Barcelona Nocturna
 
+> **📁 Nueva Ubicación:** Este archivo ha sido reorganizado dentro de `/improvements/` para mejor gestión del proyecto.
+
 ## 1. Optimizaciones de Rendimiento
 - [x] Implementar carga perezosa (lazy loading) para imágenes de personajes
 - [ ] Añadir directivas de precarga para assets críticos (fuentes, CSS principal)
@@ -30,7 +32,7 @@
 
 ## 5. Experiencia de Desarrollo
 - [ ] Añadir documentación apropiada para la configuración del proyecto y contribución
-- [ ] Añadir ESLint junto con Biome para un linting más comprensivo
+- [ ] ~~Añadir ESLint junto con Biome para un linting más comprensivo~~ → **Mantener solo Biome** (ver [github-actions-ci-cd.md](./github-actions-ci-cd.md))
 - [ ] Añadir Storybook o similar para desarrollo de componentes
 - [ ] Añadir Git hooks apropiados (husky) para checks pre-commit
 - [ ] Añadir error boundaries y manejo de errores apropiado
@@ -66,8 +68,8 @@
 - [ ] Mejorar navegación móvil
 
 ## 11. Testing
-- [ ] Configurar Jest/Vitest para testing unitario
-- [ ] Añadir Cypress/Playwright para E2E testing
+- [ ] Configurar Jest/Vitest para testing unitario → **Ver [testing-strategy.md](./testing-strategy.md)**
+- [x] Añadir Cypress/Playwright para E2E testing → **Playwright ya configurado**
 - [ ] Implementar Testing Library para tests de componentes
 - [ ] Añadir tests unitarios para:
   - [ ] Utilidades y helpers
@@ -99,13 +101,32 @@
 - [ ] Añadir tests de snapshot para:
   - [ ] Componentes UI críticos
   - [ ] Páginas principales
-- [ ] Implementar testing visual:
+- [x] Implementar testing visual → **Visual regression tests ya configurados**
   - [ ] Percy o similar para testing visual automatizado
-  - [ ] Tests de regresión visual
+  - [x] Tests de regresión visual
 - [ ] Añadir tests de seguridad:
   - [ ] Análisis estático de seguridad (SAST)
   - [ ] Escaneo de dependencias
   - [ ] Tests de penetración automatizados
+
+## 12. CI/CD y DevOps → **Ver [github-actions-ci-cd.md](./github-actions-ci-cd.md)**
+- [x] Visual Regression Testing con Playwright
+- [x] Workflow manual para actualizar baselines visuales
+- [x] Configuración básica de Biome para linting
+- [ ] **CI Pipeline Principal** - Linting, type checking, build automático
+- [ ] **Security Scanning** - npm audit, CodeQL, dependency scanning
+- [ ] **Performance Monitoring** - Lighthouse CI, bundle analysis
+- [ ] **Dependabot** - Actualizaciones automáticas de dependencias
+
+## 13. Configuración y Desarrollo
+- [x] **Simplificar configuración de Astro eliminando adapter**: ✅ **COMPLETADO** - Migrado de `@astrojs/netlify` a `@astrojs/node` para unificar configuración. Eliminado `astro.config.test.mjs` y ahora usamos una sola configuración con `output: 'server'` que soporta tanto páginas estáticas como SSR. Esto simplifica el desarrollo, testing y deployment manteniendo la funcionalidad de filtros server-side.
+
+## 📚 Documentación Relacionada
+
+- **[Roadmap de Implementación](./implementation-roadmap.md)** - Plan temporal detallado
+- **[GitHub Actions y CI/CD](./github-actions-ci-cd.md)** - Pipeline completo de CI/CD
+- **[Estrategia de Testing](./testing-strategy.md)** - Plan integral de testing
+- **[README Principal](./README.md)** - Visión general de todas las mejoras
 
 ## Notas sobre Testing
 - Priorizar tests para funcionalidades críticas
@@ -114,10 +135,13 @@
 - Documentar patrones y mejores prácticas de testing
 - Establecer procesos para mantenimiento y actualización de tests
 
-## 8. Configuración y Desarrollo
-- [x] **Simplificar configuración de Astro eliminando adapter**: ✅ **COMPLETADO** - Migrado de `@astrojs/netlify` a `@astrojs/node` para unificar configuración. Eliminado `astro.config.test.mjs` y ahora usamos una sola configuración con `output: 'server'` que soporta tanto páginas estáticas como SSR. Esto simplifica el desarrollo, testing y deployment manteniendo la funcionalidad de filtros server-side.
-
 ## Notas Adicionales
 - Esta lista es un documento vivo que debe ser actualizado según evolucionen las necesidades del proyecto
 - Las tareas están marcadas con checkboxes para facilitar el seguimiento
 - Se recomienda priorizar las tareas según el impacto en el usuario final y la facilidad de implementación
+- **Ver [implementation-roadmap.md](./implementation-roadmap.md)** para la planificación temporal detallada
+
+---
+
+**Última actualización:** Enero 2025  
+**Organizada en:** `/improvements/` para mejor gestión 
