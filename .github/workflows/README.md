@@ -11,10 +11,11 @@ This workflow runs automatically on:
 ### What does it do?
 
 1. **Installs dependencies** and Playwright browsers
-2. **Builds the project** and starts the preview server
-3. **Runs visual tests** comparing current screenshots with baselines
-4. **Generates reports** and artifacts if there are differences
-5. **Comments on the PR** with results automatically
+2. **Builds the project** using static configuration for testing
+3. **Starts a static server** to serve the built files
+4. **Runs visual tests** comparing current screenshots with baselines
+5. **Generates reports** and artifacts if there are differences
+6. **Comments on the PR** with results automatically
 
 ### Possible results
 
@@ -79,6 +80,11 @@ tests/visual/homepage/
 
 ## 🛠️ Configuration
 
+### Astro Configuration
+- **Unified Configuration**: Uses `@astrojs/node` adapter for both development and production
+- **Server Mode**: Uses `output: 'server'` to support SSR pages like `/characters` with dynamic filtering
+- **Build Command**: `npm run build` generates server-ready files for all environments
+
 ### Playwright Config
 - **Browsers**: Chrome, Firefox, Safari
 - **Devices**: Desktop (1440x900), iPad Pro, iPad, iPhone 13, iPhone SE, Pixel 5, Galaxy S9+
@@ -89,8 +95,17 @@ tests/visual/homepage/
 - **Timeout**: 60 minutes
 - **OS**: Ubuntu Latest
 - **Retention**: Artifacts are kept for 30 days
+- **Server**: Uses Node.js server to host files on port 4321
 
 ## 🚨 Troubleshooting
+
+### Server fails to start in CI
+- **Cause**: Configuration issues or build problems
+- **Solution**: The workflow now uses:
+  - Unified configuration with `@astrojs/node` adapter
+  - `npm run build` followed by `node ./dist/server/entry.mjs`
+  - Build verification step
+  - Playwright manages the server automatically
 
 ### "Screenshots differ" in CI but work locally
 - **Cause**: Differences between operating systems (macOS vs Linux)
@@ -103,6 +118,10 @@ tests/visual/homepage/
 ### Sporadic failures
 - **Cause**: Elements loading asynchronously
 - **Solution**: Review that tests properly wait for dynamic content
+
+### Server connection refused
+- **Cause**: Server not accessible or failed to start
+- **Solution**: The workflow uses Node.js server which automatically binds to all interfaces and provides better CI compatibility
 
 ## 📚 Useful links
 

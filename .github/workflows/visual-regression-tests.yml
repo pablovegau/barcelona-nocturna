@@ -6,6 +6,12 @@ on:
   push:
     branches: [ main ]
 
+# Grant GITHUB_TOKEN the permissions required to comment on PRs
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
 jobs:
   visual-tests:
     timeout-minutes: 60
@@ -27,19 +33,27 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Build the project
+    - name: Build the project for testing
       run: npm run build
 
-    - name: Start preview server
-      run: npm run preview &
-      
-    - name: Wait for server to be ready
+    - name: Verify build output
       run: |
-        timeout 60 bash -c 'until curl -f http://localhost:4173; do sleep 2; done'
+        echo "Checking build output..."
+        ls -la dist/ || echo "❌ dist/ directory not found"
+        if [ ! -d "dist" ]; then
+          echo "❌ Build failed - no dist directory found"
+          exit 1
+        fi
+        echo "✅ Build output verified"
+
+
 
     - name: Run Playwright tests
+      id: test-step
       run: npm run test:visual
       continue-on-error: true
+
+
 
     - name: Upload Playwright Report
       uses: actions/upload-artifact@v4
@@ -73,17 +87,12 @@ jobs:
           const fs = require('fs');
           const path = require('path');
           
-          // Check if there are test failures
-          const testResultsPath = 'test-results';
-          let hasFailures = false;
+          // Check if there are test failures by examining the test step outcome
+          const testStepOutcome = '${{ steps.test-step.outcome }}';
+          const hasFailures = testStepOutcome === 'failure';
           
-          try {
-            if (fs.existsSync(testResultsPath)) {
-              hasFailures = true;
-            }
-          } catch (error) {
-            console.log('No test results found');
-          }
+          console.log(`Test step outcome: ${testStepOutcome}`);
+          console.log(`Has failures: ${hasFailures}`);
           
           const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
           

@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// Helper function para identificar dispositivos móviles
 function isMobileDevice(projectName) {
   const mobileDevices = ['iPhone 13', 'iPhone SE', 'Pixel 5', 'Galaxy S9+'];
   return mobileDevices.includes(projectName);
@@ -26,39 +25,54 @@ test.describe('Homepage', () => {
 
   test('Scroll', async ({ page }) => {
     await page.evaluate(() => window.scrollTo(0, 400));
-    // await page.waitForTimeout(500);
     
     await expect(page).toHaveScreenshot();
   });
 
   test('Scroll - dark theme', async ({ page }) => {
     await page.click('#theme-toggle');
-    // await page.waitForTimeout(500);
-
     await page.evaluate(() => window.scrollTo(0, 400));
-    // await page.waitForTimeout(500);
-    
+
     await expect(page).toHaveScreenshot();
   });
 
   test('Mobile menu', async ({ page }, testInfo) => {
     test.skip(!isMobileDevice(testInfo.project.name), 'Este test solo se ejecuta en dispositivos móviles');
     
-    await page.click('.topnav__control');
-    // await page.waitForTimeout(300);
+    // Deshabilitar animaciones infinitas del blob antes de capturar
+    await page.addStyleTag({
+      content: `
+        .blob {
+          animation: none !important;
+          transform: none !important;
+        }
+      `
+    });
     
+    await page.click('.topnav__control');
+    await page.waitForTimeout(500); // Esperar que termine la animación
+
     await expect(page).toHaveScreenshot();
   });
 
   test('Mobile menu - dark theme', async ({ page }, testInfo) => {
     test.skip(!isMobileDevice(testInfo.project.name), 'Este test solo se ejecuta en dispositivos móviles');
     
+    // Deshabilitar animaciones infinitas del blob antes de capturar
+    await page.addStyleTag({
+      content: `
+        .blob {
+          animation: none !important;
+          transform: none !important;
+        }
+      `
+    });
+    
     await page.click('#theme-toggle');
-    // await page.waitForTimeout(500);
-    
+    await page.waitForTimeout(500); // Esperar cambio de tema
     await page.click('.topnav__control');
-    // await page.waitForTimeout(300);
-    
+    await page.waitForTimeout(500); // Esperar que termine la animación
+
     await expect(page).toHaveScreenshot();
   });
 

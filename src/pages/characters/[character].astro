@@ -8,7 +8,7 @@ import Heading from '@/components/Heading/Heading.astro';
 import PolaroidGroup from '@/containers/PolaroidGroup/PolaroidGroup.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-import styles from './styles.module.css';
+import styles from './_styles.module.css';
 
 export async function getStaticPaths() {
   const characters = await getCharactersWithReferencedData();

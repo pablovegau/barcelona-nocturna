@@ -8,6 +8,10 @@ on:
         required: true
         default: 'Approved design changes'
 
+# Grant GITHUB_TOKEN the permissions required
+permissions:
+  contents: write
+
 jobs:
   update-baselines:
     timeout-minutes: 60
@@ -31,23 +35,30 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Build the project
+    - name: Build the project for testing
       run: npm run build
 
-    - name: Start preview server
-      run: npm run preview &
-      
-    - name: Wait for server to be ready
+    - name: Verify build output
       run: |
-        timeout 60 bash -c 'until curl -f http://localhost:4173; do sleep 2; done'
+        echo "Checking build output..."
+        ls -la dist/ || echo "❌ dist/ directory not found"
+        if [ ! -d "dist" ]; then
+          echo "❌ Build failed - no dist directory found"
+          exit 1
+        fi
+        echo "✅ Build output verified"
+
+
 
     - name: Update visual baselines
       run: npm run test:visual -- --update-snapshots
 
+
+
     - name: Check for changes
       id: changes
       run: |
-        if git diff --quiet; then
+        if git diff --quiet && git diff --cached --quiet && [ -z "$(git status --porcelain)" ]; then
           echo "has_changes=false" >> $GITHUB_OUTPUT
         else
           echo "has_changes=true" >> $GITHUB_OUTPUT

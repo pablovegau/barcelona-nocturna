@@ -16,7 +16,7 @@ export default defineConfig({
       threshold: 0.2,
       animation: 'disabled',
       mode: 'default',
-      maxDiffPixelRatio: 0.01,
+      maxDiffPixelRatio: 0.1, // Aumentar tolerancia para animaciones infinitas del blob
     },
   },
 
@@ -85,7 +85,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'npm run dev',
+    command: process.env.CI ? 'node ./dist/server/entry.mjs' : 'npm run dev',
     port: 4321,
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
