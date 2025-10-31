@@ -1,5 +1,10 @@
 {
   "recommendations": [
+    "biomejs.biome"
+  ]
+}
+{
+  "recommendations": [
     "astro-build.astro-vscode"
   ],
   "unwantedRecommendations": []
