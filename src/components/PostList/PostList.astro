@@ -1,32 +1,21 @@
 ---
-import Heading from '@/components/Heading/Heading.astro';
-import styles from './styles.module.css';
+import type { PostData } from '@/components/react/PostCard/PostCard';
+import { PostListInternal } from '@/components/react/PostListInternal/PostListInternal';
 
 interface Props {
-  posts: {
-		id: string;
-		data: {
-			title: string;
-			abstract: string;
-			publishDate: string;
-			sessionDate: string;
-			tags: string[];
-			isDraft: boolean;
-		};
-	}[];
+  posts: PostData[];
+  totalPages: number;
 }
 
-const { posts } = Astro.props;
+const { posts, totalPages } = Astro.props;
+
+const initialData = {
+  posts,
+  totalPages,
+};
 ---
 
-<ul class={styles.postList}>
-  {posts.map((post) => (
-    <li class={styles.postList__item}>
-              <Heading tagName="h2" size="h2">
-        <a class={styles.postList__itemTitleLink} href={`/posts/${post.id}`}>{post.data.title}</a>
-      </Heading>
-      <p class={styles.postList__itemAbstract}>{post.data.abstract}</p>
-      <a class={styles.postList__itemReadMore} href={`/posts/${post.id}`}>Leer más</a>
-    </li>
-  ))}
-</ul>
+<PostListInternal
+  client:load 
+  initialData={initialData} 
+/>

@@ -1,0 +1,27 @@
+.postCard {
+	margin-block-end: var(--bn-spacing-48);
+}
+
+.postCard__TitleLink {
+	color: var(--bn-text-color);
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.postCard__Abstract {
+	margin-block-start: var(--bn-spacing-12);
+	margin-block-end: var(--bn-spacing-8);
+}
+
+.postCard__ReadMore {
+	color: var(--bn-link-color);
+	text-decoration: none;
+	font-weight: 600;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
