@@ -1,13 +1,22 @@
 ---
+import { PAGE_SIZE } from '@/constants';
+import { getPaginatedPosts, getPublishedPosts } from '@/domain/posts';
 import { getCharactersById } from '@domain/characters';
-import { getCollection } from 'astro:content';
 import Hero from '../components/Hero/Hero.astro';
 import PostList from '../components/PostList/PostList.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const characters = await getCharactersById(["elena-venture", "roc-puyol", "miguel-angel-zabaleta", "paris-fernandez", "ezequiel-medina"])
-const posts = (await getCollection('posts'))
-	.sort(((a, b) => b.data.slug.localeCompare(a.data.slug)));
+const characters = await getCharactersById([
+  'elena-venture',
+  'roc-puyol',
+  'miguel-angel-zabaleta',
+  'paris-fernandez',
+  'ezequiel-medina',
+]);
+
+const { posts: firstPage } = await getPaginatedPosts(1, PAGE_SIZE);
+const all = await getPublishedPosts();
+const totalPages = Math.ceil(all.length / PAGE_SIZE);
 ---
 
 <BaseLayout>
@@ -15,7 +24,7 @@ const posts = (await getCollection('posts'))
 	<Hero characters={characters} />
 
 	<div class="content">
-		<PostList posts={posts}/>
+		<PostList posts={firstPage} totalPages={totalPages} />
 
 		<aside>
 			<!-- Por ahora vacio -->

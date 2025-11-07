@@ -5,3 +5,5 @@ export const BLOG_DESCRIPTION =
 export const COLOR_THEME_COOKIE_NAME = 'color-theme';
 
 export const DAY_COLORS = {};
+
+export const PAGE_SIZE = 8;

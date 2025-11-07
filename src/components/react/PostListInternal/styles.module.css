@@ -1,0 +1,9 @@
+.wrapper {
+	flex: var(--bn-content-flex);
+	padding: 0;
+}
+
+.postList {
+	list-style: none;
+	padding-inline-start: 0;
+}
