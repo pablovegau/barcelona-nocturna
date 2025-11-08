@@ -62,9 +62,6 @@
 	}
 }
 
-.topnav__item {
-}
-
 .topnav__link {
 	padding: var(--bn-spacing-4) var(--bn-spacing-16);
 	color: var(--bn-text-color);
@@ -79,8 +76,8 @@
 
 .blob {
 	position: absolute;
-	bottom: calc(20px + 150px);
-	left: -150px;
+	bottom: calc(20px + 500px);
+	left: -300px;
 	filter: blur(4px);
 	opacity: 0.9;
 	will-change: transform;
