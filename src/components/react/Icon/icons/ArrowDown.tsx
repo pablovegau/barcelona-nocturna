@@ -30,8 +30,8 @@ export function ArrowDown({
         y1="5"
         x2="12"
         y2="19"
-        stroke-linecap="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeWidth="2"
       />
 
       <line
@@ -39,8 +39,8 @@ export function ArrowDown({
         y1="14"
         x2="12"
         y2="19"
-        stroke-linecap="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeWidth="2"
       />
 
       <line
@@ -48,8 +48,8 @@ export function ArrowDown({
         y1="14"
         x2="12"
         y2="19"
-        stroke-linecap="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeWidth="2"
       />
     </svg>
   );
