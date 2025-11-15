@@ -1,7 +1,7 @@
 ---
 import Logo from '@comp/Logo/Logo.astro';
-import ThemeToggle from '@/components/ThemeToggle/ThemeToggle.astro';
-import Topnav from '../Topnav/Topnav.astro';
+import ThemeToggle from '@comp/ThemeToggle/ThemeToggle.astro';
+import Topnav from '@comp/Topnav/Topnav.astro';
 
 import './styles.css';
 ---
@@ -67,8 +67,8 @@ import './styles.css';
     if (topnavControl) {
       topnavControl.removeEventListener('click', toggleMenu);
     }
-    
-    if (topnavLinks && topnavLinks.length) {
+
+     if (topnavLinks && topnavLinks.length) {
       topnavLinks.forEach(link => {
         link.removeEventListener('click', toggleMenu);
       });

@@ -62,24 +62,12 @@
 	}
 }
 
-.topnav__link {
-	padding: var(--bn-spacing-4) var(--bn-spacing-16);
-	color: var(--bn-text-color);
-	text-decoration: none;
-	text-align: center;
-	transition: color 0.2s ease-in-out;
-}
-
-.topnav__link:hover {
-	color: var(--bn-base-color-secondary-extra-light);
-}
-
-.blob {
+.blob_topnav {
 	position: absolute;
-	bottom: calc(20px + 500px);
-	left: -300px;
+	bottom: -500px;
+	left: -200px;
 	filter: blur(4px);
-	opacity: 0.9;
+	opacity: 0.8;
 	will-change: transform;
 	animation: pulseScale 45s ease-in-out infinite, floatAnimation 90s ease-in-out
 		infinite;

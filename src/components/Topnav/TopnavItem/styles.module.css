@@ -1,0 +1,50 @@
+.topnav__link {
+	position: relative;
+	color: var(--bn-text-color);
+	font-size: var(--bn-text-font-large);
+	font-weight: 600;
+	text-decoration: none;
+	padding-block: var(--bn-spacing-8);
+
+	@media (width > 40rem) {
+		border-radius: var(--bn-border-radius-8);
+		padding-block: var(--bn-spacing-12);
+		padding-inline: var(--bn-spacing-20);
+		font-size: var(--bn-text-font-size);
+		font-weight: 400;
+		clip-path: inset(0 0 0 0 round var(--bn-border-radius-8));
+		transition: background-color 300ms ease-out;
+	}
+}
+
+.topnav__link span {
+	position: relative;
+	z-index: 1;
+}
+
+.topnav__link:hover {
+	@media (width > 40rem) {
+		background-color: var(--bn--topnav-item--background-color--hover);
+	}
+}
+
+.blob_link {
+	display: none;
+
+	@media (width > 40rem) {
+		display: block;
+		position: absolute;
+		top: -30px;
+		left: 50%;
+		transform: translateX(-50%);
+		filter: blur(6px);
+		opacity: 0;
+		will-change: opacity;
+		transition: opacity 100ms ease-in;
+	}
+}
+
+.topnav__link:hover .blob_link {
+	transition: opacity 700ms cubic-bezier(0.579, 0.21, 0.445, 0.814);
+	opacity: 1;
+}
