@@ -1,0 +1,21 @@
+---
+import BlobBlood from '@comp/BlobBlood/BlobBlood.astro';
+import styles from './styles.module.css';
+
+interface Props {
+  href: string;
+  label: string;
+}
+
+const { href, label } = Astro.props;
+---
+
+<li class="topnav__item">
+  <a class={styles.topnav__link} href={href}>
+    <div class={styles.blob_link}>
+      <BlobBlood stepCount={10} />
+    </div>  
+    <span>{label}</span>
+  </a>
+</li>
+      
