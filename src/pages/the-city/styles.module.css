@@ -1,0 +1,4 @@
+.text {
+	margin-block-end: calc(var(--bn-text-font-size) * 1.2);
+	line-height: 1.5;
+}

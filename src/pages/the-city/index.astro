@@ -1,0 +1,26 @@
+---
+import Heading from '@/components/Heading/Heading.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import styles from './styles.module.css';
+---
+
+<BaseLayout pageTitle='Barcelona Nocturna'>
+  <Heading tagName="h1" size="h1">Barcelona Nocturna</Heading>
+
+  <p class={styles.text}>Barcelona tiene una historia tan antigua como la sombra que la envuelve.</p>
+
+  <p class={styles.text}>En ella se mezclan tradición y modernidad, mito y memoria, realidad y susurros que nunca llegan a la luz. De día, la ciudad palpita: miles de pasos —autóctonos y extranjeros— recorren sus avenidas, saborean su gastronomía, se pierden entre museos y monumentos, celebran la vida sin sospechar lo que duerme bajo sus calles.</p>
+  
+  <p class={styles.text}>Pero cuando el sol se retira más allá del horizonte, Barcelona revela su verdadero rostro. En las grietas de su arquitectura modernista, en los callejones del Gòtic y las alturas silenciosas de Montjuïc, criaturas antiguas y hambrientas observan, calculan, conspiran. La ciudad nocturna late con otro pulso: uno oculto, frío, eterno. Allí donde la luz no alcanza, los Vástagos tejen su propio destino… y el de todos los que habitan bajo su influencia.</p>
+
+  <p class={styles.text}>Pero cuando el sol se retira más allá del horizonte, Barcelona revela su verdadero rostro.</p>
+
+  <p class={styles.text}>En las grietas de su arquitectura modernista, en los callejones del Gòtic y las alturas silenciosas de Montjuïc, criaturas antiguas y hambrientas observan, calculan, conspiran. La ciudad nocturna late con otro pulso: uno oculto, frío, eterno. Allí donde la luz no alcanza, los Vástagos tejen su propio destino… y el de todos los que habitan bajo su influencia.</p>
+
+  <p class={styles.text}>Bienvenido a Barcelona Nocturna.</p>
+
+  <p class={styles.text}>Que tus pasos sean sigilosos… y tu sangre, discreta.</p>
+
+  <a href="/the-city/history">Historia</a>
+</BaseLayout>

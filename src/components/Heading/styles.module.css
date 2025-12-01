@@ -1,44 +1,50 @@
 .heading {
-  color: var(--bn-text-color);
+	color: var(--bn-text-color);
 }
 
 .xxl {
-  font-size: var(--bn-h1-min-font-size);
-  font-weight: var(--bn-h1-font-weight);
+	font-size: var(--bn-h1-min-font-size);
+	font-weight: var(--bn-h1-font-weight);
+	margin-block-end: calc(var(--bn-h1-min-font-size) * 0.8);
 
-  @media (min-width: 40rem) {
-    font-size: var(--bn-h1-max-font-size);
-  }
+	@media (min-width: 40rem) {
+		font-size: var(--bn-h1-max-font-size);
+		margin-block-end: calc(var(--bn-h1-max-font-size) * 0.8);
+	}
 }
 
 .xl {
-  font-size: var(--bn-h2-min-font-size);
-  font-weight: var(--bn-h2-font-weight);
+	font-size: var(--bn-h2-min-font-size);
+	font-weight: var(--bn-h2-font-weight);
+	margin-block-end: calc(var(--bn-h2-min-font-size) * 0.8);
 
-  @media (min-width: 40rem) {
-    font-size: var(--bn-h2-max-font-size);
-  }
+	@media (min-width: 40rem) {
+		font-size: var(--bn-h2-max-font-size);
+		margin-block-end: calc(var(--bn-h2-max-font-size) * 0.8);
+	}
 }
 
 .lg {
-  font-size: var(--bn-h3-min-font-size);
-  font-weight: var(--bn-h3-font-weight);
+	font-size: var(--bn-h3-min-font-size);
+	font-weight: var(--bn-h3-font-weight);
+	margin-block-end: calc(var(--bn-h3-min-font-size) * 0.8);
 
-  @media (min-width: 40rem) {
-    font-size: var(--bn-h3-max-font-size);
-  }
+	@media (min-width: 40rem) {
+		font-size: var(--bn-h3-max-font-size);
+		margin-block-end: calc(var(--bn-h3-max-font-size) * 0.8);
+	}
 }
 
 .left {
-  text-align: left;
+	text-align: left;
 }
 
 .center {
-  text-align: center;
+	text-align: center;
 }
 
 .right {
-  text-align: right;
+	text-align: right;
 }
 
 /* .md {
@@ -51,4 +57,4 @@
 
 .xs {
   font-size: 1rem;
-} */ 
+} */
