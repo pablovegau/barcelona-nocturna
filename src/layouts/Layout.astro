@@ -10,9 +10,17 @@ interface Props {
   pageTitle?: string;
   description?: string;
   bodyClass?: string;
+  backgroundPositionTop?: string;
+  backgroundPositionBottom?: string;
 }
 
-const { pageTitle, description, bodyClass } = Astro.props;
+const {
+  pageTitle,
+  description,
+  bodyClass,
+  backgroundPositionTop,
+  backgroundPositionBottom,
+} = Astro.props;
 
 const title = pageTitle
   ? `Barcelona Nocturna - ${pageTitle}`
@@ -24,8 +32,8 @@ const title = pageTitle
   <BaseHead pageTitle={title} description={description} />
   <body class={bodyClass}>
     <div class="background" aria-hidden="true">
-      <TheatreCurtain />
-      <BackgroundPatternBottom />
+      <TheatreCurtain top={backgroundPositionTop} />
+      <BackgroundPatternBottom bottom={backgroundPositionBottom} />
     </div>
     <slot />
   </body>

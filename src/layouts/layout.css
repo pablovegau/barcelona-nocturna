@@ -1,0 +1,59 @@
+html {
+	position: relative;
+}
+
+html,
+body {
+	margin: 0;
+	font-family: var(--bn-font-family);
+	line-height: 150%;
+	color: var(--bn-text-color);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+html {
+	scroll-behavior: smooth;
+	background-color: var(--app-background-color);
+}
+
+.background {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.chat-mode {
+	height: 100vh;
+	overflow: hidden;
+}
+
+:root {
+	color-scheme: light dark;
+
+	/* Light theme */
+	--app-background-color: var(--bn-base-color-gray--0);
+	--app-background-pattern-color: var(--bn-base-color-scenic); /* TODO: Remove once we finish the patterns */
+	--bn-text-color: var(--bn-base-color-gray--90);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+	--app-background-color: var(--bn-base-color-gray--100);
+	--app-background-pattern-color: var(--bn-base-color-scenic); /* TODO: Remove once we finish the patterns */
+	--bn-text-color: var(--bn-base-color-gray--5);
+
+	--bn-text-color-reverse: var(--bn-base-color-gray--90);
+	--bn-text-color-light: var(--bn-base-color-gray--30);
+}
+
+[data-theme="light"] {
+	color-scheme: light;
+}
+
+[data-theme="dark"] {
+	color-scheme: dark;
+}

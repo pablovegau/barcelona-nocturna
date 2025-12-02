@@ -1,0 +1,49 @@
+---
+import Footer from '../components/Footer/Footer.astro';
+import Header from '../components/Header/Header.astro';
+import Layout from './Layout.astro';
+
+interface Props {
+  pageTitle?: string;
+  description?: string;
+  backgroundPositionTop?: string;
+  backgroundPositionBottom?: string;
+}
+
+const {
+  pageTitle,
+  description,
+  backgroundPositionTop,
+  backgroundPositionBottom,
+} = Astro.props;
+---
+
+<Layout 
+  pageTitle={pageTitle}
+  description={description}
+  bodyClass="chat-mode"
+  backgroundPositionTop={backgroundPositionTop}
+  backgroundPositionBottom={backgroundPositionBottom}
+>
+  <Header />
+  <main class="main">
+    <slot />
+  </main>
+	<Footer compact={true} />
+</Layout>
+
+<style>
+	.main {
+		max-width: var(--bn-work-space-max-width);
+		flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+		margin: 0 auto;
+    width: 100%;
+		margin-block-start: var(--bn-spacing-24);
+		padding-inline: var(--bn-spacing-32);
+	}
+</style>
+
+

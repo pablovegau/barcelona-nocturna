@@ -1,6 +1,6 @@
 .backgroundPattern {
 	position: absolute;
-	top: -100px;
+	top: var(--top, -100px);
 	width: 100vw;
 	left: 50%;
 	transform: translateX(-50%);
