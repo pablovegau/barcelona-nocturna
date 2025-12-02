@@ -1,0 +1,6 @@
+:root {
+	--bn--chat-input--background-color: var(--bn-base-color-gray--90);
+}
+
+[data-theme="dark"] {
+}
