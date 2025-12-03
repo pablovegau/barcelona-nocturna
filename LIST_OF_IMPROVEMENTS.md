@@ -2,7 +2,7 @@
 
 ## 1. Optimizaciones de Rendimiento
 - [x] Implementar carga perezosa (lazy loading) para imágenes de personajes
-- [ ] **[CRÍTICO]** Optimizar `getCharactersById` en `src/domain/characters.ts` para evitar cargar toda la colección. ⭐⭐
+- [x] **[CRÍTICO]** Optimizar `getCharactersById` en `src/domain/characters.ts` para evitar cargar toda la colección. ⭐⭐
 - [x] Añadir directivas de precarga para assets críticos (fuentes, CSS principal) ⭐
 - [ ] Considerar implementar un Service Worker para funcionalidad offline ⭐⭐⭐⭐
 - [x] Añadir resource hints (preconnect, prefetch) para recursos externos ⭐
