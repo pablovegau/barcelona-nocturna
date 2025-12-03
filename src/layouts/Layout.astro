@@ -3,12 +3,24 @@ import BackgroundPatternBottom from '@/components/BackgroundPattern/BackgroundPa
 import TheatreCurtain from '@/components/BackgroundPattern/TheatreCurtain.astro';
 import BaseHead from './BaseHead.astro';
 
+import './layout.css';
+import '../styles/global.css';
+
 interface Props {
   pageTitle?: string;
   description?: string;
+  bodyClass?: string;
+  backgroundPositionTop?: string;
+  backgroundPositionBottom?: string;
 }
 
-const { pageTitle, description } = Astro.props;
+const {
+  pageTitle,
+  description,
+  bodyClass,
+  backgroundPositionTop,
+  backgroundPositionBottom,
+} = Astro.props;
 
 const title = pageTitle
   ? `Barcelona Nocturna - ${pageTitle}`
@@ -18,266 +30,14 @@ const title = pageTitle
 <!doctype html>
 <html lang="es">
   <BaseHead pageTitle={title} description={description} />
-  <div class="background" aria-hidden="true">
-    <TheatreCurtain />
-    <BackgroundPatternBottom />
-  </div>
-  <body>
+  <body class={bodyClass}>
+    <div class="background" aria-hidden="true">
+      <TheatreCurtain top={backgroundPositionTop} />
+      <BackgroundPatternBottom bottom={backgroundPositionBottom} />
+    </div>
     <slot />
   </body>
 </html>
-
-<!-- CSS RESET -->
-<style is:global>
-	/* You can find more info about this reset in Josh W. Comeau blog: https://www.joshwcomeau.com/css/custom-css-reset/ */
-
-	/* 1. Use a more-intuitive box-sizing model */
-	*, *::before, *::after {
-		box-sizing: border-box;
-	}
-
-	/* 2. Remove default margin */
-	* {
-		margin: 0;
-	}
-
-	body {
-		/* 3. Add accessible line-height */
-		line-height: 1.5;
-		/* 4. Improve text rendering */
-		-webkit-font-smoothing: antialiased;
-	}
-
-	/* 5. Improve media defaults */
-	img, picture, video, canvas, svg {
-		display: block;
-		max-width: 100%;
-	}
-
-	/* 6. Inherit fonts for form controls */
-	input, button, textarea, select {
-		font: inherit;
-	}
-
-	/* 7. Avoid text overflows */
-	p, h1, h2, h3, h4, h5, h6 {
-		overflow-wrap: break-word;
-	}
-
-	/* 8. Improve line wrapping */
-	p {
-		text-wrap: pretty;
-	}
-	h1, h2, h3, h4, h5, h6 {
-		text-wrap: balance;
-	}
-
-	/*
-		9. Create a root stacking context
-	*/
-	#root, #__next {
-		isolation: isolate;
-	}
-</style>
-
-<!-- CSS VARIABLES -->
-<style is:global>
-	@font-face {
-		font-display: swap;
-		font-family: 'Jim Nightshade';
-		src: url(../assets/fonts/JimNightshade.woff2) format('woff2');
-	}
-
-	@font-face {
-		font-display: swap;
-		font-family: 'Ubuntu';
-		src: url(../assets/fonts/ubuntu-regular.woff2) format('woff2');
-	}
-
-	:root {
-		/* COLORS */
-		--bn-base-color-gray--0-raw: 0 0 100;
-		--bn-base-color-gray--100-raw: 0 0 0;
-
-		--bn-base-color-gray--0: hsl(0deg 0% 100%);
-		--bn-base-color-gray--2: hsl(0deg 0% 98%);
-		--bn-base-color-gray--5: hsl(0deg 0% 95%);
-		--bn-base-color-gray--10: hsl(0deg 0% 90%);
-		--bn-base-color-gray--20: hsl(0deg 0% 80%);
-		--bn-base-color-gray--30: hsl(0, 0%, 70%);
-		--bn-base-color-gray--40: hsl(0, 0%, 60%);
-		--bn-base-color-gray--50: hsl(0, 0%, 50%);
-		--bn-base-color-gray--60: hsl(0, 0%, 40%);
-		--bn-base-color-gray--70: hsl(0, 0%, 30%);
-		--bn-base-color-gray--80: hsl(0, 0%, 20%);
-		--bn-base-color-gray--90: hsl(0, 0%, 10%);
-		--bn-base-color-gray--100: hsl(0, 0%, 0%);
-
-		--bn-base-color-scenic-raw: 55, 90%, 35%;
-		--bn-base-color-primary-raw: 270, 50%, 50%;
-		--bn-base-color-secondary-raw: 48, 100%, 50%;
-		--bn-base-color-tertiary-raw: 231, 50%, 75%;
-		/* example of use with transparency:
-		color: hsl(var(--bn-base-color-primary-raw) / 100%); */
-
-		--bn-base-color-scenic: hsl(355, 90%, 35%);
-		--bn-base-color-primary: hsl(270, 50%, 50%);
-		--bn-base-color-secondary: hsl(48, 100%, 50%);
-		--bn-base-color-tertiary: hsl(231, 50%, 75%);
-
-		--bn-base-color-scenic-extra-light: hsl(355, 70%, 65%);
-		--bn-base-color-scenic-light: hsl(355, 90%, 45%);
-		--bn-base-color-scenic-dark: hsl(355, 90%, 25%);
-		--bn-base-color-scenic-extra-dark: hsl(355, 90%, 15%);
-
-		--bn-base-color-primary-extra-light: hsl(270, 50%, 70%);
-		--bn-base-color-primary-light: hsl(270, 50%, 60%);
-		--bn-base-color-primary-dark: hsl(270, 50%, 40%);
-		--bn-base-color-secondary-extra-dark: hsl(270, 50%, 30%);
-
-		--bn-base-color-secondary-extra-light: hsl(48, 100%, 70%);
-		--bn-base-color-secondary-light: hsl(48, 100%, 60%);
-		--bn-base-color-secondary-dark: hsl(48, 100%, 40%);
-		--bn-base-color-secondary-extra-dark: hsl(48, 100%, 30%);
-
-		--bn-base-color-tertiary-extra-light: hsl(231, 50%, 95%);
-		--bn-base-color-tertiary-light: hsl(231, 50%, 85%);
-		--bn-base-color-tertiary-dark: hsl(231, 50%, 65%);
-		--bn-base-color-tertiary-extra-dark: hsl(231, 50%, 55%);
-
-		/* SPACING */
-		--bn-spacing-4: 4px;
-		--bn-spacing-8: 8px;
-		--bn-spacing-12: 12px;
-		--bn-spacing-16: 16px;
-		--bn-spacing-20: 20px;
-		--bn-spacing-24: 24px;
-		--bn-spacing-28: 28px;
-		--bn-spacing-32: 32px;
-		--bn-spacing-40: 40px;
-		--bn-spacing-48: 48px;
-		--bn-spacing-64: 64px;
-		--bn-spacing-96: 96px;
-		--bn-spacing-128: 128px;
-
-		/* BORDER RADIUS */
-		--bn-border-radius-4: 4px;
-		--bn-border-radius-8: 8px;
-
-		/* TYPOGRAPHY */
-		--bn-font-family: 'Ubuntu', sans-serif;
-		/* --bn-font-family-serif: 'Roboto Serif', sans-serif; */
-		--bn-font-family-fantasy: 'Jim Nightshade', cursive;
-
-		--bn-h1-max-font-size: calc(36 / 16 * 1rem);
-		--bn-h1-min-font-size: calc(28 / 16 * 1rem);
-		--bn-h1-font-weight: 600;
-
-		--bn-h2-max-font-size: calc(28 / 16 * 1rem);
-		--bn-h2-min-font-size: calc(24 / 16 * 1rem);
-		--bn-h2-font-weight: 600;
-
-		--bn-h3-max-font-size: calc(24 / 16 * 1rem);
-		--bn-h3-min-font-size: calc(20 / 16 * 1rem);
-		--bn-h3-font-weight: 500;
-
-		--bn-text-font-size: calc(16 / 16 * 1rem);
-		--bn-text-font-medium: calc(18 / 16 * 1rem);
-		--bn-text-font-large: calc(20 / 16 * 1rem);
-
-		--bn-base-rem-size: 16px;
-
-		/* LAYOUT */
-		--bn-content-flex: 7;
-		--bn-aside-flex: 3;
-		--bn-work-space-max-width: 1200px;
-
-		/* BREAKPOINTS */
-		--bn-breakpoint-tabletMin: 40rem;
-		--bn-breakpoint-laptopMin: 68.75rem;
-		--bn-breakpoint-desktopMin: 93.75rem;
-
-		color-scheme: light dark;
-
-		/* Light theme */
-		--app-background-color: var(--bn-base-color-gray--0);
-		--app-background-pattern-color: var(--bn-base-color-scenic); /* TODO: Remove once we finish the patterns */
-		--bn-text-color: var(--bn-base-color-gray--90);
-
-		--bn-link-color: var(--bn-base-color-primary);
-
-		/* Components - BloodBlob */
-		--bn--blood-blob--stop-color--start: var(--bn-base-color-scenic-light);
-		--bn--blood-blob--stop-color--end: var(--bn-base-color-scenic-extra-light);
-
-		/* Components - Button */
-		--bn-button-background-color: var(--bn-base-color-tertiary);
-		--bn-button-text-color: var(--bn-base-color-gray--100);
-
-		/* Components - Icon */
-		--bn-icon-fill-color: var(--bn-base-color-gray--100);
-		--bn-button-background-color--hover: var(--bn-base-color-tertiary-light);
-		--bn-icon-stroke-color: var(--bn-base-color-gray--100);
-
-		/* Components - Theatre Curtain */
-		--bn--theatre-curtain--background-color--first-layer: hsl(355, 70%, 75%);
-		--bn--theatre-curtain--background-color--second-layer: var(--bn-base-color-scenic-extra-light);
-		--bn--theatre-curtain--background-color--third-layer: var(--bn-base-color-scenic-light);
-
-		/* Components - Topnav Item */
-		--bn--topnav-item--background-color--hover: var(--bn-base-color-scenic-extra-light);
-	}
-
-
-	/* Dark theme */
-	[data-theme="dark"] {
-		--app-background-color: var(--bn-base-color-gray--100);
-		--app-background-pattern-color: var(--bn-base-color-scenic); /* TODO: Remove once we finish the patterns */
-		--bn-text-color: var(--bn-base-color-gray--5);
-
-		--bn-link-color: var(--bn-base-color-secondary-extra-dark);
-		--bn-text-color-reverse: var(--bn-base-color-gray--90);
-		--bn-text-color-light: var(--bn-base-color-gray--30);
-
-		/* Components - BloodBlob */
-		--bn--blood-blob--stop-color--start: var(--bn-base-color-scenic-dark);
-		--bn--blood-blob--stop-color--end: var(--bn-base-color-scenic);
-
-		/* Components - Button */
-		--bn-button-background-color: var(--bn-base-color-tertiary);
-		--bn-button-background-color--hover: var(--bn-base-color-tertiary-light);
-
-		--bn-button-text-color: var(--bn-base-color-gray--100);
-
-		/* Components - Theatre Curtain */
-		--bn--theatre-curtain--background-color--first-layer: var(--bn-base-color-scenic);
-		--bn--theatre-curtain--background-color--second-layer: var(--bn-base-color-scenic-dark);
-		--bn--theatre-curtain--background-color--third-layer: var(--bn-base-color-scenic-extra-dark);
-
-		/* Components - Topnav Item */
-		--bn--topnav-item--background-color--hover: var(--bn-base-color-scenic-dark);
-		
-	}
-</style>
-
-<style>
-	html {
-		position: relative;
-	}
-
-	html,
-	body {
-		margin: 0;
-		font-family: var(--bn-font-family);
-		line-height: 150%;
-		color: var(--bn-text-color);
-	}
-
-	html {
-		scroll-behavior: smooth;
-		background-color: var(--app-background-color);
-	}
-</style>
 
 <script>
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -300,13 +60,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 </script>
-
-<style is:global>
-  :root[data-theme='light'] {
-    color-scheme: light;
-  }
-
-  :root[data-theme='dark'] {
-    color-scheme: dark;
-  }
-</style>

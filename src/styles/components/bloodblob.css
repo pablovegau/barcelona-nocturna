@@ -1,0 +1,9 @@
+:root {
+	--bn--blood-blob--stop-color--start: var(--bn-base-color-scenic-light);
+	--bn--blood-blob--stop-color--end: var(--bn-base-color-scenic-extra-light);
+}
+
+[data-theme="dark"] {
+	--bn--blood-blob--stop-color--start: var(--bn-base-color-scenic-dark);
+	--bn--blood-blob--stop-color--end: var(--bn-base-color-scenic);
+}

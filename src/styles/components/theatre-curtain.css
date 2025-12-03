@@ -1,0 +1,21 @@
+:root {
+	--bn--theatre-curtain--background-color--first-layer: hsl(355, 70%, 75%);
+	--bn--theatre-curtain--background-color--second-layer: var(
+		--bn-base-color-scenic-extra-light
+	);
+	--bn--theatre-curtain--background-color--third-layer: var(
+		--bn-base-color-scenic-light
+	);
+}
+
+[data-theme="dark"] {
+	--bn--theatre-curtain--background-color--first-layer: var(
+		--bn-base-color-scenic
+	);
+	--bn--theatre-curtain--background-color--second-layer: var(
+		--bn-base-color-scenic-dark
+	);
+	--bn--theatre-curtain--background-color--third-layer: var(
+		--bn-base-color-scenic-extra-dark
+	);
+}

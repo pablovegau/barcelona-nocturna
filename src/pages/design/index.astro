@@ -1,0 +1,16 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Heading from '@comp/Heading/Heading.astro';
+import { Button } from '@react/Button/Button';
+---
+
+<Layout>
+  <Heading size="h3" tagName="h3">Buttons</Heading>
+  <Button variant="primary">Primary</Button>
+  <Button variant="primary" icon="send" rounded />
+  <Button variant="primary" icon="send" />
+
+  <Button variant="tertiary">Tertiary</Button>
+  <Button variant="tertiary" icon="send" rounded />
+  <Button variant="tertiary" icon="send" />
+</Layout>

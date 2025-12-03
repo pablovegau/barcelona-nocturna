@@ -1,0 +1,7 @@
+:root {
+	--bn-border-radius-2: 2px;
+	--bn-border-radius-4: 4px;
+	--bn-border-radius-8: 8px;
+	--bn-border-radius-16: 16px;
+	--bn-border-radius-rounded: 50%;
+}

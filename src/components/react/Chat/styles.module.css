@@ -1,0 +1,49 @@
+.chat {
+	display: flex;
+	flex-direction: column;
+	gap: var(--bn-spacing-24);
+	height: 100%;
+	overflow: hidden;
+}
+
+.centered {
+	justify-content: center;
+	align-items: center;
+}
+
+.title {
+	font-family: var(--bn-font-family);
+	font-size: var(--bn-h1-max-font-size);
+	font-weight: var(--bn-h1-font-weight);
+	color: var(--bn-base-color-scenic); /* Using scenic color for impact */
+	text-align: center;
+	margin-bottom: var(--bn-spacing-32);
+	background: linear-gradient(
+		90deg,
+		var(--bn-base-color-scenic-light),
+		var(--bn-base-color-primary-light)
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.messages {
+	display: flex;
+	flex-direction: column;
+	gap: var(--bn-spacing-12);
+	flex: 1;
+	overflow-y: auto;
+	padding-right: var(--bn-spacing-8); /* Avoid scrollbar overlapping content */
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.messages {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.messages::-webkit-scrollbar {
+	display: none;
+}

@@ -1,0 +1,5 @@
+:root {
+	--bn-breakpoint-tabletMin: 40rem;
+	--bn-breakpoint-laptopMin: 68.75rem;
+	--bn-breakpoint-desktopMin: 93.75rem;
+}

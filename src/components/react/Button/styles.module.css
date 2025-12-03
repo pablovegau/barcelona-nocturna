@@ -1,29 +1,55 @@
-@keyframes heartbeat {
-	to {
-		transform: translateY(7%) scale(1.05);
-		stroke: var(--bn-base-color-scenic);
-	}
-}
-
 .button {
 	display: inline-flex;
 	gap: var(--bn-spacing-4);
+	width: fit-content;
 	border: none;
 	border-radius: var(--bn-border-radius-8);
 	padding-block: var(--bn-spacing-8);
-	padding-inline-start: var(--padding-start);
-	padding-inline-end: var(--bn-spacing-16);
-	background-color: var(--bn-button-background-color);
-	color: var(--bn-button-text-color);
+	padding-inline: var(--bn-spacing-16);
+
 	cursor: pointer;
-	transition: background-color 150ms ease-in-out;
+	transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out;
 }
 
-.button:hover {
+.primary {
+	border: none;
+	background-color: var(--bn-button-background-color);
+	color: var(--bn-button-text-color);
+}
+
+.primary:hover {
 	background-color: var(--bn-button-background-color--hover);
 }
 
-.button:hover svg {
-	animation: heartbeat 400ms cubic-bezier(0.22, 0.61, 0.36, 1) alternate
-		infinite;
+.secondary {
+	border: none;
+}
+
+.tertiary {
+	background-color: hsl(var(--bn-base-color-gray--100-raw) / 40%);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid hsl(var(--bn-base-color-gray--0-raw) / 40%);
+}
+
+.tertiary:hover {
+	background-color: hsl(var(--bn-base-color-gray--100-raw) / 80%);
+	border-color: hsl(var(--bn-base-color-gray--0-raw) / 60%);
+}
+
+.ghost {
+	border: none;
+}
+
+.onlyIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+}
+
+.rounded {
+	border-radius: var(--bn-border-radius-rounded);
 }

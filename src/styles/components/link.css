@@ -1,0 +1,7 @@
+:root {
+	--bn-link-color: var(--bn-base-color-primary);
+}
+
+[data-theme="dark"] {
+	--bn-link-color: var(--bn-base-color-secondary-extra-dark);
+}

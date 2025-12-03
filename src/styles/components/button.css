@@ -1,0 +1,10 @@
+:root {
+	--bn-button-background-color: var(--bn-base-color-tertiary);
+	--bn-button-text-color: var(--bn-base-color-gray--100);
+}
+
+[data-theme="dark"] {
+	--bn-button-background-color: var(--bn-base-color-tertiary);
+	--bn-button-background-color--hover: var(--bn-base-color-tertiary-light);
+	--bn-button-text-color: var(--bn-base-color-gray--100);
+}

@@ -1,0 +1,15 @@
+.user {
+	align-self: flex-end;
+	max-width: 80%;
+	background-color: hsl(var(--bn-base-color-gray--100-raw) / 40%);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid hsl(var(--bn-base-color-gray--0-raw) / 10%);
+	border-radius: var(--bn-border-radius-16);
+	border-start-end-radius: var(--bn-border-radius-4);
+	padding: var(--bn-spacing-12);
+}
+
+.ai p:not(:last-child) {
+	margin-bottom: var(--bn-spacing-12);
+}

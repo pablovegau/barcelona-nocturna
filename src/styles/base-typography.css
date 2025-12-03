@@ -1,0 +1,23 @@
+:root {
+	--bn-font-family: "Ubuntu", sans-serif;
+	/* --bn-font-family-serif: 'Roboto Serif', sans-serif; */
+	--bn-font-family-fantasy: "Jim Nightshade", cursive;
+
+	--bn-h1-max-font-size: calc(36 / 16 * 1rem);
+	--bn-h1-min-font-size: calc(28 / 16 * 1rem);
+	--bn-h1-font-weight: 600;
+
+	--bn-h2-max-font-size: calc(28 / 16 * 1rem);
+	--bn-h2-min-font-size: calc(24 / 16 * 1rem);
+	--bn-h2-font-weight: 600;
+
+	--bn-h3-max-font-size: calc(24 / 16 * 1rem);
+	--bn-h3-min-font-size: calc(20 / 16 * 1rem);
+	--bn-h3-font-weight: 500;
+
+	--bn-text-font-size: calc(16 / 16 * 1rem);
+	--bn-text-font-medium: calc(18 / 16 * 1rem);
+	--bn-text-font-large: calc(20 / 16 * 1rem);
+
+	--bn-base-rem-size: 16px;
+}

@@ -1,0 +1,8 @@
+:root {
+	--bn-icon-fill-color: var(--bn-base-color-gray--100);
+	--bn-button-background-color--hover: var(--bn-base-color-tertiary-light);
+	--bn-icon-stroke-color: var(--bn-base-color-gray--100);
+}
+
+[data-theme="dark"] {
+}

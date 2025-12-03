@@ -21,11 +21,11 @@ const { pageTitle, description } = Astro.props;
 
 <style>
 	.main {
+		max-width: var(--bn-work-space-max-width);
+		flex: 1;
 		margin: 0 auto;
-    /* Maybe in the future this will be moved to a more specific container */
 		margin-block-start: var(--bn-spacing-48);
 		padding-inline: var(--bn-spacing-32);
-		max-width: var(--bn-work-space-max-width);
 
     @media (width >= 600px) {
       margin-block-start: var(--bn-spacing-128);

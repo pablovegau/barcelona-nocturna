@@ -1,0 +1,9 @@
+:root {
+	--bn--topnav-item--background-color--hover: var(
+		--bn-base-color-scenic-extra-light
+	);
+}
+
+[data-theme="dark"] {
+	--bn--topnav-item--background-color--hover: var(--bn-base-color-scenic-dark);
+}
