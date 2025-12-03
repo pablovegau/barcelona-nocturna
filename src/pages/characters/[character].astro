@@ -1,6 +1,6 @@
 ---
-import { render } from 'astro:content';
 import { Picture } from 'astro:assets';
+import { render } from 'astro:content';
 
 import { getCharactersWithReferencedData } from '@domain/characters';
 
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
           original,
         },
       };
-    })
+    }),
   );
 
   return paths;
@@ -35,18 +35,25 @@ export async function getStaticPaths() {
 
 const { character } = Astro.params;
 
-const {
-  clan,
-  faction,
-  original,
-} = Astro.props;
+const { clan, faction, original } = Astro.props;
 
-const { image, name, related_characters, role, showInfo = true } = original.data;
+const {
+  image,
+  name,
+  related_characters,
+  role,
+  showInfo = true,
+  description,
+} = original.data;
 
 const { Content } = await render(original);
+
+const metaDescription = description
+  ? description
+  : `Perfil de ${name}, personaje de Barcelona Nocturna. Clan: ${clan}, Facción: ${faction}.`;
 ---
 
-<BaseLayout pageTitle={name}>
+<BaseLayout pageTitle={name} description={metaDescription}>
   <Heading tagName="h1" size="h1">{name}</Heading>
 
   <article class={styles.character}>
