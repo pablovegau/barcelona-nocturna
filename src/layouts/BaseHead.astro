@@ -1,4 +1,6 @@
 ---
+import JimNightshade from '@/assets/fonts/JimNightshade.woff2';
+import UbuntuRegular from '@/assets/fonts/ubuntu-regular.woff2';
 import { BLOG_DESCRIPTION, BLOG_TITLE } from '@/constants';
 
 interface Props {
@@ -26,4 +28,7 @@ const { pageTitle = BLOG_TITLE, description = BLOG_DESCRIPTION } = Astro.props;
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content={description} />
   <title>{pageTitle}</title>
+
+  <link rel="preload" href={JimNightshade} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={UbuntuRegular} as="font" type="font/woff2" crossorigin />
 </head>
