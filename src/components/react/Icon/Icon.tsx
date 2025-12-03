@@ -1,6 +1,7 @@
 import { ArrowDown } from './icons/ArrowDown';
+import { Send } from './icons/Send';
 
-export type IconTypes = 'arrow-down';
+export type IconTypes = 'arrow-down' | 'send';
 
 export type IconProps = {
   ariaHidden?: boolean;
@@ -13,9 +14,10 @@ export type IconProps = {
 
 const iconComponents = {
   'arrow-down': ArrowDown,
+  send: Send,
 };
 
-export function Icon({ type = 'arrow-down' }: IconProps) {
+export function Icon({ type = 'arrow-down', ...props }: IconProps) {
   const IconComponent = iconComponents[type];
-  return <IconComponent />;
+  return <IconComponent {...props} />;
 }

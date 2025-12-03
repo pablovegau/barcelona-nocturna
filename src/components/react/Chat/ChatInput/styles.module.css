@@ -1,0 +1,25 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: var(--bn-spacing-8);
+	width: 100%;
+	padding: var(--bn-spacing-12);
+	border: 1px solid hsl(var(--bn-base-color-gray--0-raw) / 30%);
+	border-radius: var(--bn-border-radius-16);
+	background-color: hsl(var(--bn-base-color-gray--100-raw) / 40%);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
+.chatInput {
+	max-height: 200px;
+	field-sizing: content;
+	width: 100%;
+	border: 1px solid transparent;
+	border-radius: var(--bn-border-radius-8);
+	padding: var(--bn-spacing-4);
+	resize: none;
+	overflow-y: auto;
+	background-color: transparent;
+}

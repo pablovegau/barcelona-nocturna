@@ -1,6 +1,17 @@
 :root {
-	--bn-base-color-gray--0-raw: 0 0 100;
-	--bn-base-color-gray--100-raw: 0 0 0;
+	--bn-base-color-gray--0-raw: 0 0% 100%;
+	--bn-base-color-gray--2-raw: 0 0% 98%;
+	--bn-base-color-gray--5-raw: 0 0% 95%;
+	--bn-base-color-gray--10-raw: 0 0% 90%;
+	--bn-base-color-gray--20-raw: 0 0% 80%;
+	--bn-base-color-gray--30-raw: 0 0% 70%;
+	--bn-base-color-gray--40-raw: 0 0% 60%;
+	--bn-base-color-gray--50-raw: 0 0% 50%;
+	--bn-base-color-gray--60-raw: 0 0% 40%;
+	--bn-base-color-gray--70-raw: 0 0% 30%;
+	--bn-base-color-gray--80-raw: 0 0% 20%;
+	--bn-base-color-gray--90-raw: 0 0% 10%;
+	--bn-base-color-gray--100-raw: 0 0% 0%;
 
 	--bn-base-color-gray--0: hsl(0deg 0% 100%);
 	--bn-base-color-gray--2: hsl(0deg 0% 98%);
