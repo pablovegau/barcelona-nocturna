@@ -3,8 +3,8 @@ export const prerender = false;
 
 import { getCharactersNamesFiltered } from '@/domain/characters';
 
-import Filters from '@/containers/Filters/Filters.astro';
 import Heading from '@/components/Heading/Heading.astro';
+import Filters from '@/containers/Filters/Filters.astro';
 import PolaroidGroup from '@/containers/PolaroidGroup/PolaroidGroup.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
@@ -17,17 +17,17 @@ const selectedFactions = getSearchParamAsArray(Astro.url, 'faction');
 const selectedFilters = [
   ...selectedClans,
   ...selectedEntityTypes,
-  ...selectedFactions
+  ...selectedFactions,
 ];
 
 const filteredCharacterNames = await getCharactersNamesFiltered(
   selectedClans,
   selectedEntityTypes,
-  selectedFactions
+  selectedFactions,
 );
 ---
 
-<BaseLayout pageTitle='Personajes'>
+<BaseLayout pageTitle='Personajes' description="Galería de personajes de Barcelona Nocturna. Conoce a los vástagos, clanes y facciones que controlan la ciudad.">
   <Heading tagName="h1" size="h1">Personajes</Heading>
 
   <div class="characters">
