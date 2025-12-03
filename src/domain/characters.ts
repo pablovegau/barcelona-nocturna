@@ -1,42 +1,49 @@
-import { getCollection } from "astro:content";
-import type { Character } from "./types";
+import { getCollection, getEntry } from 'astro:content';
+import type { Character } from './types';
 
-import { getClanDataById } from "./clans";
-import { getFactionDataById } from "./factions";
+import { getClanDataById } from './clans';
+import { getFactionDataById } from './factions';
 
-const CHARACTER_COLLECTION = "characters";
+const CHARACTER_COLLECTION = 'characters';
 
 /**
- * 
+ *
  * @returns all characters from the content collection.
  */
 export async function getCharacters() {
   return await getCollection(CHARACTER_COLLECTION);
 }
 
-
-// TODO: Review is using getEntry is better than getCollection in this case
 /**
  * This function returns the data for multiple characters by their IDs.
  * @param  ids - An array of character IDs.
- * 
+ *
  * @returns An array of character data objects that match the provided IDs.
  */
 export async function getCharactersById(ids: string[]) {
-  const characters = await getCharacters();
-  return characters.filter((character) => ids.includes(character.id));
+  const characters = await Promise.all(
+    ids.map(async (id) => {
+      const character = await getEntry(CHARACTER_COLLECTION, id);
+      return character;
+    }),
+  );
+
+  return characters.filter(
+    (character): character is NonNullable<typeof character> =>
+      character !== undefined,
+  );
 }
 
-/** 
+/**
  * This function returns a character data with the clan.
  */
 async function getCharacterWithReferencedData(character: Character) {
-  const clan = character.data.clan?.id 
-    ? await getClanDataById(character.data.clan?.id) 
+  const clan = character.data.clan?.id
+    ? await getClanDataById(character.data.clan?.id)
     : undefined;
 
-  const faction = character.data.faction?.id 
-    ? await getFactionDataById(character.data.faction.id) 
+  const faction = character.data.faction?.id
+    ? await getFactionDataById(character.data.faction.id)
     : undefined;
 
   return {
@@ -55,7 +62,7 @@ export async function getCharactersWithReferencedData() {
   const charactersWithClans = await Promise.all(
     characters.map(async (character) => {
       return getCharacterWithReferencedData(character);
-    })
+    }),
   );
 
   return charactersWithClans;
@@ -86,9 +93,9 @@ export async function getCharactersNamesFilteredByClan(clans: string[]) {
   let characterIds = [];
 
   if (clans?.length > 0) {
-    const filteredCharacters = 
-      characters
-        .filter(({ data }) => data.clan?.id && clans.includes(data.clan?.id));
+    const filteredCharacters = characters.filter(
+      ({ data }) => data.clan?.id && clans.includes(data.clan?.id),
+    );
 
     characterIds = getCharactersIds(filteredCharacters);
   } else {
@@ -98,14 +105,23 @@ export async function getCharactersNamesFilteredByClan(clans: string[]) {
   return characterIds;
 }
 
-export async function getCharactersNamesFiltered(clans: string[], entityTypes: string[], selectedFactions: string[]) {
+export async function getCharactersNamesFiltered(
+  clans: string[],
+  entityTypes: string[],
+  selectedFactions: string[],
+) {
   const characters = await getVisibleCharacters();
 
   const filteredCharacters = characters.filter(({ data }) => {
-    const matchesEntityType = entityTypes.length === 0 || (data.entityType?.id && entityTypes.includes(data.entityType.id));
-    const matchesClan = clans.length === 0 || (data.clan?.id && clans.includes(data.clan.id));
-    const matchesFaction = selectedFactions.length === 0 || (data.faction?.id && selectedFactions.includes(data.faction.id));
-    
+    const matchesEntityType =
+      entityTypes.length === 0 ||
+      (data.entityType?.id && entityTypes.includes(data.entityType.id));
+    const matchesClan =
+      clans.length === 0 || (data.clan?.id && clans.includes(data.clan.id));
+    const matchesFaction =
+      selectedFactions.length === 0 ||
+      (data.faction?.id && selectedFactions.includes(data.faction.id));
+
     return matchesEntityType && matchesClan && matchesFaction;
   });
 
