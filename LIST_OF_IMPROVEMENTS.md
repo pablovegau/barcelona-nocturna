@@ -1,15 +1,13 @@
 # Lista de Mejoras Propuestas para Barcelona Nocturna
 
 ## 1. Optimizaciones de Rendimiento
-- [x] Implementar carga perezosa (lazy loading) para imágenes de personajes
-- [x] **[CRÍTICO]** Optimizar `getCharactersById` en `src/domain/characters.ts` para evitar cargar toda la colección. ⭐⭐
-- [x] Añadir directivas de precarga para assets críticos (fuentes, CSS principal) ⭐
+
 - [ ] Considerar implementar un Service Worker para funcionalidad offline ⭐⭐⭐⭐
-- [x] Añadir resource hints (preconnect, prefetch) para recursos externos ⭐
+
 
 ## 2. SEO y Accesibilidad
 - [ ] **[CRÍTICO]** Añadir etiquetas Open Graph y Twitter Card en `src/layouts/BaseHead.astro`. ⭐⭐
-- [x] Añadir meta descripciones para todas las páginas ⭐
+
 - [ ] Implementar datos estructurados (JSON-LD) para mejor SEO ⭐⭐⭐
 - [ ] Añadir `aria-label` a componentes interactivos (`ChatInput`, `ThemeToggle`). ⭐
 - [ ] Mejorar navegación por teclado ⭐⭐⭐
@@ -18,7 +16,7 @@
 
 ## 3. Organización del Código
 - [ ] **[CRÍTICO]** Centralizar constantes (IDs, textos UI) en `src/constants/index.ts`. ⭐
-- [x] **[CRÍTICO]** Extraer prompts de sistema a `src/lib/prompts.ts`. ⭐
+
 - [ ] Estandarizar esquemas de colecciones en `src/content.config.ts` (unificar `name` vs `name_es`). ⭐⭐
 - [ ] Resolver TODOs en esquemas de contenido (ej. `role` como array en `characters`). ⭐⭐
 - [ ] Crear un sistema de diseño propio con documentación de componentes ⭐⭐⭐⭐⭐
@@ -51,7 +49,7 @@
 - [ ] Implementar manejo y validación de formularios apropiado ⭐⭐⭐
 
 ## 8. Build y Despliegue
-- [x] Añadir configuración de entorno apropiada ⭐
+
 - [ ] Añadir pasos de optimización de build apropiados ⭐⭐⭐
 - [ ] Añadir pipeline de despliegue con entorno de staging ⭐⭐⭐
 - [ ] Añadir monitorización y analytics apropiados ⭐⭐
